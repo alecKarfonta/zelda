@@ -1,0 +1,123 @@
+Type: architecture_question
+Quality Score: 8.5
+Validation Notes: Low usefulness score. 
+--------------------------------------------------
+Instruction: I want to modify Link's Z-targeting system to allow targeting multiple enemies simultaneously. How would I implement this while maintaining compatibility with the existing targeting code?",
+    
+    "input": null,
+    
+    "output": "Implementing multi-target Z-targeting requires careful modification of several core systems:
+
+1. First, we need to extend the player state flags to track multiple targets:
+
+```c
+// Add to Player struct
+struct {
+    Actor* zTargets[MAX_TARGETS]; // Array of target pointers
+    s16 targetCount;
+    s16 currentTargetIdx;
+} multiTarget;
+```
+
+2. Modify Player_UpdateZTarget() to handle multiple locks:
+```c
+void Player_UpdateZTarget(Player* player) {
+    if (CHECK_BTN_ALL(input->press.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            // Add new target if possible
+            Actor* newTarget = Player_GetNearestTargetableActor(player);
+            if (newTarget && player->multiTarget.targetCount < MAX_TARGETS) {
+                player->multiTarget.zTargets[player->multiTarget.targetCount++] = newTarget;
+                player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            }
+        } else {
+            // Cycle through existing targets
+            player->multiTarget.currentTargetIdx = 
+                (player->multiTarget.currentTargetIdx + 1) % player->multiTarget.targetCount;
+        }
+    }
+}
+```
+
+3. Update the camera system to handle multiple focal points:
+```c
+void Camera_UpdateMultiTarget(Camera* camera, Player* player) {
+    Vec3f averagePos = {0};
+    for (int i = 0; i < player->multiTarget.targetCount; i++) {
+        averagePos.x += player->multiTarget.zTargets[i]->world.pos.x;
+        averagePos.y += player->multiTarget.zTargets[i]->world.pos.y;
+        averagePos.z += player->multiTarget.zTargets[i]->world.pos.z;
+    }
+    averagePos.x /= player->multiTarget.targetCount;
+    averagePos.y /= player->multiTarget.targetCount;
+    averagePos.z /= player->multiTarget.targetCount;
+    
+    Camera_LookAtPoint(camera, &averagePos);
+}
+```
+
+The targeting system will need to be called from Player_Update() and properly integrate with the existing targeting logic.",
+
+    "technical_notes": "- Requires careful memory management to avoid overflows
+- Camera interpolation may need tweaking for smooth transitions
+- Consider adding visual indicators for multiple targets
+- May impact performance with too many simultaneous targets
+- Needs hooks into combat system for multi-target attacks
+Output:
+Implementing multi-target Z-targeting requires careful modification of several core systems:
+
+1. First, we need to extend the player state flags to track multiple targets:
+
+```c
+// Add to Player struct
+struct {
+    Actor* zTargets[MAX_TARGETS]; // Array of target pointers
+    s16 targetCount;
+    s16 currentTargetIdx;
+} multiTarget;
+```
+
+2. Modify Player_UpdateZTarget() to handle multiple locks:
+```c
+void Player_UpdateZTarget(Player* player) {
+    if (CHECK_BTN_ALL(input->press.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            // Add new target if possible
+            Actor* newTarget = Player_GetNearestTargetableActor(player);
+            if (newTarget && player->multiTarget.targetCount < MAX_TARGETS) {
+                player->multiTarget.zTargets[player->multiTarget.targetCount++] = newTarget;
+                player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            }
+        } else {
+            // Cycle through existing targets
+            player->multiTarget.currentTargetIdx = 
+                (player->multiTarget.currentTargetIdx + 1) % player->multiTarget.targetCount;
+        }
+    }
+}
+```
+
+3. Update the camera system to handle multiple focal points:
+```c
+void Camera_UpdateMultiTarget(Camera* camera, Player* player) {
+    Vec3f averagePos = {0};
+    for (int i = 0; i < player->multiTarget.targetCount; i++) {
+        averagePos.x += player->multiTarget.zTargets[i]->world.pos.x;
+        averagePos.y += player->multiTarget.zTargets[i]->world.pos.y;
+        averagePos.z += player->multiTarget.zTargets[i]->world.pos.z;
+    }
+    averagePos.x /= player->multiTarget.targetCount;
+    averagePos.y /= player->multiTarget.targetCount;
+    averagePos.z /= player->multiTarget.targetCount;
+    
+    Camera_LookAtPoint(camera, &averagePos);
+}
+```
+
+The targeting system will need to be called from Player_Update() and properly integrate with the existing targeting logic.",
+
+    "technical_notes": "- Requires careful memory management to avoid overflows
+- Camera interpolation may need tweaking for smooth transitions
+- Consider adding visual indicators for multiple targets
+- May impact performance with too many simultaneous targets
+- Needs hooks into combat system for multi-target attacks

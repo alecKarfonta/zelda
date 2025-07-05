@@ -1,0 +1,130 @@
+{
+    "generation_config": {
+      "model": "claude-3-5-sonnet-20241022",
+      "temperature": 0.5,
+      "max_tokens": 4000,
+      "quality_threshold": 6.0,
+      "retry_limit": 3
+    },
+    
+    "example_distribution": {
+      "code_explanation": 0.25,
+      "feature_implementation": 0.25,
+      "debugging_help": 0.20,
+      "architecture_question": 0.15,
+      "code_modification": 0.10,
+      "conversational": 0.05
+    },
+    
+    "complexity_distribution": {
+      "simple": 0.30,
+      "intermediate": 0.50,
+      "advanced": 0.20
+    },
+    
+    "custom_contexts": {
+      "audio_system": {
+        "description": "OoT Audio System Context",
+        "content": "OoT Audio System Context:\n- AudioSeq format for music sequences\n- Soundfont management for instruments\n- Spatial audio positioning\n- Music/SFX memory management\n- Custom track integration\n\nKey Components:\n- Audio_PlaySequence(): Start music tracks\n- Audio_SetSoundBanksMute(): Control audio output\n- Audio_PlaySoundGeneral(): Play sound effects\n- Sequence data structure and format"
+      },
+      
+      "graphics_system": {
+        "description": "OoT Graphics System Context", 
+        "content": "OoT Graphics System Context:\n- F3DEX3 microcode for enhanced rendering\n- Display list generation and optimization\n- Texture management and compression\n- 3D mathematics for transformations\n- Model/animation compatibility\n\nKey Components:\n- gSPDisplayList(): Execute graphics commands\n- Mtx_RotateX/Y/Z(): Matrix transformations\n- gDPSetTextureImage(): Texture loading\n- Skeletal animation system"
+      }
+    },
+    
+    "feature_templates": {
+      "movement_modifications": [
+        "Create a speed boost item that {effect}",
+        "Modify Link's {movement_type} to {change}",
+        "Add a new movement ability that {functionality}"
+      ],
+      
+      "combat_features": [
+        "Create a new weapon that {weapon_effect}",
+        "Modify the Z-targeting system to {targeting_change}",
+        "Add a combat mechanic where {mechanic_description}"
+      ],
+      
+      "environmental_changes": [
+        "Create an environmental effect that {effect_description}",
+        "Modify the {location} to have {environmental_change}",
+        "Add interactive scenery that {interaction_type}"
+      ],
+      
+      "ui_improvements": [
+        "Modify the HUD to show {ui_element}",
+        "Create a menu option for {menu_function}",
+        "Add visual feedback for {feedback_type}"
+      ]
+    },
+    
+    "debugging_scenarios": [
+      {
+        "problem": "actor crashes on spawn",
+        "common_causes": ["uninitialized pointers", "insufficient memory allocation", "missing object dependencies"],
+        "example_fixes": ["proper memory allocation", "null pointer checks", "object list verification"]
+      },
+      {
+        "problem": "animation glitches",
+        "common_causes": ["incorrect bone structure", "mismatched frame counts", "invalid animation data"],
+        "example_fixes": ["animation compatibility checks", "bone mapping corrections", "frame rate adjustments"]
+      },
+      {
+        "problem": "memory corruption",
+        "common_causes": ["buffer overflows", "use after free", "stack corruption"],
+        "example_fixes": ["bounds checking", "proper cleanup", "stack protection"]
+      }
+    ],
+    
+    "code_patterns": {
+      "actor_initialization": {
+        "template": "void {ActorName}_Init(Actor* thisx, PlayState* play) {\n    {ActorName}* this = ({ActorName}*)thisx;\n    {initialization_code}\n}",
+        "common_elements": ["memory allocation", "object loading", "state setup", "collision setup"]
+      },
+      
+      "actor_update": {
+        "template": "void {ActorName}_Update(Actor* thisx, PlayState* play) {\n    {ActorName}* this = ({ActorName}*)thisx;\n    {update_logic}\n}",
+        "common_elements": ["player interaction", "movement logic", "state management", "collision detection"]
+      },
+      
+      "actor_draw": {
+        "template": "void {ActorName}_Draw(Actor* thisx, PlayState* play) {\n    {ActorName}* this = ({ActorName}*)thisx;\n    {rendering_code}\n}",
+        "common_elements": ["matrix setup", "model loading", "animation application", "lighting setup"]
+      }
+    },
+    
+    "validation_criteria": {
+      "technical_accuracy": {
+        "function_names": ["check against decompilation", "verify signatures", "validate memory addresses"],
+        "code_syntax": ["C compilation check", "MIPS assembly validation", "proper includes"],
+        "oot_compatibility": ["version compatibility", "existing system integration", "memory constraints"]
+      },
+      
+      "usefulness": {
+        "clarity": ["clear explanations", "step-by-step instructions", "proper examples"],
+        "completeness": ["full implementations", "error handling", "edge cases"],
+        "practicality": ["real-world applicability", "modding relevance", "difficulty appropriate"]
+      }
+    },
+    
+    "output_formats": {
+      "alpaca": {
+        "instruction": "instruction",
+        "input": "input", 
+        "output": "output"
+      },
+      
+      "chatml": {
+        "conversations": [
+          {"from": "human", "value": "instruction"},
+          {"from": "gpt", "value": "output"}
+        ]
+      },
+      
+      "unsloth_standard": {
+        "text": "formatted_prompt_with_eos_token"
+      }
+    }
+  }

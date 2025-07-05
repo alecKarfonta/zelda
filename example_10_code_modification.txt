@@ -1,0 +1,207 @@
+Type: code_modification
+Quality Score: 7.5
+Validation Notes: Low usefulness score. 
+--------------------------------------------------
+Instruction: Modify Link's Z-targeting system to allow targeting multiple enemies simultaneously, cycling between them with L-button",
+    
+    "input": "// Original Z-targeting code snippet
+void Player_UpdateZTarget(GlobalContext* globalCtx, Player* player) {
+    if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            // Set initial target
+            Player_SetZTarget(globalCtx, player);
+        }
+    } else {
+        Player_ClearZTargeting(globalCtx, player);
+    }
+}",
+
+    "output": "// Modified multi-target system
+#define MAX_Z_TARGETS 3
+Actor* gZTargetList[MAX_Z_TARGETS];
+s32 gCurrentZTarget = 0;
+s32 gNumZTargets = 0;
+
+void Player_UpdateMultiZTarget(GlobalContext* globalCtx, Player* player) {
+    if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            // Initial targeting
+            player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            gNumZTargets = Player_GetValidTargets(globalCtx, gZTargetList, MAX_Z_TARGETS);
+            gCurrentZTarget = 0;
+            if (gNumZTargets > 0) {
+                Player_SetZTargetActor(globalCtx, player, gZTargetList[0]);
+            }
+        }
+    } else if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_L)) {
+        // Cycle targets with L button
+        if (gNumZTargets > 1) {
+            gCurrentZTarget = (gCurrentZTarget + 1) % gNumZTargets;
+            Player_SetZTargetActor(globalCtx, player, gZTargetList[gCurrentZTarget]);
+        }
+    } else {
+        Player_ClearZTargeting(globalCtx, player);
+        gNumZTargets = 0;
+    }
+}
+
+s32 Player_GetValidTargets(GlobalContext* globalCtx, Actor** targetList, s32 maxTargets) {
+    s32 count = 0;
+    Actor* actor = globalCtx->actorCtx.actorLists[ACTORCAT_ENEMY].head;
+    
+    while (actor != NULL && count < maxTargets) {
+        if (Player_IsTargetValid(globalCtx, actor)) {
+            targetList[count++] = actor;
+        }
+        actor = actor->next;
+    }
+    return count;
+}",
+
+    "technical_notes": "- Maintains original targeting system's core functionality
+- Uses existing player state flags and targeting functions
+- Adds new global arrays/variables in appropriate memory regions
+- Follows OoT's actor list traversal patterns
+- Compatible with existing target validation checks
+- May need additional camera behavior modifications
+- Consider adding visual indicators for multiple targets
+Input: // Original Z-targeting code snippet
+void Player_UpdateZTarget(GlobalContext* globalCtx, Player* player) {
+    if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            // Set initial target
+            Player_SetZTarget(globalCtx, player);
+        }
+    } else {
+        Player_ClearZTargeting(globalCtx, player);
+    }
+}",
+
+    "output": "// Modified multi-target system
+#define MAX_Z_TARGETS 3
+Actor* gZTargetList[MAX_Z_TARGETS];
+s32 gCurrentZTarget = 0;
+s32 gNumZTargets = 0;
+
+void Player_UpdateMultiZTarget(GlobalContext* globalCtx, Player* player) {
+    if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            // Initial targeting
+            player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            gNumZTargets = Player_GetValidTargets(globalCtx, gZTargetList, MAX_Z_TARGETS);
+            gCurrentZTarget = 0;
+            if (gNumZTargets > 0) {
+                Player_SetZTargetActor(globalCtx, player, gZTargetList[0]);
+            }
+        }
+    } else if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_L)) {
+        // Cycle targets with L button
+        if (gNumZTargets > 1) {
+            gCurrentZTarget = (gCurrentZTarget + 1) % gNumZTargets;
+            Player_SetZTargetActor(globalCtx, player, gZTargetList[gCurrentZTarget]);
+        }
+    } else {
+        Player_ClearZTargeting(globalCtx, player);
+        gNumZTargets = 0;
+    }
+}
+
+s32 Player_GetValidTargets(GlobalContext* globalCtx, Actor** targetList, s32 maxTargets) {
+    s32 count = 0;
+    Actor* actor = globalCtx->actorCtx.actorLists[ACTORCAT_ENEMY].head;
+    
+    while (actor != NULL && count < maxTargets) {
+        if (Player_IsTargetValid(globalCtx, actor)) {
+            targetList[count++] = actor;
+        }
+        actor = actor->next;
+    }
+    return count;
+}",
+
+    "technical_notes": "- Maintains original targeting system's core functionality
+- Uses existing player state flags and targeting functions
+- Adds new global arrays/variables in appropriate memory regions
+- Follows OoT's actor list traversal patterns
+- Compatible with existing target validation checks
+- May need additional camera behavior modifications
+- Consider adding visual indicators for multiple targets
+Output:
+Here's the corrected version incorporating the suggested improvements:
+
+```c
+// Modified multi-target system
+#include "z_target.h"
+#include "z_player.h"
+
+#define MAX_Z_TARGETS 3
+#define MAX_TARGET_RANGE 300.0f
+
+// Proper segment allocation for globals
+#define GLOBAL_SEGMENT __attribute__((section(".data")))
+GLOBAL_SEGMENT Actor* gZTargetList[MAX_Z_TARGETS];
+GLOBAL_SEGMENT s32 gCurrentZTarget = 0;
+GLOBAL_SEGMENT s32 gNumZTargets = 0;
+
+void Player_UpdateMultiZTarget(GlobalContext* globalCtx, Player* player) {
+    if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_Z)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_Z_TARGETING)) {
+            // Initial targeting
+            player->stateFlags1 |= PLAYER_STATE1_Z_TARGETING;
+            gNumZTargets = Player_GetValidTargets(globalCtx, gZTargetList, MAX_Z_TARGETS);
+            gCurrentZTarget = 0;
+            if (gNumZTargets > 0) {
+                Player_SetTargetActor(globalCtx, player, gZTargetList[0]);
+                if (player->naviActor != NULL) {
+                    NaviSetTarget(player->naviActor, gZTargetList[0]);
+                }
+            }
+        }
+    } else if (CHECK_BTN_ALL(sControlInput->cur.button, BTN_L)) {
+        // Cycle targets with L button
+        if (gNumZTargets > 1) {
+            gCurrentZTarget = (gCurrentZTarget + 1) % gNumZTargets;
+            Player_SetTargetActor(globalCtx, player, gZTargetList[gCurrentZTarget]);
+            if (player->naviActor != NULL) {
+                NaviSetTarget(player->naviActor, gZTargetList[gCurrentZTarget]);
+            }
+        }
+    } else {
+        Player_ClearZTargeting(globalCtx, player);
+        gNumZTargets = 0;
+        if (player->naviActor != NULL) {
+            NaviSetTarget(player->naviActor, NULL);
+        }
+    }
+}
+
+s32 Player_GetValidTargets(GlobalContext* globalCtx, Actor** targetList, s32 maxTargets) {
+    s32 count = 0;
+    Actor* actor = globalCtx->actorCtx.actorLists[ACTORCAT_ENEMY].head;
+    
+    while (actor != NULL && count < maxTargets) {
+        if (Player_IsTargetValid(globalCtx, actor)) {
+            // Add distance check
+            if (Math_Vec3f_DistXZ(&globalCtx->player.actor.world.pos, &actor->world.pos) <= MAX_TARGET_RANGE) {
+                targetList[count++] = actor;
+            }
+        }
+        actor = actor->next;
+    }
+    return count;
+}
+```
+
+Key improvements made:
+1. Added necessary includes
+2. Added proper segment allocation for global variables
+3. Corrected targeting function name to `Player_SetTargetActor`
+4. Added distance validation check for targets
+5. Integrated Navi targeting system
+6. Added range constant definition
+7. Added proper cleanup for Navi targeting when clearing Z-targeting
+8. Maintained consistent error checking and state management
+
+This version should better integrate with OoT's existing systems while providing the multi-target functionality.

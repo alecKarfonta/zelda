@@ -1,0 +1,111 @@
+Type: code_modification
+Quality Score: 7.5
+Validation Notes: 
+--------------------------------------------------
+Instruction: Modify the Bomb actor code to create a new 'Super Bomb' that has a larger blast radius and can damage bosses. The bomb should flash red when near detonation.",
+
+    "input": "// Original Bomb actor snippet\nstruct Actor_Bomb {\n    Actor actor;\n    s16 timer;\n    f32 radius;\n    s16 damage;\n    // ... other fields\n};\n\nvoid Bomb_Update(Actor* thisx, GlobalContext* globalCtx) {\n    Actor_Bomb* this = (Actor_Bomb*)thisx;\n    \n    if (this->timer > 0) {\n        this->timer--;\n        if (this->timer == 0) {\n            Bomb_Explode(this, globalCtx);\n        }\n    }\n}",
+
+    "output": "// Modified Bomb code with super bomb functionality\n#define SUPER_BOMB_RADIUS 200.0f\n#define SUPER_BOMB_DAMAGE 16\n#define WARNING_FLASH_THRESHOLD 30\n\nstruct Actor_Bomb {\n    Actor actor;\n    s16 timer;\n    f32 radius;\n    s16 damage;\n    u8 isSuperBomb;\n    Color_RGB8 bombColor;\n};\n\nvoid Bomb_Init(Actor* thisx, GlobalContext* globalCtx) {\n    Actor_Bomb* this = (Actor_Bomb*)thisx;\n    \n    // Check spawn params for super bomb flag\n    this->isSuperBomb = (this->actor.params & 0x8000) ? 1 : 0;\n    \n    if (this->isSuperBomb) {\n        this->radius = SUPER_BOMB_RADIUS;\n        this->damage = SUPER_BOMB_DAMAGE;\n        this->bombColor = {255, 255, 255};\n    }\n}\n\nvoid Bomb_Update(Actor* thisx, GlobalContext* globalCtx) {\n    Actor_Bomb* this = (Actor_Bomb*)thisx;\n    \n    if (this->timer > 0) {\n        this->timer--;\n        \n        // Flash red when close to explosion\n        if (this->isSuperBomb && this->timer < WARNING_FLASH_THRESHOLD) {\n            this->bombColor.r = 255;\n            this->bombColor.g = 0;\n            this->bombColor.b = 0;\n        }\n        \n        if (this->timer == 0) {\n            if (this->isSuperBomb) {\n                // Custom explosion that can damage bosses\n                SuperBomb_Explode(this, globalCtx);\n            } else {\n                Bomb_Explode(this, globalCtx);\n            }\n        }\n    }\n}\n\nvoid SuperBomb_Explode(Actor_Bomb* this, GlobalContext* globalCtx) {\n    // Custom explosion logic\n    Actor_PlaySfx(&this->actor, NA_SE_IT_BOMB_EXPLOSION);\n    \n    // Damage all vulnerable actors including bosses\n    Actor* target = globalCtx->actorCtx.actorLists[ACTORCAT_ENEMY].head;\n    while (target != NULL) {\n        if (Actor_GetDistance(&this->actor, target) < this->radius) {\n            Actor_ApplyDamage(target, this->damage);\n        }\n        target = target->next;\n    }\n}",
+
+    "technical_notes": "- Uses actor params bitfield (0x8000) to identify super bombs\n- Maintains original bomb functionality while adding new features\n- Follows OoT memory management patterns\n- Uses existing actor system hooks (Init, Update)\n- Implements proper actor damage calculation\n- Color changes use standard OoT RGB8 format\n- Compatible with existing bomb spawn points
+Input: // Original Bomb actor snippet\nstruct Actor_Bomb {\n    Actor actor;\n    s16 timer;\n    f32 radius;\n    s16 damage;\n    // ... other fields\n};\n\nvoid Bomb_Update(Actor* thisx, GlobalContext* globalCtx) {\n    Actor_Bomb* this = (Actor_Bomb*)thisx;\n    \n    if (this->timer > 0) {\n        this->timer--;\n        if (this->timer == 0) {\n            Bomb_Explode(this, globalCtx);\n        }\n    }\n}",
+
+    "output": "// Modified Bomb code with super bomb functionality\n#define SUPER_BOMB_RADIUS 200.0f\n#define SUPER_BOMB_DAMAGE 16\n#define WARNING_FLASH_THRESHOLD 30\n\nstruct Actor_Bomb {\n    Actor actor;\n    s16 timer;\n    f32 radius;\n    s16 damage;\n    u8 isSuperBomb;\n    Color_RGB8 bombColor;\n};\n\nvoid Bomb_Init(Actor* thisx, GlobalContext* globalCtx) {\n    Actor_Bomb* this = (Actor_Bomb*)thisx;\n    \n    // Check spawn params for super bomb flag\n    this->isSuperBomb = (this->actor.params & 0x8000) ? 1 : 0;\n    \n    if (this->isSuperBomb) {\n        this->radius = SUPER_BOMB_RADIUS;\n        this->damage = SUPER_BOMB_DAMAGE;\n        this->bombColor = {255, 255, 255};\n    }\n}\n\nvoid Bomb_Update(Actor* thisx, GlobalContext* globalCtx) {\n    Actor_Bomb* this = (Actor_Bomb*)thisx;\n    \n    if (this->timer > 0) {\n        this->timer--;\n        \n        // Flash red when close to explosion\n        if (this->isSuperBomb && this->timer < WARNING_FLASH_THRESHOLD) {\n            this->bombColor.r = 255;\n            this->bombColor.g = 0;\n            this->bombColor.b = 0;\n        }\n        \n        if (this->timer == 0) {\n            if (this->isSuperBomb) {\n                // Custom explosion that can damage bosses\n                SuperBomb_Explode(this, globalCtx);\n            } else {\n                Bomb_Explode(this, globalCtx);\n            }\n        }\n    }\n}\n\nvoid SuperBomb_Explode(Actor_Bomb* this, GlobalContext* globalCtx) {\n    // Custom explosion logic\n    Actor_PlaySfx(&this->actor, NA_SE_IT_BOMB_EXPLOSION);\n    \n    // Damage all vulnerable actors including bosses\n    Actor* target = globalCtx->actorCtx.actorLists[ACTORCAT_ENEMY].head;\n    while (target != NULL) {\n        if (Actor_GetDistance(&this->actor, target) < this->radius) {\n            Actor_ApplyDamage(target, this->damage);\n        }\n        target = target->next;\n    }\n}",
+
+    "technical_notes": "- Uses actor params bitfield (0x8000) to identify super bombs\n- Maintains original bomb functionality while adding new features\n- Follows OoT memory management patterns\n- Uses existing actor system hooks (Init, Update)\n- Implements proper actor damage calculation\n- Color changes use standard OoT RGB8 format\n- Compatible with existing bomb spawn points
+Output:
+Here's the corrected code incorporating the suggested improvements:
+
+```c
+// Modified Bomb code with super bomb functionality
+#define SUPER_BOMB_RADIUS 200.0f
+#define SUPER_BOMB_DAMAGE 16
+#define WARNING_FLASH_THRESHOLD 30
+
+struct Actor_Bomb {
+    Actor actor;
+    s16 timer;
+    f32 radius;
+    s16 damage;
+    u8 isSuperBomb;
+    Color_RGB8 bombColor;
+    Collider_Cylinder collider;
+};
+
+void Bomb_Init(Actor* thisx, GlobalContext* globalCtx) {
+    Actor_Bomb* this = (Actor_Bomb*)thisx;
+    
+    // Check spawn params for super bomb flag
+    this->isSuperBomb = (this->actor.params & 0x8000) ? 1 : 0;
+    
+    if (this->isSuperBomb) {
+        this->radius = SUPER_BOMB_RADIUS;
+        this->damage = SUPER_BOMB_DAMAGE;
+        this->bombColor = (Color_RGB8){255, 255, 255};
+        
+        // Initialize collision cylinder for super bomb
+        Collider_InitCylinder(globalCtx, &this->collider);
+        Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    }
+}
+
+void Bomb_Update(Actor* thisx, GlobalContext* globalCtx) {
+    Actor_Bomb* this = (Actor_Bomb*)thisx;
+    
+    if (this->timer > 0) {
+        this->timer--;
+        
+        // Flash red when close to explosion
+        if (this->isSuperBomb && this->timer < WARNING_FLASH_THRESHOLD) {
+            this->bombColor = (Color_RGB8){255, 0, 0};
+        }
+        
+        if (this->timer == 0) {
+            if (this->isSuperBomb) {
+                SuperBomb_Explode(this, globalCtx);
+            } else {
+                Bomb_Explode(this, globalCtx);
+            }
+        }
+    }
+}
+
+void SuperBomb_Explode(Actor_Bomb* this, GlobalContext* globalCtx) {
+    Vec3f targetPos;
+    Vec3f scale = {2.0f, 2.0f, 2.0f};
+    Vec3f zero = {0.0f, 0.0f, 0.0f};
+    
+    Actor_PlaySfx(&this->actor, NA_SE_IT_BOMB_EXPLOSION);
+    
+    // Spawn explosion effect
+    EffectSsExplosion_Spawn(globalCtx, &this->actor.world.pos, &scale, &zero, 
+                           this->damage, 1, 7, 1, 0);
+    
+    // Damage all vulnerable actors including bosses
+    Actor* target = globalCtx->actorCtx.actorLists[ACTORCAT_ENEMY].head;
+    while (target != NULL) {
+        Actor_GetWorldPosShapeMatch(target, &targetPos);
+        f32 dist = Math_Vec3f_DistXYZ(&this->actor.world.pos, &targetPos);
+        
+        if (dist < this->radius) {
+            CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            if (target->colChkInfo.acHitInfo != NULL) {
+                target->colChkInfo.damage = this->damage;
+            }
+        }
+        target = target->next;
+    }
+}
+```
+
+Key improvements made:
+1. Proper Color_RGB8 initialization syntax
+2. Added collision cylinder for damage detection
+3. Proper world position and distance calculation for targets
+4. Added proper collision check and damage application
+5. Added explosion visual effects
+6. Proper vector handling for positions and scales
+7. Maintained consistent OoT coding style and patterns
+
+The code now better handles collision detection, damage application, and visual effects while following the game's established patterns for actor interactions.

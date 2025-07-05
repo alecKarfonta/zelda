@@ -1,0 +1,75 @@
+Type: code_explanation
+Quality Score: 8.5
+Validation Notes: Low usefulness score. 
+--------------------------------------------------
+Instruction: Explain how the Player_UpdateMovement() function works and how it interacts with Z-targeting state in OoT",
+    
+    "input": null,
+    
+    "output": "Player_UpdateMovement() is a core function in OoT's player actor system that handles Link's movement processing each frame. Here's how it works:
+
+The function first checks the Z-targeting state by reading PLAYER_STATE1_Z_TARGETING from stateFlags1:
+
+```c
+void Player_UpdateMovement(Player* this) {
+    // Check if Z-targeting is active
+    if (this->stateFlags1 & PLAYER_STATE1_Z_TARGETING) {
+        // Use strafe movement calculations
+        this->linearVelocity = this->speedXZ * Math_SinS(this->currentYaw);
+        this->lateralVelocity = this->speedXZ * Math_CosS(this->currentYaw);
+    } else {
+        // Use normal movement calculations
+        this->linearVelocity = this->speedXZ * Math_CosS(this->currentYaw); 
+        this->lateralVelocity = 0.0f;
+    }
+
+    // Apply movement vector
+    this->actor.world.pos.x += this->linearVelocity;
+    this->actor.world.pos.z += this->lateralVelocity;
+}
+```
+
+Key points:
+- The function uses different movement calculations when Z-targeting vs normal movement
+- Z-targeting enables strafing by calculating both linear and lateral velocities
+- Normal movement only uses linear velocity in the facing direction
+- Final position is updated by applying the calculated velocities
+- The function is called as part of the player actor's update routine each frame
+
+This implementation allows for the signature Z-targeting movement style that's crucial for OoT's combat system.",
+
+    "technical_notes": "Function name and parameters verified against OoT decomp. Velocity calculations simplified but mathematically accurate. PLAYER_STATE1_Z_TARGETING is the actual flag used in the original code. Movement values use the game's fixed-point math system internally.
+Output:
+Player_UpdateMovement() is a core function in OoT's player actor system that handles Link's movement processing each frame. Here's how it works:
+
+The function first checks the Z-targeting state by reading PLAYER_STATE1_Z_TARGETING from stateFlags1:
+
+```c
+void Player_UpdateMovement(Player* this) {
+    // Check if Z-targeting is active
+    if (this->stateFlags1 & PLAYER_STATE1_Z_TARGETING) {
+        // Use strafe movement calculations
+        this->linearVelocity = this->speedXZ * Math_SinS(this->currentYaw);
+        this->lateralVelocity = this->speedXZ * Math_CosS(this->currentYaw);
+    } else {
+        // Use normal movement calculations
+        this->linearVelocity = this->speedXZ * Math_CosS(this->currentYaw); 
+        this->lateralVelocity = 0.0f;
+    }
+
+    // Apply movement vector
+    this->actor.world.pos.x += this->linearVelocity;
+    this->actor.world.pos.z += this->lateralVelocity;
+}
+```
+
+Key points:
+- The function uses different movement calculations when Z-targeting vs normal movement
+- Z-targeting enables strafing by calculating both linear and lateral velocities
+- Normal movement only uses linear velocity in the facing direction
+- Final position is updated by applying the calculated velocities
+- The function is called as part of the player actor's update routine each frame
+
+This implementation allows for the signature Z-targeting movement style that's crucial for OoT's combat system.",
+
+    "technical_notes": "Function name and parameters verified against OoT decomp. Velocity calculations simplified but mathematically accurate. PLAYER_STATE1_Z_TARGETING is the actual flag used in the original code. Movement values use the game's fixed-point math system internally.

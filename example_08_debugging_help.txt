@@ -1,0 +1,204 @@
+Type: debugging_help
+Quality Score: 8.5
+Validation Notes: 
+--------------------------------------------------
+Instruction: I'm trying to add a custom NPC actor but it crashes when loading. The actor initialization seems fine but it crashes when trying to play animations. How can I debug this?",
+    
+    "input": "// Problematic actor init code
+struct CustomNPC {
+    Actor actor;
+    SkelAnime skelAnime;
+    // ... other fields
+};
+
+void CustomNPC_Init(Actor* thisx, PlayState* play) {
+    CustomNPC* this = (CustomNPC*)thisx;
+    
+    ActorShape_Init(&this->actor.shape, 0.0f, ActorShadow_DrawCircle, 30.0f);
+    SkelAnime_Init(play, &this->skelAnime, &gCustomSkel, &gCustomAnim, NULL, NULL, 0);
+    this->actor.draw = CustomNPC_Draw;
+    this->actor.update = CustomNPC_Update;
+}",
+
+    "output": "This is likely a memory allocation issue - a very common problem when adding custom actors. Let's debug it step by step:
+
+1. First, check your actor's allocated size in the actor table:
+```c
+// actors/table.h
+#define ACTOR_CUSTOM_NPC 0x1234  // Your chosen ID
+{ ACTOR_CUSTOM_NPC, ACTORCAT_NPC, FLAGS, OBJECT_CUSTOM, POINTER(CustomNPC_Init), POINTER(CustomNPC_Destroy), POINTER(CustomNPC_Update), POINTER(CustomNPC_Draw), POINTER(CustomNPC_Reset), sizeof(CustomNPC) }
+```
+
+2. The crash during animation suggests the skelAnime structure isn't getting enough memory. Verify your CustomNPC struct size matches the allocation:
+
+```c
+// Calculate minimum required size
+sizeof(Actor) +               // Base actor (0x13C bytes)
+sizeof(SkelAnime) +          // Animation data (~0x260 bytes)
+sizeof(Other_Fields)         // Any additional fields
+
+// Add padding to align to 16 bytes
+```
+
+3. Debug steps:
+- Use the debug ROM's memory viewer at 0x80160000 to check actor heap
+- Set a breakpoint at SkelAnime_Init
+- Verify animation data pointers are valid
+- Check object dependencies are loaded
+
+4. Common fixes:
+```c
+// Increase actor size in table.h
+#define ACTOR_SIZE_CUSTOM_NPC (sizeof(CustomNPC) + 0x40)  // Add padding
+
+// Verify object loading
+void CustomNPC_Init(Actor* thisx, PlayState* play) {
+    CustomNPC* this = (CustomNPC*)thisx;
+    
+    // Add error checking
+    if (Object_GetIndex(&play->objectCtx, OBJECT_CUSTOM) < 0) {
+        Actor_Kill(&this->actor);
+        return;
+    }
+    
+    // Rest of init code...
+}
+```
+
+5. If still crashing, enable actor debugging:
+```c
+#define DEBUG_ACTOR_DRAWING 1
+```",
+
+    "technical_notes": "- Actor sizes must be 16-byte aligned
+- SkelAnime requires valid skeleton/animation data in memory
+- Object dependencies must be loaded before animation init
+- Debug ROM allows real-time memory inspection at 0x80160000-0x803FFFFF
+- Common to need 0x20-0x40 bytes padding beyond calculated struct size
+Input: // Problematic actor init code
+struct CustomNPC {
+    Actor actor;
+    SkelAnime skelAnime;
+    // ... other fields
+};
+
+void CustomNPC_Init(Actor* thisx, PlayState* play) {
+    CustomNPC* this = (CustomNPC*)thisx;
+    
+    ActorShape_Init(&this->actor.shape, 0.0f, ActorShadow_DrawCircle, 30.0f);
+    SkelAnime_Init(play, &this->skelAnime, &gCustomSkel, &gCustomAnim, NULL, NULL, 0);
+    this->actor.draw = CustomNPC_Draw;
+    this->actor.update = CustomNPC_Update;
+}",
+
+    "output": "This is likely a memory allocation issue - a very common problem when adding custom actors. Let's debug it step by step:
+
+1. First, check your actor's allocated size in the actor table:
+```c
+// actors/table.h
+#define ACTOR_CUSTOM_NPC 0x1234  // Your chosen ID
+{ ACTOR_CUSTOM_NPC, ACTORCAT_NPC, FLAGS, OBJECT_CUSTOM, POINTER(CustomNPC_Init), POINTER(CustomNPC_Destroy), POINTER(CustomNPC_Update), POINTER(CustomNPC_Draw), POINTER(CustomNPC_Reset), sizeof(CustomNPC) }
+```
+
+2. The crash during animation suggests the skelAnime structure isn't getting enough memory. Verify your CustomNPC struct size matches the allocation:
+
+```c
+// Calculate minimum required size
+sizeof(Actor) +               // Base actor (0x13C bytes)
+sizeof(SkelAnime) +          // Animation data (~0x260 bytes)
+sizeof(Other_Fields)         // Any additional fields
+
+// Add padding to align to 16 bytes
+```
+
+3. Debug steps:
+- Use the debug ROM's memory viewer at 0x80160000 to check actor heap
+- Set a breakpoint at SkelAnime_Init
+- Verify animation data pointers are valid
+- Check object dependencies are loaded
+
+4. Common fixes:
+```c
+// Increase actor size in table.h
+#define ACTOR_SIZE_CUSTOM_NPC (sizeof(CustomNPC) + 0x40)  // Add padding
+
+// Verify object loading
+void CustomNPC_Init(Actor* thisx, PlayState* play) {
+    CustomNPC* this = (CustomNPC*)thisx;
+    
+    // Add error checking
+    if (Object_GetIndex(&play->objectCtx, OBJECT_CUSTOM) < 0) {
+        Actor_Kill(&this->actor);
+        return;
+    }
+    
+    // Rest of init code...
+}
+```
+
+5. If still crashing, enable actor debugging:
+```c
+#define DEBUG_ACTOR_DRAWING 1
+```",
+
+    "technical_notes": "- Actor sizes must be 16-byte aligned
+- SkelAnime requires valid skeleton/animation data in memory
+- Object dependencies must be loaded before animation init
+- Debug ROM allows real-time memory inspection at 0x80160000-0x803FFFFF
+- Common to need 0x20-0x40 bytes padding beyond calculated struct size
+Output:
+This is likely a memory allocation issue - a very common problem when adding custom actors. Let's debug it step by step:
+
+1. First, check your actor's allocated size in the actor table:
+```c
+// actors/table.h
+#define ACTOR_CUSTOM_NPC 0x1234  // Your chosen ID
+{ ACTOR_CUSTOM_NPC, ACTORCAT_NPC, FLAGS, OBJECT_CUSTOM, POINTER(CustomNPC_Init), POINTER(CustomNPC_Destroy), POINTER(CustomNPC_Update), POINTER(CustomNPC_Draw), POINTER(CustomNPC_Reset), sizeof(CustomNPC) }
+```
+
+2. The crash during animation suggests the skelAnime structure isn't getting enough memory. Verify your CustomNPC struct size matches the allocation:
+
+```c
+// Calculate minimum required size
+sizeof(Actor) +               // Base actor (0x13C bytes)
+sizeof(SkelAnime) +          // Animation data (~0x260 bytes)
+sizeof(Other_Fields)         // Any additional fields
+
+// Add padding to align to 16 bytes
+```
+
+3. Debug steps:
+- Use the debug ROM's memory viewer at 0x80160000 to check actor heap
+- Set a breakpoint at SkelAnime_Init
+- Verify animation data pointers are valid
+- Check object dependencies are loaded
+
+4. Common fixes:
+```c
+// Increase actor size in table.h
+#define ACTOR_SIZE_CUSTOM_NPC (sizeof(CustomNPC) + 0x40)  // Add padding
+
+// Verify object loading
+void CustomNPC_Init(Actor* thisx, PlayState* play) {
+    CustomNPC* this = (CustomNPC*)thisx;
+    
+    // Add error checking
+    if (Object_GetIndex(&play->objectCtx, OBJECT_CUSTOM) < 0) {
+        Actor_Kill(&this->actor);
+        return;
+    }
+    
+    // Rest of init code...
+}
+```
+
+5. If still crashing, enable actor debugging:
+```c
+#define DEBUG_ACTOR_DRAWING 1
+```",
+
+    "technical_notes": "- Actor sizes must be 16-byte aligned
+- SkelAnime requires valid skeleton/animation data in memory
+- Object dependencies must be loaded before animation init
+- Debug ROM allows real-time memory inspection at 0x80160000-0x803FFFFF
+- Common to need 0x20-0x40 bytes padding beyond calculated struct size
