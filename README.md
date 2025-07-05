@@ -84,7 +84,7 @@ The system generates examples across **19 different categories**:
 ### Basic Usage
 
 ```python
-from enhanced_authentic_generator import EnhancedOoTTrainingGenerator
+from generator import EnhancedOoTTrainingGenerator
 
 # Initialize generator with OoT decompilation path
 generator = EnhancedOoTTrainingGenerator(
@@ -102,7 +102,7 @@ generator.generate_dataset(
 ### Command Line Usage
 
 ```bash
-python enhanced_authentic_generator.py \
+python generator.py \
     --num-examples 50 \
     --output authentic_oot_training.jsonl \
     --oot-path oot \
@@ -291,7 +291,7 @@ git clone https://github.com/zeldaret/oot.git
 #### Memory Issues
 ```bash
 # Reduce batch size for memory-constrained systems
-python enhanced_authentic_generator.py --num-examples 10
+python generator.py --num-examples 10
 ```
 
 #### Quality Issues
