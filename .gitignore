@@ -59,16 +59,16 @@ Thumbs.db
 *.tmp
 *.temp
 
-# Large data files and generated datasets
-*.jsonl
-*.json
+# Large data files and generated datasets (in root only)
+/*.jsonl
+/*.json
 !config.json
 !improved_scenarios.json
 !mined_scenarios.json
 
-# Analysis files (can be regenerated)
-*_analysis.json
-*_diversity_analysis.json
+# Analysis files (can be regenerated) - in root only
+/*_analysis.json
+/*_diversity_analysis.json
 
 # Test files
 test_*.py

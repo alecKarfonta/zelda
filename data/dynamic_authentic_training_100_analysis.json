@@ -1,0 +1,614 @@
+{
+  "total_examples": 100,
+  "average_quality": 8.831095987345991,
+  "average_authenticity": 7.661052947052947,
+  "type_distribution": {
+    "code_explanation": 42,
+    "feature_implementation": 14,
+    "debugging_help": 10,
+    "actor_creation": 34
+  },
+  "real_functions_used": 11944,
+  "validation_summary": [
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic collision ...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement an actor that spawns a heart piece when hit by an arrow, with proper collision detection a...",
+      "quality_score": 8.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debugging actor that spawns a heart piece when Link gets within 100 units, then displays de...",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 8.0,
+      "validation_notes": "Signature issues: 8. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create an actor that spawns a sequence of collectibles in a circular pattern when triggered, with pr...",
+      "quality_score": 8.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and breaks into smaller fragments",
+      "quality_score": 10.0,
+      "authenticity_score": 9.857142857142858,
+      "validation_notes": "Signature issues: 5. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword and then destroys itself",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by an arrow, with proper collision detection and ...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns heart pieces in a rotating circle pattern when hit, using authentic OoT ...",
+      "quality_score": 8.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and then crumbles, using authentic OoT patterns",
+      "quality_score": 10.0,
+      "authenticity_score": 9.142857142857142,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Explain how to create an actor that spawns a heart piece when hit by the player's sword, including p...",
+      "quality_score": 9.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 7. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns heart pieces and rupees when hit, with proper collision handling and sta...",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Explain how to create an actor that spawns a heart piece when hit by the player's sword",
+      "quality_score": 9.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 7. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns collectible rupees in a rotating circle pattern when interacted with, us...",
+      "quality_score": 8.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic collision ...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a torch actor that can be lit/unlit, damages the player when lit, and drops a blue rupee w...",
+      "quality_score": 8.871428571428575,
+      "authenticity_score": 8.085714285714285,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns collectible rupees in a rotating circle pattern when activated, with pro...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that spawns a blue rupee when hit, with proper collision detection ...",
+      "quality_score": 8.633333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debug actor that spawns a heart piece when hit and displays collision cylinder visually",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement an actor that spawns a heart piece when hit by the player's sword, including proper collis...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns collectible rupees in a rotating circle pattern when hit, with proper co...",
+      "quality_score": 8.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debug actor that spawns a heart piece when hit and displays its current state",
+      "quality_score": 8.75454545454546,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and has cylinder collision",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns rupees in a spiral pattern when hit, with proper collision handling and ...",
+      "quality_score": 9.375000000000004,
+      "authenticity_score": 7.3,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.75454545454546,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword and then despawns",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a moving platform actor that spawns a heart piece when hit by an arrow, using authentic Oo...",
+      "quality_score": 8.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a sequence of collectible items in a circular pattern when triggered, wi...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and has cylinder collision",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns collectible rupees in a rotating pattern when hit, with proper collision...",
+      "quality_score": 8.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement an actor that spawns a heart piece when hit by the player's sword, with proper collision d...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and has cylinder collision",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision hand...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, with proper collision detect...",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 8.0,
+      "validation_notes": "Signature issues: 6. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create a debugging actor that spawns a heart piece when hit and displays a collision cylinder for vi...",
+      "quality_score": 8.633333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a chest actor that spawns a blue rupee when opened, following authentic OoT patterns",
+      "quality_score": 8.633333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement an actor that spawns a heart piece when hit by an arrow, with proper collision detection a...",
+      "quality_score": 8.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and has cylinder collision detection",
+      "quality_score": 9.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a moving platform actor that spawns a heart piece when hit by an arrow, using authentic Oo...",
+      "quality_score": 8.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit, using authentic OoT patterns and collision detec...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a chest-like actor that spawns a heart piece when opened, with proper collision detection ...",
+      "quality_score": 9.572727272727276,
+      "authenticity_score": 8.363636363636363,
+      "validation_notes": "Signature issues: 6. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and breaks into pieces using authentic OoT patter...",
+      "quality_score": 10.0,
+      "authenticity_score": 9.692307692307693,
+      "validation_notes": "Signature issues: 5. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, with proper collision detect...",
+      "quality_score": 8.633333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debugging actor that spawns a heart piece and displays collision info when hit",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece and blue rupee when hit, with proper collision handling an...",
+      "quality_score": 10.0,
+      "authenticity_score": 8.923076923076923,
+      "validation_notes": "Signature issues: 6. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, including proper collision...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns collectible rupees in a rotating circle pattern when interacted with, us...",
+      "quality_score": 9.428571428571432,
+      "authenticity_score": 7.514285714285714,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic collision ...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a chest actor that spawns a heart piece when opened, with proper collision detection and s...",
+      "quality_score": 8.75454545454546,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that spawns a blue rupee at its position when hit by the player's sw...",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create an actor that spawns a sequence of collectibles in a rotating pattern when triggered, with pr...",
+      "quality_score": 9.571428571428575,
+      "authenticity_score": 8.085714285714285,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic OoT collis...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a torch actor that can be lit/unlit, damages the player when lit, and drops a blue rupee w...",
+      "quality_score": 8.838461538461543,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debugging actor that spawns a heart piece and displays collision info when hit by the playe...",
+      "quality_score": 9.700000000000005,
+      "authenticity_score": 9.0,
+      "validation_notes": "Signature issues: 5. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns collectible rupees when hit and uses proper collision detection",
+      "quality_score": 10.0,
+      "authenticity_score": 9.5,
+      "validation_notes": "Signature issues: 5. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic collision ...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns heart pieces when hit and includes proper collision detection, scaling, ...",
+      "quality_score": 8.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 9.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a moving platform actor that spawns a heart piece when hit by an arrow, using authentic Oo...",
+      "quality_score": 8.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a ring of heart pieces when destroyed, with proper collision and state m...",
+      "quality_score": 9.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic collision ...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debugging actor that spawns a heart piece when hit and displays collision cylinder visually",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, using authentic collision ...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a chest actor that spawns a heart piece when opened, with proper collision detection and s...",
+      "quality_score": 9.390909090909094,
+      "authenticity_score": 7.454545454545454,
+      "validation_notes": "Signature issues: 7. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and has cylinder collision",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision hand...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that spawns a blue rupee when hit, with proper collision detection ...",
+      "quality_score": 9.75454545454546,
+      "authenticity_score": 9.272727272727273,
+      "validation_notes": "Signature issues: 5. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Implement an actor that spawns a heart piece when hit by the player's sword, with proper collision d...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece and blue rupee when hit, with proper collision detection a...",
+      "quality_score": 9.633333333333336,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 6. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debug actor that spawns a heart piece when Link gets within 100 units, with visual radius i...",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an actor that spawns rupees in a circular pattern when hit, with proper collision detection a...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create a debug actor that spawns a heart piece when hit and displays its current state with color-co...",
+      "quality_score": 8.633333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns heart pieces in a rotating circle pattern when hit, using authentic OoT ...",
+      "quality_score": 9.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and includes proper collision detection, scaling,...",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Create an actor that spawns heart pieces when hit by the player's sword, with proper collision detec...",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 6. Source validation issues: 5. "
+    },
+    {
+      "instruction": "Explain how to create an actor that spawns a heart piece when hit by the player's sword, using authe...",
+      "quality_score": 9.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 7. Source validation issues: 5. "
+    }
+  ]
+}

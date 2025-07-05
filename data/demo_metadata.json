@@ -1,0 +1,73 @@
+{
+  "total_examples": 5,
+  "average_quality": 8.364722851350473,
+  "average_authenticity": 8.657093204353604,
+  "categories": [
+    "player",
+    "npc",
+    "misc",
+    "enemy"
+  ],
+  "complexities": [
+    "advanced",
+    "intermediate",
+    "basic"
+  ],
+  "examples": [
+    {
+      "instruction": "I need a innkeeper that can quest coordination and tracking for the player in a remote location",
+      "input": null,
+      "output": "```c\n// NPC Actor with Dialogue System\ntypedef struct {\n    /* 0x000 */ Actor actor;\n    /* 0x14C */ s16 talkState;\n    /* 0x14E */ s16 textId;\n    /* 0x150 */ ColliderCylinder collider;\n} EnNpcActor; // size = 0x19C\n\nvoid EnNpcActor_Init(Actor* thisx, PlayState* play) {\n    EnNpcActor* this = (EnNpcActor*)thisx;\n    \n    Collider_InitCylinder(play, &this->collider);\n    Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);\n    \n    this->textId = 0x1000; // Default dialogue\n    Actor_SetScale(&this->actor, 0.01f);\n}\n\nvoid EnNpcActor_Update(Actor* thisx, PlayState* play) {\n    EnNpcActor* this = (EnNpcActor*)thisx;\n    \n    // Handle dialogue interaction\n    if (Actor_TalkOfferAccepted(&this->actor, play)) {\n        this->talkState = NPC_TALK_STATE_TALKING;\n    } else if (this->talkState == NPC_TALK_STATE_IDLE) {\n        Actor_OfferTalk(&this->actor, play, 60.0f);\n    }\n    \n    Collider_UpdateCylinder(&this->actor, &this->collider);\n    CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);\n}\n```",
+      "metadata": {
+        "category": "npc",
+        "complexity": "basic",
+        "authenticity_score": 9.42521835970998,
+        "quality_score": 8.192924620367302
+      }
+    },
+    {
+      "instruction": "How would you create a save that provides intuitive menu navigation?",
+      "input": null,
+      "output": "```c\n// Generic Actor Implementation\ntypedef struct {\n    /* 0x000 */ Actor actor;\n    /* 0x14C */ s16 state;\n    /* 0x14E */ s16 timer;\n    /* 0x150 */ ColliderCylinder collider;\n} GenericActor; // size = 0x19C\n\nvoid GenericActor_Init(Actor* thisx, PlayState* play) {\n    GenericActor* this = (GenericActor*)thisx;\n    \n    Collider_InitCylinder(play, &this->collider);\n    Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);\n    Actor_SetScale(&this->actor, 0.01f);\n}\n\nvoid GenericActor_Update(Actor* thisx, PlayState* play) {\n    GenericActor* this = (GenericActor*)thisx;\n    \n    Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, BGCHECKFLAG_GROUND);\n    Collider_UpdateCylinder(&this->actor, &this->collider);\n    CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);\n}\n```",
+      "metadata": {
+        "category": "misc",
+        "complexity": "advanced",
+        "authenticity_score": 9.34490782006258,
+        "quality_score": 7.900955211247535
+      }
+    },
+    {
+      "instruction": "How do I implement a combat that tracks player progress and achievements?",
+      "input": null,
+      "output": "```c\n// Generic Actor Implementation\ntypedef struct {\n    /* 0x000 */ Actor actor;\n    /* 0x14C */ s16 state;\n    /* 0x14E */ s16 timer;\n    /* 0x150 */ ColliderCylinder collider;\n} GenericActor; // size = 0x19C\n\nvoid GenericActor_Init(Actor* thisx, PlayState* play) {\n    GenericActor* this = (GenericActor*)thisx;\n    \n    Collider_InitCylinder(play, &this->collider);\n    Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);\n    Actor_SetScale(&this->actor, 0.01f);\n}\n\nvoid GenericActor_Update(Actor* thisx, PlayState* play) {\n    GenericActor* this = (GenericActor*)thisx;\n    \n    Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, BGCHECKFLAG_GROUND);\n    Collider_UpdateCylinder(&this->actor, &this->collider);\n    CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);\n}\n```",
+      "metadata": {
+        "category": "player",
+        "complexity": "intermediate",
+        "authenticity_score": 7.7867965012658615,
+        "quality_score": 8.372702752574552
+      }
+    },
+    {
+      "instruction": "How do I implement a combat that adapts to different weapon types?",
+      "input": null,
+      "output": "```c\n// Generic Actor Implementation\ntypedef struct {\n    /* 0x000 */ Actor actor;\n    /* 0x14C */ s16 state;\n    /* 0x14E */ s16 timer;\n    /* 0x150 */ ColliderCylinder collider;\n} GenericActor; // size = 0x19C\n\nvoid GenericActor_Init(Actor* thisx, PlayState* play) {\n    GenericActor* this = (GenericActor*)thisx;\n    \n    Collider_InitCylinder(play, &this->collider);\n    Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);\n    Actor_SetScale(&this->actor, 0.01f);\n}\n\nvoid GenericActor_Update(Actor* thisx, PlayState* play) {\n    GenericActor* this = (GenericActor*)thisx;\n    \n    Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, BGCHECKFLAG_GROUND);\n    Collider_UpdateCylinder(&this->actor, &this->collider);\n    CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);\n}\n```",
+      "metadata": {
+        "category": "player",
+        "complexity": "advanced",
+        "authenticity_score": 7.6843221669165676,
+        "quality_score": 8.739909875120633
+      }
+    },
+    {
+      "instruction": "What's the best way to create a skeletal warrior that phase through walls to ambush the player? with basic interactions in a fire temple environment",
+      "input": null,
+      "output": "```c\n// Advanced Enemy Actor with State Machine and AI\ntypedef struct {\n    /* 0x000 */ Actor actor;\n    /* 0x14C */ s16 timer;\n    /* 0x14E */ s16 actionState;\n    /* 0x150 */ s16 aiState;\n    /* 0x152 */ s16 attackPattern;\n    /* 0x154 */ f32 detectionRadius;\n    /* 0x158 */ Vec3f homePos;\n    /* 0x164 */ ColliderCylinder collider;\n} EnAdvancedEnemy; // size = 0x1B0\n\nvoid EnAdvancedEnemy_Init(Actor* thisx, PlayState* play) {\n    EnAdvancedEnemy* this = (EnAdvancedEnemy*)thisx;\n    \n    // Initialize collision\n    Collider_InitCylinder(play, &this->collider);\n    Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);\n    \n    // Set up AI parameters\n    this->detectionRadius = 300.0f;\n    this->aiState = AI_STATE_PATROL;\n    Math_Vec3f_Copy(&this->homePos, &this->actor.world.pos);\n    \n    Actor_SetScale(&this->actor, 0.01f);\n}\n\nvoid EnAdvancedEnemy_Update(Actor* thisx, PlayState* play) {\n    EnAdvancedEnemy* this = (EnAdvancedEnemy*)thisx;\n    Player* player = GET_PLAYER(play);\n    \n    // Update AI state machine\n    this->aiState = EnAdvancedEnemy_UpdateAI(this, play, player);\n    \n    // Execute current action\n    switch (this->actionState) {\n        case ACTION_PATROL:\n            EnAdvancedEnemy_Patrol(this, play);\n            break;\n        case ACTION_CHASE:\n            EnAdvancedEnemy_Chase(this, play, player);\n            break;\n        case ACTION_ATTACK:\n            EnAdvancedEnemy_Attack(this, play, player);\n            break;\n    }\n    \n    // Update collision\n    Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, BGCHECKFLAG_GROUND);\n    Collider_UpdateCylinder(&this->actor, &this->collider);\n    CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);\n}\n```",
+      "metadata": {
+        "category": "enemy",
+        "complexity": "advanced",
+        "authenticity_score": 9.044221173813023,
+        "quality_score": 8.617121797442344
+      }
+    }
+  ]
+}

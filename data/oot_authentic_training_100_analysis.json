@@ -1,0 +1,614 @@
+{
+  "total_examples": 100,
+  "average_quality": 9.285219824465184,
+  "average_authenticity": 8.313547962529386,
+  "type_distribution": {
+    "code_explanation": 26,
+    "feature_implementation": 26,
+    "debugging_help": 23,
+    "actor_creation": 25
+  },
+  "real_functions_used": 205,
+  "validation_summary": [
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 9.936363636363641,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between blue/red states, spawns rupees when hit, and h...",
+      "quality_score": 9.75454545454546,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns rupees when triggered",
+      "quality_score": 9.936363636363641,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and plays a chime sound, using authentic OoT patt...",
+      "quality_score": 9.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a special chest actor that spawns a heart piece when opened, plays a custom animation sequ...",
+      "quality_score": 9.96666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays a colored cylinder at its position and spawns a blue r...",
+      "quality_score": 9.633333333333338,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword and plays a chime sound eff...",
+      "quality_score": 8.538461538461542,
+      "authenticity_score": 7.953846153846154,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 9.96666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that spins in place, detects player proximity, and spawns a heart ...",
+      "quality_score": 9.900000000000004,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that spawns a blue rupee at its location when the player gets close,...",
+      "quality_score": 8.900000000000004,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound, and disappe...",
+      "quality_score": 9.555555555555559,
+      "authenticity_score": 8.022222222222222,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.571428571428575,
+      "authenticity_score": 8.085714285714285,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, with proper collision, anima...",
+      "quality_score": 9.96666666666667,
+      "authenticity_score": 10.0,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create a debug helper actor that displays collision info and spawns rupees at test points",
+      "quality_score": 9.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound, and despawn...",
+      "quality_score": 9.229411764705885,
+      "authenticity_score": 7.917647058823529,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a simple actor that spawns a heart piece when hit by the player's sword, plays a sound effect...",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, with proper collision detect...",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debug actor that displays collision radius and plays a sound when player is within range",
+      "quality_score": 10.0,
+      "authenticity_score": 9.5,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.578947368421057,
+      "authenticity_score": 8.11578947368421,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between blue/red states, spawns rupees when hit, and h...",
+      "quality_score": 10.0,
+      "authenticity_score": 9.692307692307693,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision cylinder visualization and prints actor stat...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a sequence of collectible rupees in a spiral pattern when triggered, wit...",
+      "quality_score": 9.529411764705886,
+      "authenticity_score": 7.917647058823529,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword and plays a sound effect",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, plays a fanfare, and has col...",
+      "quality_score": 8.733333333333338,
+      "authenticity_score": 8.733333333333334,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debug actor that displays collision info and spawns a heart piece when triggered",
+      "quality_score": 8.700000000000005,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.555555555555559,
+      "authenticity_score": 8.022222222222222,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 8.900000000000004,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that spins in place, detects player proximity, and spawns a heart ...",
+      "quality_score": 8.714285714285717,
+      "authenticity_score": 8.657142857142857,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that spawns a blue rupee when Link gets close and displays debug tex...",
+      "quality_score": 8.100000000000003,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit, plays a sound, and despawns with a particle effe...",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a simple enemy actor that patrols in a circle pattern and drops a blue rupee when defeated. T...",
+      "quality_score": 8.714285714285717,
+      "authenticity_score": 8.657142857142857,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, plays authentic sound effect...",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision boundaries and spawns rupees at test points",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound, and disappe...",
+      "quality_score": 8.866666666666669,
+      "authenticity_score": 7.666666666666666,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.992307692307696,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between red/blue states, spawns a blue rupee when hit ...",
+      "quality_score": 9.428571428571432,
+      "authenticity_score": 7.514285714285714,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and plays a chime sound effect, using authentic O...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between blue/red states, spawns rupees when hit, and h...",
+      "quality_score": 8.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns a heart piece when triggered",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, then explodes and disappea...",
+      "quality_score": 10.0,
+      "authenticity_score": 10.0,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between red/blue states, spawns rupees when hit, and h...",
+      "quality_score": 9.75454545454546,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that spins in place, detects player proximity, and spawns a heart ...",
+      "quality_score": 8.992307692307696,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that spawns a blue rupee when Link gets close and displays debug tex...",
+      "quality_score": 9.033333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 9.000000000000002,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a simple actor that spawns a heart piece when hit by the player's sword and plays a sound eff...",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between blue/red states, spawns rupees when hit, and h...",
+      "quality_score": 10.0,
+      "authenticity_score": 9.272727272727273,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns rupees for testing",
+      "quality_score": 9.000000000000002,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.600000000000003,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.96666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that spawns rupees when hit, changes color over time, and has prop...",
+      "quality_score": 9.66666666666667,
+      "authenticity_score": 10.0,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that spawns a blue rupee when Link gets close and displays debug tex...",
+      "quality_score": 8.85555555555556,
+      "authenticity_score": 8.022222222222222,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.600000000000003,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a floating crystal actor that rotates, pulses with light, and spawns a heart piece when hi...",
+      "quality_score": 8.84545454545455,
+      "authenticity_score": 7.9818181818181815,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays a visual indicator and plays a sound when Link is with...",
+      "quality_score": 8.900000000000004,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound, and then de...",
+      "quality_score": 9.16666666666667,
+      "authenticity_score": 7.666666666666666,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between blue/red states, spawns rupees when hit, and d...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that spawns a blue rupee when Link is within range and displays debu...",
+      "quality_score": 9.033333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound, and then de...",
+      "quality_score": 9.300000000000002,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword and plays a sound effect",
+      "quality_score": 9.900000000000004,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a complex chest actor that spawns a heart piece when opened, with proper collision detecti...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debug actor that spawns a heart piece when the player gets close and plays a sound effect. ...",
+      "quality_score": 8.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 9.878947368421057,
+      "authenticity_score": 8.11578947368421,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, then disappears with a par...",
+      "quality_score": 9.871428571428575,
+      "authenticity_score": 8.085714285714285,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, plays sound effects, and has...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns a heart piece when triggered",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a complex actor that spawns rupees in a spiral pattern when hit, with proper collision detect...",
+      "quality_score": 8.714285714285717,
+      "authenticity_score": 8.657142857142857,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that spins in place, periodically releases blue rupees, and can be...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns rupees for testing. Must fol...",
+      "quality_score": 9.000000000000002,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit, plays a sound, and despawns with a particle effe...",
+      "quality_score": 8.692307692307695,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.96666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between red/blue states, spawns a blue rupee when hit,...",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns rupees for testing. Must fol...",
+      "quality_score": 9.600000000000003,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and plays a sound effect, using authentic OoT pat...",
+      "quality_score": 9.555555555555559,
+      "authenticity_score": 8.022222222222222,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when Link plays Zelda's Lullaby near it, with proper colli...",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a crystal switch actor that toggles between blue/red states, spawns rupees when hit, and h...",
+      "quality_score": 10.0,
+      "authenticity_score": 9.692307692307693,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision cylinder visualization and prints actor stat...",
+      "quality_score": 8.971428571428573,
+      "authenticity_score": 8.085714285714285,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns rupees in a spiral pattern when hit, with proper collision detection and...",
+      "quality_score": 8.733333333333338,
+      "authenticity_score": 8.733333333333334,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, with proper collision dete...",
+      "quality_score": 8.936363636363641,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a rotating platform actor that spawns a heart piece when hit by the player's sword, with p...",
+      "quality_score": 9.600000000000003,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision cylinder visualization and prints distance t...",
+      "quality_score": 8.800000000000002,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit and plays a chime sound, using authentic OoT patt...",
+      "quality_score": 8.992307692307696,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a simple actor that spawns a heart piece when hit by the player's sword, plays a sound effect...",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that floats, rotates, and spawns a heart piece when hit by the pla...",
+      "quality_score": 8.992307692307696,
+      "authenticity_score": 8.569230769230769,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debug actor that displays collision info and spawns rupees for testing",
+      "quality_score": 9.63636363636364,
+      "authenticity_score": 8.345454545454546,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound, and then di...",
+      "quality_score": 8.900000000000002,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.96666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a treasure chest actor that spawns a heart piece when opened, plays the chest opening anim...",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create a debugging helper actor that displays collision info and spawns rupees for testing. Must fol...",
+      "quality_score": 9.000000000000002,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit, plays a sound, and despawns after a timer",
+      "quality_score": 9.714285714285717,
+      "authenticity_score": 10.0,
+      "validation_notes": "Signature issues: 1. "
+    },
+    {
+      "instruction": "Create an actor that spawns a heart piece when hit by the player's sword, plays a sound effect, and ...",
+      "quality_score": 9.800000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 2. "
+    },
+    {
+      "instruction": "Implement a magical crystal actor that spins in place, periodically spawns blue rupees, and has cyli...",
+      "quality_score": 9.625000000000004,
+      "authenticity_score": 10.0,
+      "validation_notes": "Signature issues: 1. "
+    }
+  ]
+}

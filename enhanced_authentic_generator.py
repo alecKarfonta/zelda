@@ -29,7 +29,7 @@ except ImportError:
     print("Warning: python-dotenv not installed. Use pip install python-dotenv")
 
 # Snippet cache for real headers/macros
-from oot_context_cache import get_snippet, get_macro_pack, get_example
+from support.oot_context_cache import get_snippet, get_macro_pack, get_example
 
 
 class DynamicSourceAnalyzer:
@@ -669,8 +669,8 @@ class EnhancedOoTTrainingGenerator:
         
         # Initialize validation and context system
         try:
-            from validate_and_enhance_scenarios import OoTPatternValidator
-            from complete_context_generator import CompleteOoTContextGenerator
+            from support.validate_and_enhance_scenarios import OoTPatternValidator
+            from support.complete_context_generator import CompleteOoTContextGenerator
             self.pattern_validator = OoTPatternValidator(oot_path)
             self.context_generator = CompleteOoTContextGenerator(oot_path)
             self.use_validation = True
@@ -1786,7 +1786,7 @@ REAL ITEM CONSTANTS (from source):
             json.dump(metadata, f, indent=2)
 
     def _get_context_snippets(self, example_type: ExampleType) -> Tuple[str, str, str]:
-        """Get header, macro, and example snippets from oot_context_cache"""
+        """Get header, macro, and example snippets from support.oot_context_cache"""
         
         # Get header snippet based on example type
         if example_type in [ExampleType.ACTOR_CREATION, ExampleType.AI_BEHAVIOR]:
@@ -1846,8 +1846,8 @@ class RealOoTScenarioTemplate:
     def __init__(self):
         # Import the new scenario generator and validator
         try:
-            from improved_scenario_generator import ImprovedOoTScenarioGenerator
-            from validate_and_enhance_scenarios import OoTPatternValidator
+            from support.improved_scenario_generator import ImprovedOoTScenarioGenerator
+            from support.validate_and_enhance_scenarios import OoTPatternValidator
             self.scenario_generator = ImprovedOoTScenarioGenerator()
             self.validator = OoTPatternValidator()
             self.use_improved_generator = True

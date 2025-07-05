@@ -10,8 +10,8 @@ import json
 import random
 from pathlib import Path
 from typing import Dict, List, Optional
-from validate_and_enhance_scenarios import OoTPatternValidator, ValidationResult
-from improved_scenario_generator import ImprovedOoTScenarioGenerator
+from support.validate_and_enhance_scenarios import OoTPatternValidator, ValidationResult
+from support.improved_scenario_generator import ImprovedOoTScenarioGenerator
 
 class CompleteOoTContextGenerator:
     """Generates complete context for authentic OoT training data"""

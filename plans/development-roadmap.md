@@ -1,5 +1,15 @@
 # Fine-Tuning Language Models for Ocarina of Time Romhack Development: Comprehensive Strategy Report
 
+
+
+Critical Issues Identified
+Two major fabricated functions were discovered that do not exist in the authentic codebase:
+
+DebugDisplay_AddObject - This function is completely fabricated and not found anywhere in the zeldaret/oot repository. No debug display functions matching this pattern exist.
+MATRIX_NEWMTX - This macro does not exist in the authentic codebase. The correct alternatives are Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__) or MATRIX_FINALIZE_AND_LOAD. GitHub
+
+
+
 ## Executive Summary
 
 **Bottom Line:** Fine-tuning a language model for Ocarina of Time romhacking is technically feasible using Unsloth, but requires creating a specialized dataset of instruction-response pairs covering C programming, N64 assembly, game engine architecture, and specific OoT modding techniques. The project would require approximately 3-6 months of data collection and curation, followed by iterative fine-tuning cycles.

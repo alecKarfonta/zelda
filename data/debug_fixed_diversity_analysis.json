@@ -1,0 +1,110 @@
+{
+  "total_examples": 1,
+  "average_quality": 10.0,
+  "average_authenticity": 9.857142857142858,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 1,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 0,
+    "sound_system": 0,
+    "ai_behavior": 0,
+    "environmental": 0,
+    "combat_system": 0,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 11944,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 1,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 1,
+    "category_coverage": 1,
+    "type_coverage": 1
+  },
+  "generation_stats": {
+    "total_generated": 2,
+    "total_accepted": 1,
+    "total_rejected": 1,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 1,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 1,
+      "intermediate": 0,
+      "advanced": 1
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "I need help creating a hostile lava beast enemy called En_LavaBeast for my OoT romhack. It should ad...",
+      "type": "actor_creation",
+      "quality_score": 10.0,
+      "authenticity_score": 9.857142857142858,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "total_examples": 5,
+  "average_quality": 9.596608391608394,
+  "average_authenticity": 7.907688422688423,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 1,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 1,
+    "sound_system": 0,
+    "ai_behavior": 1,
+    "environmental": 0,
+    "combat_system": 0,
+    "puzzle_system": 1,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 1
+  },
+  "real_functions_used": 11944,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 1,
+      "npc": 1,
+      "item": 0,
+      "object": 2,
+      "background": 0,
+      "effect": 0,
+      "player": 1,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 1,
+      "sound_system": 0,
+      "ai_behavior": 1,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 1
+    },
+    "unique_scenarios": 5,
+    "category_coverage": 4,
+    "type_coverage": 5
+  },
+  "generation_stats": {
+    "total_generated": 8,
+    "total_accepted": 8,
+    "total_rejected": 0,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 1,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 1,
+      "sound_system": 0,
+      "ai_behavior": 2,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 1
+    },
+    "complexity_distribution": {
+      "basic": 2,
+      "intermediate": 4,
+      "advanced": 2
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "I need help creating a pressure plate object that controls water levels, similar to the ones in Wate...",
+      "type": "puzzle_system",
+      "quality_score": 9.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 12. Source validation issues: 10. "
+    },
+    {
+      "instruction": "I'm trying to implement Goron transformation mechanics similar to MM. I need code for an enemy-style...",
+      "type": "ai_behavior",
+      "quality_score": 9.372727272727275,
+      "authenticity_score": 7.363636363636363,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "I need help creating a Gossip Stone actor that displays random hints from a predefined list when str...",
+      "type": "custom_mechanics",
+      "quality_score": 10.0,
+      "authenticity_score": 9.777777777777779,
+      "validation_notes": "Signature issues: 9. Source validation issues: 8. "
+    },
+    {
+      "instruction": "I need help creating a guide NPC that acts as an item storage keeper, similar to the bean seller but...",
+      "type": "actor_creation",
+      "quality_score": 9.330769230769231,
+      "authenticity_score": 7.153846153846154,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "I need help implementing a Song of Storms rain effect object that creates a rainstorm when a switch ...",
+      "type": "effect_system",
+      "quality_score": 9.825000000000003,
+      "authenticity_score": 7.625,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    }
+  ]
+}
