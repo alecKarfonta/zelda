@@ -11,11 +11,76 @@ Enhanced version with comprehensive pattern validation.
 """
 
 from dataclasses import dataclass
-from typing import List, Tuple, Dict, Set
+from typing import List, Tuple, Dict, Set, Optional
 import re
 import os
 import keyword
 import builtins
+import logging
+
+# ============================================================================
+# ENHANCED LOGGING SYSTEM
+# ============================================================================
+
+class OoTLogger:
+    """Enhanced logging system with function names and relevant emojis"""
+    
+    def __init__(self, name: str = "OoTValidator"):
+        self.logger = logging.getLogger(name)
+        self.logger.setLevel(logging.DEBUG)
+        
+        # Create console handler with custom formatter
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.INFO)
+        
+        # Custom formatter with function names and emojis
+        formatter = logging.Formatter(
+            '%(asctime)s | %(levelname)-8s | %(name)s.%(funcName)s() | %(message)s',
+            datefmt='%H:%M:%S'
+        )
+        console_handler.setFormatter(formatter)
+        
+        # Add handler if not already added
+        if not self.logger.handlers:
+            self.logger.addHandler(console_handler)
+    
+    def debug(self, message: str, func_name: Optional[str] = None):
+        """Debug level with 🔍 emoji"""
+        if func_name:
+            self.logger.debug(f"🔍 {message}")
+        else:
+            self.logger.debug(f"🔍 {message}")
+    
+    def info(self, message: str, func_name: Optional[str] = None):
+        """Info level with ℹ️ emoji"""
+        if func_name:
+            self.logger.info(f"ℹ️  {message}")
+        else:
+            self.logger.info(f"ℹ️  {message}")
+    
+    def warning(self, message: str, func_name: Optional[str] = None):
+        """Warning level with ⚠️ emoji"""
+        if func_name:
+            self.logger.warning(f"⚠️  {message}")
+        else:
+            self.logger.warning(f"⚠️  {message}")
+    
+    def error(self, message: str, func_name: Optional[str] = None):
+        """Error level with ❌ emoji"""
+        if func_name:
+            self.logger.error(f"❌ {message}")
+        else:
+            self.logger.error(f"❌ {message}")
+    
+    def validation(self, message: str, func_name: Optional[str] = None):
+        """Validation level with 🛡️ emoji"""
+        if func_name:
+            self.logger.info(f"🛡️  {message}")
+        else:
+            self.logger.info(f"🛡️  {message}")
+
+# Global logger instance
+logger = OoTLogger()
 
 # ------------------------------------------------------------
 # Data classes
@@ -38,16 +103,32 @@ class OoTAuthenticPatterns:
     """Database of authentic OoT patterns, functions, and constants."""
     
     def __init__(self):
-        self.AUTHENTIC_FUNCTIONS = self._load_set('oot_valid_functions.txt')
-        self.AUTHENTIC_CONSTANTS = self._load_set('oot_valid_constants.txt')
-        self.AUTHENTIC_SOUND_EFFECTS = self._load_set('oot_valid_sound_effects.txt')
+        self.AUTHENTIC_FUNCTIONS = self._load_set('oot_valid_functions.txt', normalize_case=True)
+        self.AUTHENTIC_CONSTANTS = self._load_set('oot_valid_constants.txt', normalize_case=True)
+        self.AUTHENTIC_SOUND_EFFECTS = self._load_set('oot_valid_sound_effects.txt', normalize_case=True)
+        logger.debug(f"Loaded {len(self.AUTHENTIC_FUNCTIONS)} functions from database")
+        logger.debug(f"Sample functions: {list(self.AUTHENTIC_FUNCTIONS)[:10]}")
 
-    def _load_set(self, filename):
+    def _load_set(self, filename, normalize_case=False):
         if os.path.exists(filename):
             with open(filename, 'r') as f:
-                return set(line.strip() for line in f if line.strip())
+                lines = [line.strip() for line in f if line.strip()]
+                if normalize_case:
+                    lines = [line.lower() for line in lines]
+                logger.debug(f"Loading {len(lines)} items from {filename}")
+                logger.debug(f"First 5 items: {lines[:5]}")
+                # Debug: Check if specific functions are in the lines
+                if filename == 'oot_valid_functions.txt':
+                    test_funcs = ['Actor_SetScale', 'Collider_InitCylinder', 'Actor_PlaySfx']
+                    for func in test_funcs:
+                        check_func = func.lower() if normalize_case else func
+                        if check_func in lines:
+                            logger.debug(f"{func} found in lines")
+                        else:
+                            logger.debug(f"{func} NOT found in lines")
+                return set(lines)
         else:
-            print(f"[OoTAuthenticPatterns] Warning: {filename} not found. Using empty set.")
+            logger.warning(f"{filename} not found. Using empty set.")
             return set()
 
 # ------------------------------------------------------------
@@ -251,9 +332,14 @@ Return exactly this JSON:
         for match in func_def_pattern.finditer(text):
             user_defined_funcs.add(match.group(1))
 
-        # Macro/constant definitions
+        # Macro/constant definitions - IMPROVED to catch more patterns
         macro_pattern = re.compile(r'^\s*#define\s+([A-Za-z_][A-Za-z0-9_]*)', re.MULTILINE)
         for match in macro_pattern.finditer(text):
+            user_defined_consts.add(match.group(1))
+            
+        # Also catch constants defined in #define macros that reference other constants
+        macro_ref_pattern = re.compile(r'#define\s+([A-Z][A-Z0-9_]*)\s*\([^)]*\)')
+        for match in macro_ref_pattern.finditer(text):
             user_defined_consts.add(match.group(1))
 
         # Typedef struct/enum/union
@@ -261,7 +347,7 @@ Return exactly this JSON:
         for match in typedef_pattern.finditer(text):
             user_defined_types.add(match.group(1))
 
-        # Extract enum values from enum definitions
+        # Extract enum values from enum definitions - IMPROVED
         enum_pattern = re.compile(r'typedef\s+enum\s*\w*\s*\{([^}]+)\}', re.DOTALL)
         for match in enum_pattern.finditer(text):
             enum_body = match.group(1)
@@ -274,7 +360,7 @@ Return exactly this JSON:
                     if const_match:
                         user_defined_consts.add(const_match.group(1))
 
-        # Extract enum values from inline enum definitions
+        # Extract enum values from inline enum definitions - IMPROVED
         inline_enum_pattern = re.compile(r'enum\s*\w*\s*\{([^}]+)\}', re.DOTALL)
         for match in inline_enum_pattern.finditer(text):
             enum_body = match.group(1)
@@ -284,6 +370,32 @@ Return exactly this JSON:
                     const_match = re.match(r'([A-Z][A-Z0-9_]*)\s*(?:,|$)', line)
                     if const_match:
                         user_defined_consts.add(const_match.group(1))
+
+        # Extract constants from enum definitions without typedef
+        enum_def_pattern = re.compile(r'enum\s+[A-Za-z_][A-Za-z0-9_]*\s*\{([^}]+)\}', re.DOTALL)
+        for match in enum_def_pattern.finditer(text):
+            enum_body = match.group(1)
+            for line in enum_body.split('\n'):
+                line = line.strip()
+                if line and not line.startswith('/*') and not line.startswith('//'):
+                    const_match = re.match(r'([A-Z][A-Z0-9_]*)\s*(?:,|$)', line)
+                    if const_match:
+                        user_defined_consts.add(const_match.group(1))
+
+        # Extract constants from #define statements with values
+        define_value_pattern = re.compile(r'#define\s+([A-Z][A-Z0-9_]*)\s+[^\n]+')
+        for match in define_value_pattern.finditer(text):
+            user_defined_consts.add(match.group(1))
+
+        # Extract constants from const declarations
+        const_decl_pattern = re.compile(r'const\s+[A-Za-z_][A-Za-z0-9_]*\s+([A-Z][A-Z0-9_]*)\s*=')
+        for match in const_decl_pattern.finditer(text):
+            user_defined_consts.add(match.group(1))
+
+        # Extract constants from static const declarations
+        static_const_pattern = re.compile(r'static\s+const\s+[A-Za-z_][A-Za-z0-9_]*\s+([A-Z][A-Z0-9_]*)\s*=')
+        for match in static_const_pattern.finditer(text):
+            user_defined_consts.add(match.group(1))
 
         # --- Extract function calls ---
         func_pattern = re.compile(r'\b([A-Z][A-Za-z0-9_]*)\s*\(')
@@ -301,13 +413,43 @@ Return exactly this JSON:
             'register', 'unsigned', 'signed', 'short', 'long', 'inline', 'restrict',
             'if', 'else', 'for', 'while', 'do', 'switch', 'case', 'break', 'continue', 'goto', 'return',
             'sizeof', 'offsetof',
+            # Common C functions that should not be flagged
+            'CLAMP', 'MIN', 'MAX', 'ABS', 'SIGN', 'ROUND', 'FLOOR', 'CEIL',
+            'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh',
+            'exp', 'log', 'log10', 'pow', 'sqrt', 'fabs', 'floor', 'ceil',
+            'malloc', 'free', 'calloc', 'realloc', 'memcpy', 'memmove', 'memset',
+            'strcpy', 'strcat', 'strcmp', 'strlen', 'strchr', 'strstr',
         }
 
         # --- Check functions ---
         for func in found_funcs:
             if func in user_defined_funcs:
                 continue
-            if func not in self.patterns.AUTHENTIC_FUNCTIONS and func.upper() not in c_keywords:
+            # Normalize function name to lowercase for comparison
+            func_norm = func.lower()
+            # --- FIX: Cross-check with constants database ---
+            if func in self.patterns.AUTHENTIC_CONSTANTS:
+                continue  # It's a macro/constant, not a function
+            if func_norm not in self.patterns.AUTHENTIC_FUNCTIONS and func_norm not in c_keywords:
+                # Debug: Check if the function exists in the database
+                if func_norm in self.patterns.AUTHENTIC_FUNCTIONS:
+                    logger.debug(f"Function {func} ({func_norm}) found in database but still flagged")
+                else:
+                    logger.debug(f"Function {func} ({func_norm}) NOT found in database")
+                    # Debug: Show some functions that are in the database for comparison
+                    sample_funcs = list(self.patterns.AUTHENTIC_FUNCTIONS)[:5]
+                    logger.debug(f"Sample functions in database: {sample_funcs}")
+                    # Direct check for specific functions
+                    if func_norm in ['actor_setscale', 'collider_initcylinder', 'actor_playsfx']:
+                        logger.debug(f"Direct check - {func_norm} in set: {func_norm in self.patterns.AUTHENTIC_FUNCTIONS}")
+                        logger.debug(f"Set size: {len(self.patterns.AUTHENTIC_FUNCTIONS)}")
+                        # Check if the function exists in the original file
+                        with open('oot_valid_functions.txt', 'r') as f:
+                            file_contents = f.read().lower()
+                            if func_norm in file_contents:
+                                logger.debug(f"{func_norm} found in file but not in set!")
+                            else:
+                                logger.debug(f"{func_norm} not found in file either")
                 issues.append(f"Non-existent function: {func}")
                 suggestions.append(f"Replace {func} with an authentic OoT function or define it in the code block")
 
@@ -320,18 +462,50 @@ Return exactly this JSON:
             if const.startswith('ACTOR_EN_') or const.startswith('ACTOR_OBJ_') or const.startswith('ACTOR_BG_'):
                 continue  # These are typically user-defined actor constants
                 
-            if const.startswith('NA_SE_'):
-                if const not in self.patterns.AUTHENTIC_SOUND_EFFECTS:
+            # Skip FLAGS as it's commonly user-defined
+            if const == 'FLAGS':
+                continue
+                
+            # Skip common romhacking constants that are user-defined
+            romhacking_constants = {
+                'COLTYPE_NONE', 'COLTYPE_HIT1', 'COLTYPE_HIT2', 'COLTYPE_HIT3',
+                'COLSHAPE_CYLINDER', 'COLSHAPE_SPHERE', 'COLSHAPE_BOX', 'COLSHAPE_TRIS',
+                'ELEMTYPE_UNK0', 'ELEMTYPE_UNK1', 'ELEMTYPE_UNK2', 'ELEMTYPE_UNK3',
+                'TOUCH_NONE', 'TOUCH_ON', 'BUMP_ON', 'BUMP_NONE',
+                'OC_ON', 'OC_NONE', 'OCELEM_ON', 'OCELEM_NONE',
+                'AT_NONE', 'AT_ON', 'AC_ON', 'AC_NONE',
+                'ACTORCAT_ENEMY', 'ACTORCAT_NPC', 'ACTORCAT_MISC', 'ACTORCAT_ITEMACTION',
+                'ACTOR_FLAG_0', 'ACTOR_FLAG_1', 'ACTOR_FLAG_2', 'ACTOR_FLAG_3', 'ACTOR_FLAG_4', 'ACTOR_FLAG_5',
+                'MASS_IMMOVABLE', 'MASS_50', 'MASS_40', 'MASS_30',
+                'OBJECT_GAMEPLAY_KEEP', 'OBJECT_GAMEPLAY_DANGEON_KEEP',
+                'UPDBGCHECKINFO_FLAG_0', 'UPDBGCHECKINFO_FLAG_2', 'UPDBGCHECKINFO_FLAG_4',
+                'FLAGS_NONE', 'FLAGS_0', 'FLAGS_1', 'FLAGS_2', 'FLAGS_3', 'FLAGS_4', 'FLAGS_5'
+            }
+            if const in romhacking_constants:
+                continue  # These are commonly used in romhacking and should not be flagged
+                
+            const_norm = const.lower()
+            if const_norm.startswith('na_se_'):
+                if const_norm not in self.patterns.AUTHENTIC_SOUND_EFFECTS:
                     issues.append(f"Non-existent sound effect: {const}")
                     suggestions.append(f"Replace {const} with an authentic OoT sound effect or define it in the code block")
-            elif const not in self.patterns.AUTHENTIC_CONSTANTS and const not in self.patterns.AUTHENTIC_SOUND_EFFECTS:
+            elif const_norm not in self.patterns.AUTHENTIC_CONSTANTS and const_norm not in self.patterns.AUTHENTIC_SOUND_EFFECTS:
                 # Be more lenient with certain constant patterns
-                if const.startswith('ACTOR_FLAG_') and const.endswith(('0', '1', '2', '3', '4', '5')):
-                    issues.append(f"Non-existent constant: {const}")
-                    suggestions.append(f"Replace {const} with authentic OoT actor flags like ACTOR_FLAG_TALK, ACTOR_FLAG_FRIENDLY, etc.")
+                if const.startswith('ACTOR_FLAG_') and const.endswith(('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')):
+                    # These are commonly used in user-defined FLAGS macros, so be more lenient
+                    if const not in ['ACTOR_FLAG_0', 'ACTOR_FLAG_1', 'ACTOR_FLAG_2', 'ACTOR_FLAG_3', 'ACTOR_FLAG_4', 'ACTOR_FLAG_5']:
+                        issues.append(f"Non-existent constant: {const}")
+                        suggestions.append(f"Replace {const} with authentic OoT actor flags like ACTOR_FLAG_TALK, ACTOR_FLAG_FRIENDLY, etc.")
                 elif const.startswith('ACTORCAT_'):
-                    issues.append(f"Non-existent constant: {const}")
-                    suggestions.append(f"Replace {const} with authentic OoT actor categories like ACTORCAT_ENEMY, ACTORCAT_NPC, etc.")
+                    # These are commonly used in ActorProfile, so be more lenient
+                    if const not in ['ACTORCAT_ENEMY', 'ACTORCAT_NPC', 'ACTORCAT_ITEMACTION', 'ACTORCAT_MISC']:
+                        issues.append(f"Non-existent constant: {const}")
+                        suggestions.append(f"Replace {const} with authentic OoT actor categories like ACTORCAT_ENEMY, ACTORCAT_NPC, etc.")
+                elif const.startswith('OBJECT_'):
+                    # These are commonly used in ActorProfile, so be more lenient
+                    if const not in ['OBJECT_GAMEPLAY_KEEP', 'OBJECT_GAMEPLAY_DANGEON_KEEP']:
+                        issues.append(f"Non-existent constant: {const}")
+                        suggestions.append(f"Replace {const} with an authentic OoT object constant or define it in the code block")
                 else:
                     issues.append(f"Non-existent constant: {const}")
                     suggestions.append(f"Replace {const} with an authentic OoT constant or define it in the code block")
@@ -703,11 +877,11 @@ if __name__ == "__main__":
     scenario = """I need help creating a facial expression system for NPCs in OoT. I want NPCs to be able to switch between happy, sad, and angry expressions using a timer-based system. The expressions should smoothly transition using scale interpolation on the face mesh. Can you show me how to implement this as an actor with proper state management and animation timing? Use Audio_PlayActorSfx2 for sound effects and NA_SE_EV_STONE_DOOR for door sounds. The actor should be called ACTOR_EN_FACE_EXPR and use ActorProfile structure."""
     
     res = val.validate_scenario(scenario, "enemy")
-    print("=== VALIDATION RESULT ===")
-    print(f"Valid: {res.is_valid}")
-    print(f"Issues: {res.issues}")
-    print(f"Suggestions: {res.suggestions}")
-    print(f"Patterns: {res.authentic_patterns}")
+    logger.validation("=== VALIDATION RESULT ===")
+    logger.validation(f"Valid: {res.is_valid}")
+    logger.validation(f"Issues: {res.issues}")
+    logger.validation(f"Suggestions: {res.suggestions}")
+    logger.validation(f"Patterns: {res.authentic_patterns}")
     
-    print("\n--- Enhanced Prompt Preview (first 500 chars) ---")
-    print(val.create_enhanced_prompt(scenario, "enemy", res)[:500] + "...\n") 
+    logger.validation("\n--- Enhanced Prompt Preview (first 500 chars) ---")
+    logger.validation(val.create_enhanced_prompt(scenario, "enemy", res)[:500] + "...\n") 

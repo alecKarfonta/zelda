@@ -1,6 +1,6 @@
 # Fine-Tuning Language Models for Ocarina of Time Romhack Development: Comprehensive Strategy Report
 
-
+- [ ] We should run a compiler to see if the generated code is actually works. 
 
 Critical Issues Identified
 Two major fabricated functions were discovered that do not exist in the authentic codebase:

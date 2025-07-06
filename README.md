@@ -104,7 +104,7 @@ generator.generate_dataset(
 ```bash
 python generator.py \
     --num-examples 50 \
-    --output authentic_oot_training.jsonl \
+    --output data/authentic_oot_training.jsonl \
     --oot-path oot \
     --api-key your-api-key
 ```
@@ -322,4 +322,178 @@ For issues, questions, or contributions:
 
 **Note**: This system requires access to the OoT decompilation source code and an Anthropic API key to function properly. Make sure you have both before attempting to use the generator.
 
-**Happy Romhacking! 🎮** 
+**Happy Romhacking! 🎮**
+
+## Project Structure
+
+```
+src/
+├── core/
+│   ├── __init__.py
+│   └── logger.py              # Enhanced logging system
+├── models/
+│   ├── __init__.py
+│   └── enums.py               # Data models and enums
+├── analyzers/
+│   ├── __init__.py
+│   └── source_analyzer.py     # Dynamic source code analysis
+├── validation/
+│   ├── __init__.py
+│   └── authenticity_validator.py  # Strict authenticity validation
+├── generation/
+│   ├── __init__.py
+│   ├── main_generator.py      # Main generation logic
+│   ├── diversity_injector.py  # Diversity injection system
+│   └── temperature_manager.py # Dynamic temperature management
+├── parsers/
+│   ├── __init__.py
+│   └── response_parser.py     # Robust response parsing
+├── __init__.py
+└── main.py                    # Entry point
+```
+
+## Key Features
+
+### 🔍 Dynamic Source Analysis
+- Analyzes real OoT decompilation source files
+- Extracts authentic function signatures, structs, and constants
+- Validates generated code against real patterns
+
+### 🛡️ Strict Authenticity Validation
+- Enforces correct parameter order: `(Actor* thisx, PlayState* play)`
+- Rejects GlobalContext usage in favor of PlayState
+- Validates architectural patterns (EnItem00 for collectibles)
+- Ensures proper position access: `actor.world.pos`
+
+### 🌈 Diversity Injection
+- Weighted scenario selection for better variety
+- Dynamic temperature management based on diversity needs
+- Category-aware generation to avoid repetition
+
+### 🔧 Robust Response Parsing
+- Handles multiple LLM response formats
+- Extracts C code blocks and JSON structures
+- Fallback parsing for malformed responses
+
+## Usage
+
+### Basic Usage
+```bash
+python src/main.py --num-examples 30 --output training_data.jsonl
+```
+
+### Advanced Usage
+```bash
+python src/main.py \
+  --num-examples 50 \
+  --output authentic_training.jsonl \
+  --oot-path /path/to/oot/decompilation \
+  --api-key your_anthropic_key
+```
+
+### Environment Setup
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Set API key
+export ANTHROPIC_API_KEY="your_key_here"
+# Or create .env file
+echo "ANTHROPIC_API_KEY=your_key_here" > .env
+```
+
+## Module Overview
+
+### Core Logger (`src/core/logger.py`)
+Enhanced logging with function names and relevant emojis for better debugging.
+
+### Models (`src/models/enums.py`)
+- `ExampleType`: Different types of training examples
+- `ActorCategory`: OoT actor categories (enemy, npc, item, etc.)
+- `TrainingExample`: Data structure for generated examples
+
+### Source Analyzer (`src/analyzers/source_analyzer.py`)
+- Analyzes OoT decompilation source files
+- Extracts real function signatures, structs, and constants
+- Provides validation against authentic patterns
+
+### Authenticity Validator (`src/validation/authenticity_validator.py`)
+- Enforces strict OoT authenticity requirements
+- Applies mandatory corrections for common issues
+- Calculates authenticity scores
+
+### Main Generator (`src/generation/main_generator.py`)
+- Orchestrates the entire generation process
+- Integrates all modules for cohesive generation
+- Handles dataset creation and statistics
+
+### Diversity Injector (`src/generation/diversity_injector.py`)
+- Generates diverse instructions and scenarios
+- Manages category distribution
+- Provides complexity modifiers
+
+### Temperature Manager (`src/generation/temperature_manager.py`)
+- Dynamically adjusts generation temperature
+- Responds to diversity needs
+- Tracks usage patterns
+
+### Response Parser (`src/parsers/response_parser.py`)
+- Robust parsing of LLM responses
+- Handles multiple response formats
+- Extracts structured data from various inputs
+
+## Quality Features
+
+### Authenticity Enforcement
+- ✅ Correct parameter order: `(Actor* thisx, PlayState* play)`
+- ✅ Modern PlayState usage (no GlobalContext)
+- ✅ Proper position access: `actor.world.pos`
+- ✅ Authentic collision patterns
+- ✅ Real function signatures from decompilation
+
+### Diversity Management
+- ✅ Weighted example type distribution
+- ✅ Category-aware generation
+- ✅ Dynamic temperature adjustment
+- ✅ Unique scenario tracking
+
+### Robust Parsing
+- ✅ JSON block extraction
+- ✅ C code block parsing
+- ✅ Fallback strategies for malformed responses
+- ✅ Multiple extraction methods
+
+## Configuration
+
+The generator supports various configuration options:
+
+- **API Key**: Set via environment variable or command line
+- **OoT Path**: Path to decompilation source files
+- **Example Count**: Number of examples to generate
+- **Output File**: Where to save the training data
+- **Dynamic Analysis**: Enable/disable source analysis
+
+## Output Format
+
+Generated training data follows the standard format:
+```json
+{"instruction": "Create a skeletal warrior...", "output": "```c\n// C code here\n```"}
+```
+
+Additional metadata is saved in a separate analysis file with diversity metrics and validation summaries.
+
+## Dependencies
+
+- `anthropic`: For LLM API access
+- `python-dotenv`: For environment variable management
+- Standard library modules: `json`, `re`, `random`, `time`, `os`, `pathlib`
+
+## Contributing
+
+The modular structure makes it easy to:
+- Add new validation rules
+- Implement new diversity strategies
+- Extend source analysis capabilities
+- Add new response parsing methods
+
+Each module has clear responsibilities and interfaces, making the codebase maintainable and extensible. 

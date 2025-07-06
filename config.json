@@ -1,7 +1,7 @@
 {
     "generation_config": {
       "model": "claude-3-5-sonnet-20241022",
-      "temperature": 0.5,
+      "temperature": 0.15,
       "max_tokens": 4000,
       "quality_threshold": 6.0,
       "retry_limit": 3
