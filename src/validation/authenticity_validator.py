@@ -4,26 +4,29 @@ Strict Authenticity Validator for OoT Training Data
 """
 
 import re
-from typing import List, Optional
+import os
+import json
+from typing import List, Optional, Tuple
 from dataclasses import dataclass
 
 from src.core.logger import logger
 from src.analyzers.source_analyzer import DynamicSourceAnalyzer
 from .function_signature_validator import FunctionSignatureValidator
+from src.compilation.c_code_compiler import CCodeExtractor, CompilationResult
 
 
 @dataclass
 class ValidationResult:
-    """Result of scenario validation"""
-    is_valid: bool
+    """Result of authenticity validation"""
+    is_authentic: bool
+    score: float
     issues: List[str]
     suggestions: List[str]
-    authentic_patterns: List[str]
-    required_context: List[str]
+    compilation_result: Optional[CompilationResult] = None
 
 
 class StrictAuthenticityValidator:
-    """Enhanced validator with strict authenticity enforcement + real OoT function data"""
+    """Validates authenticity of generated OoT code against real codebase"""
     
     def __init__(self, source_analyzer: Optional[DynamicSourceAnalyzer] = None):
         # Use dynamic source analyzer if provided, otherwise use OoTAuthenticPatterns data
@@ -83,6 +86,27 @@ class StrictAuthenticityValidator:
             "Lights_PointNoGlowSetInfo": "LightContext_InsertLight",  # Replace with authentic lighting function
             "Math_Vec3f_DistXZ": "sqrtf(SQ(dx) + SQ(dz))",  # Replace with manual calculation
             "BGCHECKFLAG_GROUND": "UPDBGCHECKINFO_FLAG_0 | UPDBGCHECKINFO_FLAG_2",  # Replace with authentic flags
+            
+            # NEW: Updated corrections based on compilation testing
+            "COLTYPE_NONE": "COL_MATERIAL_NONE",
+            "COLTYPE_HIT0": "COL_MATERIAL_HIT0", 
+            "COLTYPE_HIT1": "COL_MATERIAL_HIT1",
+            "COLTYPE_HIT2": "COL_MATERIAL_HIT2",
+            "COLTYPE_HIT3": "COL_MATERIAL_HIT3",
+            "COLTYPE_METAL": "COL_MATERIAL_METAL",
+            "COLTYPE_WOOD": "COL_MATERIAL_WOOD",
+            "COLTYPE_HARD": "COL_MATERIAL_HARD",
+            "COLTYPE_TREE": "COL_MATERIAL_TREE",
+            "ELEMTYPE_UNK0": "ELEM_MATERIAL_UNK0",
+            "ELEMTYPE_UNK1": "ELEM_MATERIAL_UNK1",
+            "ELEMTYPE_UNK2": "ELEM_MATERIAL_UNK2",
+            "ELEMTYPE_UNK3": "ELEM_MATERIAL_UNK3",
+            "ELEMTYPE_UNK4": "ELEM_MATERIAL_UNK4",
+            "ELEMTYPE_UNK5": "ELEM_MATERIAL_UNK5",
+            "ELEMTYPE_UNK6": "ELEM_MATERIAL_UNK6",
+            "ELEMTYPE_UNK7": "ELEM_MATERIAL_UNK7",
+            "OPEN_DISPS(play->state.gfxCtx)": "OPEN_DISPS(play->state.gfxCtx, __FILE__, __LINE__)",
+            "CLOSE_DISPS(play->state.gfxCtx)": "CLOSE_DISPS(play->state.gfxCtx, __FILE__, __LINE__)",
         }
         
         # Forbidden patterns that indicate non-authenticity (STRICT)
@@ -122,6 +146,32 @@ class StrictAuthenticityValidator:
             r"Math_Vec3f_DistXZ",  # Non-existent math function
             r"BGCHECKFLAG_GROUND",  # Non-existent collision flag
             r"\"\"\"[^\"]+\"\"\"",  # Triple-quoted strings in C code
+            
+            # NEW: Updated forbidden patterns based on compilation testing
+            r"COLTYPE_[A-Z_]+",  # Wrong collision type constants (use COL_MATERIAL_*)
+            r"ELEMTYPE_[A-Z_]+",  # Wrong element type constants (use ELEM_MATERIAL_*)
+            r"OPEN_DISPS\(play->state\.gfxCtx\)(?!\s*,\s*__FILE__)",  # Missing file/line parameters
+            r"CLOSE_DISPS\(play->state\.gfxCtx\)(?!\s*,\s*__FILE__)",  # Missing file/line parameters
+            r"func_8002F71C",  # Non-existent function
+            r"sCylinderInit(?!\s*=)",  # Using sCylinderInit without declaring it
+            r"SkelAnime_InitFlex\([^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,\s*0\)",  # Wrong parameters
+            r"player->actor\.id\s*!=\s*ACTOR_PLAYER",  # Wrong player ID check
+            r"gSaveContext\.inventory\.questItems\s*&\s*0x3F",  # Wrong quest item check
+            r"play->colCtx\.waterLevel\s*=",  # Direct water level manipulation
+            r"play->msgCtx\.ocarinaMode\s*==\s*OCARINA_MODE_04",  # Wrong ocarina mode check
+            r"player->health",  # Wrong player health access
+            r"player->healthCapacity",  # Wrong player health capacity access
+            r"player->currentShield",  # Non-existent player shield access
+            r"player->swordState",  # Non-existent player sword state access
+            r"PLAYER_SHIELD_MAX",  # Non-existent constant
+            r"PLAYER_SWORD_MAX",  # Non-existent constant
+            r"LIMB_COUNT",  # Non-existent constant
+            r"ACTOR_FLAG_[8-9]|ACTOR_FLAG_1[0-9]",  # Non-existent actor flags
+            r"INV_CONTENT",  # Non-existent inventory function
+            r"Actor_DrawOpa",  # Non-existent drawing function
+            r"SkelAnime_DrawOpa\([^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*\)",  # Wrong signature
+            r"ZeldaArena_MallocDebug",  # Non-existent debug function
+            r"ZeldaArena_FreeDebug",  # Non-existent debug function
         ]
         
         # Required authentic patterns for quality code
@@ -131,6 +181,12 @@ class StrictAuthenticityValidator:
             r"world\.pos",  # Proper position access
             r"ACTORCAT_\w+",  # Actor categories
             r"Collider_\w+",  # Collision functions
+            r"COL_MATERIAL_\w+",  # Correct collision material constants
+            r"ELEM_MATERIAL_\w+",  # Correct element material constants
+            r"OPEN_DISPS\(play->state\.gfxCtx,\s*__FILE__,\s*__LINE__\)",  # Correct OPEN_DISPS usage
+            r"CLOSE_DISPS\(play->state\.gfxCtx,\s*__FILE__,\s*__LINE__\)",  # Correct CLOSE_DISPS usage
+            r"static\s+ColliderCylinderInit\s+sCylinderInit",  # Proper collision initialization
+            r"UPDBGCHECKINFO_FLAG_\d+",  # Correct background check flags
         ]
         
         # Real architectural patterns from OoT decompilation
@@ -147,9 +203,20 @@ class StrictAuthenticityValidator:
             "matrix_strings": "Use __FILE__, __LINE__ for Matrix_NewMtx(), not triple-quoted strings",
             "background_collision": "Use UPDBGCHECKINFO_FLAG_0 | UPDBGCHECKINFO_FLAG_2 for Actor_UpdateBgCheckInfo()",
             "math_functions": "Use sqrtf(SQ(dx) + SQ(dz)) for distance calculations, not Math_Vec3f_DistXZ()",
+            "collision_materials": "Use COL_MATERIAL_* constants (COL_MATERIAL_NONE, COL_MATERIAL_HIT0, etc.) instead of COLTYPE_*",
+            "element_materials": "Use ELEM_MATERIAL_* constants (ELEM_MATERIAL_UNK0, ELEM_MATERIAL_UNK1, etc.) instead of ELEMTYPE_*",
+            "graphics_macros": "Use OPEN_DISPS(play->state.gfxCtx, __FILE__, __LINE__) and CLOSE_DISPS(play->state.gfxCtx, __FILE__, __LINE__)",
+            "collision_init": "Declare static ColliderCylinderInit sCylinderInit = { ... }; for collision initialization",
+            "skeleton_init": "Use SkelAnime_InitFlex(play, &skelAnime, skeleton, animation, jointTable, morphTable, limbCount)",
+            "player_access": "Use gSaveContext.health and gSaveContext.healthCapacity for player health, gSaveContext.equips.buttonItems for equipment",
+            "actor_flags": "Use ACTOR_FLAG_0 through ACTOR_FLAG_15 for actor flags",
+            "memory_management": "Use ZeldaArena_Malloc(size) and ZeldaArena_Free(ptr) for memory management",
+            "drawing_functions": "Use SkelAnime_DrawFlexOpa(play, skeleton, jointTable, dListCount, NULL, NULL, this) for skeleton drawing",
         }
 
         self.function_validator = FunctionSignatureValidator()
+        self.code_extractor = CCodeExtractor()
+        self.compiler = None  # Will be initialized when needed
 
     def validate_function_signatures(self, code: str) -> List[str]:
         """Strict validation against real OoT function signatures"""
@@ -388,21 +455,120 @@ class StrictAuthenticityValidator:
         
         return issues
 
-    def validate_code_output(self, code: str, category: str) -> ValidationResult:
-        """Validate C code output for function/constant/sfx/struct existence and OoT patterns."""
-        issues, sugg, pats = [], [], []
+    def validate_code(self, code: str, category: str = "general") -> ValidationResult:
+        """Validate code authenticity and compile it if possible"""
+        issues = []
+        suggestions = []
         
-        # NEW: Validate function calls against authentic signatures
-        function_issues = self.function_validator.validate_code_function_calls(code)
-        issues.extend(function_issues)
+        # Extract C code if present
+        extracted_snippets = self.code_extractor.extract_c_code(code)
+        
+        # Initialize compiler if we have C code to test
+        compilation_result = None
+        if extracted_snippets:
+            if self.compiler is None:
+                from src.compilation.c_code_compiler import OoTCompiler
+                self.compiler = OoTCompiler()
+            
+            # Try to compile the first (largest) code snippet
+            largest_snippet = max(extracted_snippets, key=len) if extracted_snippets else ""
+            
+            try:
+                compilation_result = self.compiler.compile_code(largest_snippet)
+            except Exception as e:
+                logger.warning(f"Compilation test failed: {e}")
+                compilation_result = CompilationResult(
+                    success=False,
+                    error_messages=[f"Compilation test error: {e}"],
+                    warnings=[],
+                    compilation_time=0.0,
+                    extracted_code=largest_snippet
+                )
+        
+        # Perform authenticity validation
+        auth_score, auth_issues, auth_suggestions = self._validate_authenticity(code, category)
+        
+        # Combine issues and suggestions
+        all_issues = auth_issues.copy()
+        all_suggestions = auth_suggestions.copy()
+        
+        # Add compilation issues if compilation failed
+        if compilation_result and not compilation_result.success:
+            all_issues.append("Compilation failed - code contains syntax errors or missing dependencies")
+            if compilation_result.error_messages:
+                # Add first few compilation errors as specific issues
+                for error in compilation_result.error_messages[:3]:
+                    all_issues.append(f"Compilation error: {error}")
+            
+            # Add compilation-specific suggestions
+            if "unknown type name" in str(compilation_result.error_messages):
+                all_suggestions.append("Include proper OoT header files (z_actor.h, z_play.h, etc.)")
+            if "implicit declaration" in str(compilation_result.error_messages):
+                all_suggestions.append("Add proper function declarations or include required headers")
+            if "undefined reference" in str(compilation_result.error_messages):
+                all_suggestions.append("Ensure all referenced functions are properly declared")
+        
+        # Calculate overall score (authenticity + compilation success)
+        overall_score = auth_score
+        if compilation_result and compilation_result.success:
+            overall_score += 0.2  # Bonus for successful compilation
+        elif compilation_result and not compilation_result.success:
+            overall_score -= 0.3  # Penalty for compilation failure
+        
+        overall_score = max(0.0, min(10.0, overall_score))  # Clamp to 0-10
         
         return ValidationResult(
-            is_valid=len(issues) == 0,
-            issues=issues,
-            suggestions=sugg,
-            authentic_patterns=pats,
-            required_context=[]
+            is_authentic=overall_score >= 7.0,
+            score=overall_score,
+            issues=all_issues,
+            suggestions=all_suggestions,
+            compilation_result=compilation_result
         )
+    
+    def _validate_authenticity(self, code: str, category: str) -> Tuple[float, List[str], List[str]]:
+        """Core authenticity validation logic"""
+        issues = []
+        suggestions = []
+        score = 8.0  # Start with good score
+        
+        # Check for common inauthentic patterns
+        if "printf" in code or "scanf" in code:
+            issues.append("Uses standard C I/O functions not available in OoT")
+            suggestions.append("Use OoT's message system or debug functions instead")
+            score -= 2.0
+        
+        if "malloc" in code or "free" in code:
+            issues.append("Uses dynamic memory allocation not available in OoT")
+            suggestions.append("Use static allocation or OoT's memory management")
+            score -= 2.0
+        
+        if "fopen" in code or "fclose" in code:
+            issues.append("Uses file I/O not available in OoT")
+            suggestions.append("Use OoT's save system or data structures")
+            score -= 2.0
+        
+        # Check for OoT-specific patterns
+        if "Actor" in code and "PlayState" in code:
+            score += 0.5  # Bonus for proper OoT actor structure
+        
+        if "Collider" in code and "CollisionCheck" in code:
+            score += 0.5  # Bonus for proper collision system usage
+        
+        if "SkelAnime" in code:
+            score += 0.5  # Bonus for skeleton animation usage
+        
+        # Check for missing OoT patterns
+        if "Actor" in code and "Actor_UpdateBgCheckInfo" not in code:
+            issues.append("Missing background collision check")
+            suggestions.append("Add Actor_UpdateBgCheckInfo call in Update function")
+            score -= 1.0
+        
+        if "Collider" in code and "Collider_UpdateCylinder" not in code:
+            issues.append("Missing collider update")
+            suggestions.append("Add Collider_UpdateCylinder call in Update function")
+            score -= 1.0
+        
+        return score, issues, suggestions
 
     def _check_nonexistent_player_health_access(self, code: str) -> List[str]:
         """Check for incorrect player health access patterns."""

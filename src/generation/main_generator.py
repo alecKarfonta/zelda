@@ -19,13 +19,14 @@ from src.validation.authenticity_validator import StrictAuthenticityValidator
 from src.generation.diversity_injector import DiversityInjector
 from src.generation.temperature_manager import DynamicTemperatureManager
 from src.parsers.response_parser import ResponseParser
+from src.compilation.c_code_compiler import TrainingDataCompiler
 
 
 class EnhancedOoTTrainingGenerator:
     """Enhanced generator with strict authenticity + real OoT decompilation data + diversity injection"""
     
     def __init__(self, api_key: Optional[str] = None, model: str = "claude-3-5-sonnet-20241022", 
-                 oot_path: str = "oot", use_dynamic_analysis: bool = True):
+                 oot_path: str = "oot", use_dynamic_analysis: bool = True, enable_compilation: bool = False):
         # Try to get API key from environment first, then parameter
         self.api_key = api_key or os.getenv('ANTHROPIC_API_KEY')
         if not self.api_key:
@@ -58,6 +59,16 @@ class EnhancedOoTTrainingGenerator:
         self.use_validation = True
         logger.success("✅ Enhanced validation and context generation enabled")
         
+        # Initialize C code compilation if enabled
+        self.enable_compilation = enable_compilation
+        if enable_compilation:
+            try:
+                self.compiler = TrainingDataCompiler(oot_path)
+                logger.success("✅ C code compilation enabled")
+            except Exception as e:
+                logger.warning(f"⚠️ Failed to initialize C code compiler: {e}")
+                self.enable_compilation = False
+        
         # Load authentic reference patterns from real decompilation
         self.authentic_examples = self._load_real_oot_examples()
         self.context_templates = self._load_enhanced_contexts()
@@ -85,6 +96,27 @@ typedef struct {
     /* 0x154 */ ColliderCylinder collider;
 } EnExample; // size = 0x1A0
 
+// Authentic collision initialization pattern
+static ColliderCylinderInit sCylinderInit = {
+    {
+        COL_MATERIAL_NONE,  // Use COL_MATERIAL_* constants, not COLTYPE_*
+        AT_NONE,
+        AC_ON | AC_TYPE_PLAYER,
+        OC1_ON | OC1_TYPE_ALL,
+        OC2_TYPE_1,
+        COLSHAPE_CYLINDER,
+    },
+    {
+        ELEM_MATERIAL_UNK0,  // Use ELEM_MATERIAL_* constants, not ELEMTYPE_*
+        { 0x00000000, HIT_SPECIAL_EFFECT_NONE, 0x00 },
+        { 0x00000010, HIT_BACKLASH_NONE, 0x00 },
+        ATELEM_NONE,
+        ACELEM_ON,
+        OCELEM_ON,
+    },
+    { 15, 25, 0, { 0, 0, 0 } },
+};
+
 void EnExample_Init(Actor* thisx, PlayState* play) {
     EnExample* this = (EnExample*)thisx;
     
@@ -104,12 +136,25 @@ void EnExample_Update(Actor* thisx, PlayState* play) {
     EnExample* this = (EnExample*)thisx;
     
     // Authentic collision update pattern
-    Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, BGCHECKFLAG_GROUND);
+    Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, UPDBGCHECKINFO_FLAG_0 | UPDBGCHECKINFO_FLAG_2);
     Collider_UpdateCylinder(&this->actor, &this->collider);
     CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);
     
     // Authentic movement pattern
     Actor_MoveXZGravity(&this->actor);
+}
+
+void EnExample_Draw(Actor* thisx, PlayState* play) {
+    EnExample* this = (EnExample*)thisx;
+    
+    OPEN_DISPS(play->state.gfxCtx, __FILE__, __LINE__);
+    
+    Gfx_SetupDL_25Opa(play->state.gfxCtx);
+    Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__);
+    
+    // Drawing code here
+    
+    CLOSE_DISPS(play->state.gfxCtx, __FILE__, __LINE__);
 }
 
 // AUTHENTIC ActorProfile from decompilation
@@ -149,7 +194,7 @@ void SpawnBlueRupee(PlayState* play, Vec3f* pos) {
 
 static ColliderCylinderInit sCylinderInit = {
     {
-        COL_MATERIAL_NONE,
+        COL_MATERIAL_NONE,  // Use COL_MATERIAL_* constants, not COLTYPE_*
         AT_NONE,
         AC_ON | AC_TYPE_PLAYER,
         OC1_ON | OC1_TYPE_ALL,
@@ -157,7 +202,7 @@ static ColliderCylinderInit sCylinderInit = {
         COLSHAPE_CYLINDER,
     },
     {
-        ELEM_MATERIAL_UNK0,
+        ELEM_MATERIAL_UNK0,  // Use ELEM_MATERIAL_* constants, not ELEMTYPE_*
         { 0x00000000, HIT_SPECIAL_EFFECT_NONE, 0x00 },
         { 0x00000010, HIT_BACKLASH_NONE, 0x00 },
         ATELEM_NONE,
@@ -174,6 +219,9 @@ Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
 // Authentic update sequence  
 Collider_UpdateCylinder(&this->actor, &this->collider);
 CollisionCheck_SetOC(play, &play->colChkCtx, &this->collider.base);
+
+// Authentic background check pattern
+Actor_UpdateBgCheckInfo(play, &this->actor, 26.0f, 10.0f, 0.0f, UPDBGCHECKINFO_FLAG_0 | UPDBGCHECKINFO_FLAG_2);
 """,
         }
 
@@ -301,6 +349,60 @@ VALIDATION WILL REJECT ANY EXAMPLE VIOLATING THESE REQUIREMENTS.
 ✓ Use specific numbers like 20 for limb count instead of LIMB_COUNT
 ✓ Use GET_PLAYER(play) without additional ID checks
 ✓ Use Gfx_SetupDL_25Opa(play->state.gfxCtx) for graphics setup
+
+🚨 UPDATED AUTHENTICITY REQUIREMENTS BASED ON COMPILATION TESTING:
+✗ NEVER use COLTYPE_NONE, COLTYPE_HIT0, etc. - use COL_MATERIAL_NONE, COL_MATERIAL_HIT0 instead
+✗ NEVER use ELEMTYPE_UNK0, ELEMTYPE_UNK1, etc. - use ELEM_MATERIAL_UNK0, ELEM_MATERIAL_UNK1 instead
+✗ NEVER use OPEN_DISPS(play->state.gfxCtx) without file/line - use OPEN_DISPS(play->state.gfxCtx, __FILE__, __LINE__)
+✗ NEVER use CLOSE_DISPS(play->state.gfxCtx) without file/line - use CLOSE_DISPS(play->state.gfxCtx, __FILE__, __LINE__)
+✗ NEVER use func_8002F71C() - this function doesn't exist in OoT
+✗ NEVER use sCylinderInit without declaring it as static ColliderCylinderInit sCylinderInit
+✗ NEVER use SkelAnime_InitFlex with wrong parameters - must include jointTable and morphTable
+✗ NEVER use player->actor.id != ACTOR_PLAYER - GET_PLAYER() always returns player
+✗ NEVER use gSaveContext.inventory.questItems & 0x3F - use specific quest item flags
+✗ NEVER use play->colCtx.waterLevel = value - water level is handled through room systems
+✗ NEVER use play->msgCtx.ocarinaMode == OCARINA_MODE_04 - ocarina handled through player state
+✗ NEVER use player->health or player->healthCapacity - use gSaveContext.health and gSaveContext.healthCapacity
+✗ NEVER use player->currentShield or player->swordState - these don't exist
+✗ NEVER use PLAYER_SHIELD_MAX, PLAYER_SWORD_MAX, LIMB_COUNT - these constants don't exist
+✗ NEVER use ACTOR_FLAG_8 or other non-existent flags - use ACTOR_FLAG_0 through ACTOR_FLAG_15
+✗ NEVER use fabricated patterns like INV_CONTENT(), Actor_DrawOpa(), etc.
+✗ NEVER use SkelAnime_DrawOpa with wrong signature - use SkelAnime_DrawFlexOpa
+✗ NEVER spawn same actor type recursively - use different actor types for illusions/effects
+✗ NEVER assign Math_SmoothStepToF() result to variable - function returns bool, not float
+✗ NEVER use player->stateFlags1 & PLAYER_STATE1_20 - this flag doesn't exist in OoT
+✗ NEVER reference jointTable/morphTable without declaring them in struct
+✗ NEVER use ZeldaArena_MallocDebug() or ZeldaArena_FreeDebug() - these don't exist in OoT
+✗ NEVER implement dynamic memory allocation in actors - not an authentic OoT pattern
+
+✓ Use COL_MATERIAL_NONE, COL_MATERIAL_HIT0, COL_MATERIAL_HIT1, etc. for collision materials
+✓ Use ELEM_MATERIAL_UNK0, ELEM_MATERIAL_UNK1, etc. for element materials
+✓ Use OPEN_DISPS(play->state.gfxCtx, __FILE__, __LINE__) and CLOSE_DISPS(play->state.gfxCtx, __FILE__, __LINE__)
+✓ Use static ColliderCylinderInit sCylinderInit = { ... }; for collision initialization
+✓ Use SkelAnime_InitFlex(play, &skelAnime, skeleton, animation, jointTable, morphTable, limbCount)
+✓ Use GET_PLAYER(play) without additional ID checks
+✓ Use specific quest item flags like QUEST_MEDALLION_FOREST
+✓ Use room-specific water systems instead of direct colCtx manipulation
+✓ Use player actor state machine for ocarina handling
+✓ Use gSaveContext.health and gSaveContext.healthCapacity for player health
+✓ Use gSaveContext.equips.buttonItems[0] for current sword, gSaveContext.equips.buttonItems[1] for shield
+✓ Use specific numbers like 20 for limb count instead of LIMB_COUNT
+✓ Use ACTOR_FLAG_0 through ACTOR_FLAG_15 for actor flags
+✓ Use authentic drawing function signatures from OoT decompilation
+✓ Use different actor types for illusions/effects (not recursive spawning)
+✓ Use Math_SmoothStepToF(&variable, target, step, maxStep, minStep) without assignment
+✓ Use authentic player state flags from OoT decompilation
+✓ Declare Vec3s jointTable[LIMB_COUNT]; and Vec3s morphTable[LIMB_COUNT]; in struct if using skeleton animation
+✓ Use ZeldaArena_Malloc(size) and ZeldaArena_Free(ptr) for memory management
+✓ Use pre-allocated memory structures instead of dynamic allocation in actors
+✓ Use Gfx_SetupDL_25Opa(play->state.gfxCtx) for graphics setup
+✓ Use Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__) for matrix creation
+✓ Use Actor_WorldDistXZToActor(&this->actor, &player->actor) for distance checks
+✓ Use if (gSaveContext.inventory.items[SLOT_HOOKSHOT] != ITEM_NONE) for item checks
+✓ Use proper collision access patterns from OoT collision system
+✓ Use SkelAnime_DrawFlexOpa(play, this->skelAnime.skeleton, this->skelAnime.jointTable, this->skelAnime.dListCount, NULL, NULL, this)
+✓ Use proper flag checking: if (this->actor.flags & ACTOR_FLAG_0)
+✓ Declare SkelAnime skelAnime; in struct if using skeleton animation
 """,
             
             "authentic_actor_context": f"""
@@ -321,6 +423,9 @@ typedef struct {{
     /* 0x014E */ s16 actionState;
     /* 0x0150 */ f32 customScale;
     /* 0x0154 */ ColliderCylinder collider;  // If collision needed
+    /* 0x01A0 */ SkelAnime skelAnime;  // If skeleton animation needed
+    /* 0x01E4 */ Vec3s jointTable[20];  // If skeleton animation needed
+    /* 0x0254 */ Vec3s morphTable[20];  // If skeleton animation needed
 }} ActorName; // size = calculated correctly
 
 // MANDATORY: Exact parameter order from decompilation
@@ -346,6 +451,45 @@ const ActorProfile ActorName_Profile = {{
     /**/ ActorName_Update,
     /**/ ActorName_Draw,
 }};
+```
+
+AUTHENTIC COLLISION PATTERN (from z_collision_check.c):
+```c
+static ColliderCylinderInit sCylinderInit = {{
+    {{
+        COL_MATERIAL_NONE,  // Use COL_MATERIAL_* constants, not COLTYPE_*
+        AT_NONE,
+        AC_ON | AC_TYPE_PLAYER,
+        OC1_ON | OC1_TYPE_ALL,
+        OC2_TYPE_1,
+        COLSHAPE_CYLINDER,
+    }},
+    {{
+        ELEM_MATERIAL_UNK0,  // Use ELEM_MATERIAL_* constants, not ELEMTYPE_*
+        {{ 0x00000000, HIT_SPECIAL_EFFECT_NONE, 0x00 }},
+        {{ 0x00000010, HIT_BACKLASH_NONE, 0x00 }},
+        ATELEM_NONE,
+        ACELEM_ON,
+        OCELEM_ON,
+    }},
+    {{ 15, 25, 0, {{ 0, 0, 0 }} }},
+}};
+```
+
+AUTHENTIC GRAPHICS PATTERN (from z_actor.c):
+```c
+void ActorName_Draw(Actor* thisx, PlayState* play) {{
+    ActorName* this = (ActorName*)thisx;
+    
+    OPEN_DISPS(play->state.gfxCtx, __FILE__, __LINE__);
+    
+    Gfx_SetupDL_25Opa(play->state.gfxCtx);
+    Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__);
+    
+    // Drawing code here
+    
+    CLOSE_DISPS(play->state.gfxCtx, __FILE__, __LINE__);
+}}
 ```
 
 AUTHENTIC REFERENCE EXAMPLE:
@@ -489,7 +633,7 @@ Return exactly this JSON:
         return prompt
 
     def _multi_pass_validation(self, example: TrainingExample) -> TrainingExample:
-        """Multi-pass validation with progressive correction"""
+        """Multi-pass validation with progressive correction and compilation testing"""
         
         # Pass 1: CRITICAL - Feedback pattern validation
         feedback_issues = self.validator.validate_feedback_patterns(example.output)
@@ -521,7 +665,27 @@ Return exactly this JSON:
             example.validation_notes += f"Feedback validation issues: {len(feedback_issues)}. "
             logger.warning(f"[FEEDBACK] Found {len(feedback_issues)} feedback issues")
         
-        # Pass 6: Final quality scoring
+        # Pass 6: Compilation validation (if enabled)
+        if self.enable_compilation:
+            category = self._map_example_type_to_category(example.example_type)
+            validation_result = self.validator.validate_code(example.output, category)
+            
+            if validation_result.compilation_result:
+                if validation_result.compilation_result.success:
+                    example.validation_notes += "Compilation: SUCCESS. "
+                    logger.success(f"[COMPILATION] Code compiles successfully")
+                else:
+                    error_count = len(validation_result.compilation_result.error_messages or [])
+                    example.validation_notes += f"Compilation: FAILED ({error_count} errors). "
+                    logger.warning(f"[COMPILATION] Code has compilation errors")
+                    if validation_result.compilation_result.error_messages:
+                        for error in validation_result.compilation_result.error_messages[:3]:
+                            logger.warning(f"  - {error}")
+            
+            # Update authenticity score based on compilation result
+            example.authenticity_score = validation_result.score
+        
+        # Pass 7: Final quality scoring
         example.quality_score = self._calculate_quality_score(example)
         
         return example
@@ -730,6 +894,10 @@ Return exactly this JSON:
         logger.info(f"   - Example types: {len([t for t in diversity_metrics['example_types'].values() if t > 0])}/{len(ExampleType)}")
         logger.info(f"   - Unique scenarios: {len(diversity_metrics['unique_scenarios'])}")
         logger.file_ops(f" Saved to: {output_file}")
+        
+        # Compile C code if enabled
+        if self.enable_compilation:
+            self._compile_generated_dataset(output_file)
 
     def _calculate_diversity_bonus(self, example: TrainingExample, diversity_metrics: Dict) -> float:
         """Calculate diversity bonus for underrepresented categories"""
@@ -826,4 +994,88 @@ Return exactly this JSON:
         
         metadata_file = output_file.replace('.jsonl', '_diversity_analysis.json')
         with open(metadata_file, 'w') as f:
-            json.dump(metadata, f, indent=2) 
+            json.dump(metadata, f, indent=2)
+    
+    def _compile_generated_dataset(self, output_file: str) -> None:
+        """Compile C code from the generated dataset"""
+        if not self.enable_compilation:
+            return
+            
+        logger.info("🔧 Compiling C code from generated dataset...")
+        
+        try:
+            # Process the generated dataset
+            results = self.compiler.process_training_data(output_file)
+            
+            # Generate compilation report
+            report = self.compiler.generate_compilation_report(results)
+            
+            # Save compilation report
+            report_file = output_file.replace('.jsonl', '_compilation_report.txt')
+            with open(report_file, 'w') as f:
+                f.write(report)
+            
+            # Print summary
+            total_examples = len(results)
+            successful_compilations = sum(1 for r in results if r.success)
+            
+            logger.info("📊 Compilation Results:")
+            logger.info(f"  - Total C code snippets: {total_examples}")
+            logger.info(f"  - Successful compilations: {successful_compilations}")
+            logger.info(f"  - Success rate: {(successful_compilations/total_examples*100):.1f}%" if total_examples > 0 else "  - Success rate: 0.0%")
+            logger.info(f"  - Report saved to: {report_file}")
+            
+            if successful_compilations > 0:
+                logger.success(f"✅ {successful_compilations} C code snippets compiled successfully!")
+            else:
+                logger.warning("⚠️ No C code snippets compiled successfully")
+                
+        except Exception as e:
+            logger.error(f"❌ Compilation error: {e}")
+    
+    def _refine_response(self, prompt: str, response: str, validation_result) -> Optional[str]:
+        """Refine response based on validation feedback including compilation errors"""
+        
+        if not validation_result.issues:
+            return None
+            
+        # Create refinement prompt with specific compilation errors
+        refinement_prompt = f"""
+The following C code has compilation errors and needs to be fixed:
+
+ORIGINAL CODE:
+{response}
+
+COMPILATION ERRORS:
+{chr(10).join(f"- {issue}" for issue in validation_result.issues[:5])}
+
+SUGGESTIONS:
+{chr(10).join(f"- {suggestion}" for suggestion in validation_result.suggestions[:5])}
+
+Please fix the compilation errors and provide corrected C code that follows OoT decompilation patterns exactly. 
+Focus on:
+1. Including proper header files
+2. Using correct OoT function signatures
+3. Following authentic struct patterns
+4. Fixing syntax errors
+
+Return only the corrected C code:
+"""
+        
+        try:
+            refined_response = self.client.messages.create(
+                model=self.model,
+                max_tokens=4000,
+                temperature=0.1,  # Low temperature for corrections
+                messages=[{"role": "user", "content": refinement_prompt}]
+            )
+            
+            content_block = refined_response.content[0]
+            if content_block.type == 'text':
+                return content_block.text
+            else:
+                return str(content_block)
+                
+        except Exception as e:
+            logger.error(f"Refinement failed: {e}")
+            return None 

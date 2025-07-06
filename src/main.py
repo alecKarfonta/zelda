@@ -220,6 +220,12 @@ For more information, see the documentation in docs/ directory.
         help="Disable dynamic source analysis (faster but less authentic)"
     )
     
+    parser.add_argument(
+        "--enable-compilation",
+        action="store_true",
+        help="Enable C code compilation testing for generated examples"
+    )
+    
     # Quality control
     parser.add_argument(
         "--quality-threshold",
@@ -409,6 +415,7 @@ def main():
     logger.info(f"🔧 Model: {args.model}")
     logger.info(f"📂 OoT path: {args.oot_path}")
     logger.info(f"⚡ Dynamic analysis: {'disabled' if args.no_dynamic else 'enabled'}")
+    logger.info(f"🔧 C code compilation: {'enabled' if args.enable_compilation else 'disabled'}")
     logger.info(f"🎯 Quality threshold: {args.quality_threshold}")
     logger.info(f"🔍 Authenticity threshold: {args.authenticity_threshold}")
     
@@ -432,7 +439,8 @@ def main():
             api_key=args.api_key,
             model=args.model,
             oot_path=args.oot_path,
-            use_dynamic_analysis=not args.no_dynamic
+            use_dynamic_analysis=not args.no_dynamic,
+            enable_compilation=args.enable_compilation
         )
         
         # Configure generation settings

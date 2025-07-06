@@ -21,6 +21,7 @@ USAGE:
         --focus-categories enemy,npc \
         --focus-types actor_creation,ai_behavior \
         --complexity advanced \
+        --enable-compilation \
         --verbose
     
     # For parsing and analysis, use parse_logs.py instead:
