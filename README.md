@@ -496,4 +496,117 @@ The modular structure makes it easy to:
 - Extend source analysis capabilities
 - Add new response parsing methods
 
-Each module has clear responsibilities and interfaces, making the codebase maintainable and extensible. 
+Each module has clear responsibilities and interfaces, making the codebase maintainable and extensible.
+
+# Zelda OoT Actor System Log Parser
+
+This repository contains scripts to parse and analyze JSONL log files containing Zelda OoT actor system generation data.
+
+## Files
+
+### Input Data
+- `large_generation_20.jsonl` - The source JSONL file containing 20 entries with actor system implementations
+
+### Parsing Scripts
+- `parse_logs.py` - Comprehensive parser that generates a detailed Markdown report
+- `extract_actors.py` - Simple actor extractor with clean console output
+- `final_summary.py` - Final summary with statistics and categorization
+
+### Generated Reports
+- `zelda_actor_system_report.md` - Comprehensive analysis report
+
+## Analysis Results
+
+### Summary Statistics
+- **Total Entries:** 20
+- **Unique Actor Types:** 20
+- **Unique Functions:** 65
+- **Categories:** 8
+
+### Extracted Actor Types
+1. **Gargoyle** - Stone gargoyle that mirrors player equipment
+2. **FloatingItem** - Advanced error handling example
+3. **MemMgr** - Memory management system
+4. **MemoryDemo** - Feature implementation demo
+5. **SpinItem** - Spinning collectible item
+6. **Cloth** - Physics-based cloth animation
+7. **Scholar** - NPC that teleports between locations
+8. **DebugInfo** - Debug system with collision detection
+9. **SoundOpt** - Sound optimization system
+10. **Statue** - Multi-state statue system
+11. **Optimizer** - Optimization functionality
+12. **DoorSlide** - Puzzle door system
+13. **JjBubble** - Jabu-Jabu's Belly bubble effects
+14. **VoiceAct** - Voice acting system
+15. **Npc** - Animation state machine
+16. **NpcAI** - AI behavior system
+17. **Lift** - Mechanical lift system
+18. **ItemManage** - Equipment/inventory management
+19. **LavaBeast** - Enemy with hit-and-run tactics
+
+### Function Categories
+- **Init Functions:** 19 occurrences
+- **Update Functions:** 21 occurrences  
+- **Draw Functions:** 15 occurrences
+- **Destroy Functions:** 8 occurrences
+
+### Feature Categories
+- **Actor Systems:** 4 entries
+- **Animation:** 2 entries
+- **Sound:** 2 entries
+- **Combat:** 2 entries
+- **Memory & Optimization:** 2 entries
+- **Debug & Error Handling:** 2 entries
+- **Puzzle:** 1 entry
+- **Other:** 5 entries
+
+## Usage
+
+### Generate Comprehensive Report
+```bash
+python3 parse_logs.py
+```
+
+### Extract Actor Information
+```bash
+python3 extract_actors.py
+```
+
+### Generate Final Summary
+```bash
+python3 final_summary.py
+```
+
+## Code Patterns
+
+The scripts extract various code patterns from the JSONL data:
+
+- **Actor Struct Definitions:** `typedef struct { ... } EnActorName;`
+- **Function Definitions:** `void EnActorName_Function()`
+- **Actor Profiles:** `const ActorProfile En_ActorName_InitVars`
+- **Collision Systems:** Collider initialization and update patterns
+- **Animation Systems:** SkelAnime and animation state management
+- **State Machines:** Action state management patterns
+
+## Authentic OoT Patterns
+
+All extracted code follows authentic OoT decompilation standards:
+
+- Proper memory layout with hex offsets
+- Standard actor function signatures
+- Authentic collision system usage
+- Proper display list setup patterns
+- Standard OoT naming conventions
+
+## Output Files
+
+- `zelda_actor_system_report.md` - Full analysis report
+- Console output with categorized statistics
+- Detailed breakdown of all extracted objects
+
+## Requirements
+
+- Python 3.6+
+- Standard library modules: `json`, `re`, `collections`, `datetime`, `os`
+
+No external dependencies required. 
