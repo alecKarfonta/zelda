@@ -1,0 +1,46 @@
+{
+  "total_assets": 5716,
+  "total_size_bytes": 7407104,
+  "file_types": {
+    ".h": 79,
+    ".png": 5545,
+    ".c": 92
+  },
+  "formats": {
+    "i4": 4448,
+    "ia8": 419,
+    "rgba16": 5,
+    "i8": 20,
+    "rgba32": 114,
+    "ci8": 120
+  },
+  "directories": {
+    "message_texture_static": 4,
+    "icon_item_dungeon_static": 21,
+    "nintendo_rogo_static": 8,
+    "icon_item_24_static": 20,
+    "map_name_static": 70,
+    "do_action_static": 58,
+    "nes_font_static": 141,
+    "map_48x85_static": 70,
+    "icon_item_jpn_static": 31,
+    "icon_item_gameover_static": 8,
+    "icon_item_field_static": 29,
+    "parameter_static": 58,
+    "backgrounds": 155,
+    "icon_item_nes_static": 31,
+    "icon_item_static": 186,
+    "kanji": 3976,
+    "item_name_static": 246,
+    "title_static": 122,
+    "message_static": 9,
+    "skyboxes": 92,
+    "map_i_static": 241,
+    "map_grand_static": 26,
+    "place_title_cards": 114
+  },
+  "images": 5545,
+  "non_images": 171,
+  "assets_with_references": 6,
+  "total_references": 12
+}
