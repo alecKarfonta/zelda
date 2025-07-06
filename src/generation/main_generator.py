@@ -12,13 +12,13 @@ from typing import Dict, List, Optional
 
 import anthropic
 
-from core.logger import logger
-from models.enums import ExampleType, TrainingExample, ActorCategory
-from analyzers.source_analyzer import DynamicSourceAnalyzer
-from validation.authenticity_validator import StrictAuthenticityValidator
-from generation.diversity_injector import DiversityInjector
-from generation.temperature_manager import DynamicTemperatureManager
-from parsers.response_parser import ResponseParser
+from src.core.logger import logger
+from src.models.enums import ExampleType, TrainingExample, ActorCategory
+from src.analyzers.source_analyzer import DynamicSourceAnalyzer
+from src.validation.authenticity_validator import StrictAuthenticityValidator
+from src.generation.diversity_injector import DiversityInjector
+from src.generation.temperature_manager import DynamicTemperatureManager
+from src.parsers.response_parser import ResponseParser
 
 
 class EnhancedOoTTrainingGenerator:
@@ -193,8 +193,34 @@ REAL SOURCE DATA AVAILABLE:
 """
         return {
             "strict_requirements": f"""
-CRITICAL AUTHENTICITY REQUIREMENTS (ENFORCED BY VALIDATION):
-{additional_info}
+CRITICAL AUTHENTICITY REQUIREMENTS (ENFORCED):
+✗ NEVER use Majora's Mask mechanics (transformation masks, Deku/Goron/Zora forms)
+✗ NEVER use fabricated functions that don't exist in OoT decompilation
+✗ NEVER use player->health, player->currentShield, player->swordState - these don't exist
+✗ NEVER use non-existent constants like PLAYER_SHIELD_MAX, LIMB_COUNT, ACTOR_PLAYER
+✗ NEVER use Matrix_NewMtx(play->state.gfxCtx, "string") - use __FILE__, __LINE__ instead
+✗ NEVER use OPEN_DISPS/CLOSE_DISPS with file/line parameters
+✗ NEVER use func_80093D18() or other fabricated graphics functions
+✗ NEVER implement dynamic memory allocation in actors
+✗ NEVER reference jointTable/morphTable without declaring them in struct
+
+✓ Use authentic OoT patterns from real decompilation
+✓ Use gSaveContext.inventory and gSaveContext.equips for player data
+✓ Use specific numbers instead of fabricated constants
+✓ Use GET_PLAYER(play) without additional ID checks
+✓ Use Gfx_SetupDL_25Opa() for graphics setup
+✓ Use Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__)
+✓ Use OPEN_DISPS(play->state.gfxCtx) and CLOSE_DISPS(play->state.gfxCtx)
+✓ Use pre-allocated memory structures in actors
+✓ Declare Vec3s jointTable[LIMB_COUNT]; and Vec3s morphTable[LIMB_COUNT]; in struct if using skeleton animation
+
+🚨 CRITICAL GAME CONTEXT REQUIREMENTS:
+   ✗ NEVER use BGCHECKFLAG_LAVA (doesn't exist in OoT)
+   ✗ NEVER use WaterBox_GetSurface1 (wrong signature for OoT)
+   ✗ NEVER use ACTORCAT_PLAYER (reserved for player actor only)
+   ✓ Use authentic OoT water detection patterns
+   ✓ Use ACTORCAT_NPC, ACTORCAT_MISC, ACTORCAT_PROP, or ACTORCAT_ENEMY
+
 1. FUNCTION SIGNATURES (MANDATORY):
    ✓ Actor lifecycle MUST use: FuncName(Actor* thisx, PlayState* play)
    ✗ NEVER use: FuncName(PlayState* play, Actor* thisx) 
@@ -220,11 +246,71 @@ CRITICAL AUTHENTICITY REQUIREMENTS (ENFORCED BY VALIDATION):
    ✓ Use Collider_SetCylinder(play, &collider, &actor, &init)
    ✓ Follow patterns from z_collision_check.c
 
+6. BACKGROUND CHECK PATTERNS (MANDATORY):
+   ✓ Use Actor_UpdateBgCheckInfo(play, &actor, 35.0f, 60.0f, 60.0f, UPDBGCHECKINFO_FLAG_0 | UPDBGCHECKINFO_FLAG_2)
+   ✗ NEVER use BGCHECKFLAG_LAVA or BGCHECKFLAG_GROUND (don't exist in OoT)
+
 VALIDATION WILL REJECT ANY EXAMPLE VIOLATING THESE REQUIREMENTS.
+
+🚨 CRITICAL AUTHENTICITY REQUIREMENTS (ENFORCED):
+✗ NEVER use Gfx_DrawDListOpa(play, gSomeDL) - this function doesn't exist in OoT
+✗ NEVER directly manipulate player->actor.world.pos or player->actor.velocity
+✗ NEVER access player->health or player->healthCapacity  
+✗ NEVER use SkelAnime functions without declaring SkelAnime in struct
+✗ NEVER use ACTOR_FLAG_8 or other non-existent flags
+✗ NEVER use fabricated patterns like INV_CONTENT(), Actor_DrawOpa(), etc.
+✗ NEVER use play->colCtx.waterLevel = value - water level is handled through room systems
+✗ NEVER use play->msgCtx.ocarinaMode == OCARINA_MODE_04 - ocarina handled through player state
+✗ NEVER use gSaveContext.inventory.questItems & 0x3F - use specific quest item flags
+✗ NEVER use func_8002F71C() - this function doesn't exist in OoT
+✗ NEVER use this->collider.base.ac->actor->id - wrong collision access pattern
+✗ NEVER use SkelAnime_DrawOpa(play, skeleton, jointTable, NULL, NULL, this) - wrong signature
+✗ NEVER spawn same actor type recursively - use different actor types for illusions/effects
+✗ NEVER assign Math_SmoothStepToF() result to variable - function returns bool, not float
+✗ NEVER use player->stateFlags1 & PLAYER_STATE1_20 - this flag doesn't exist in OoT
+✗ NEVER use SkelAnime_InitFlex(play, &skelAnime, skeleton, NULL, NULL, NULL, 0) - missing required parameters
+✗ NEVER reference jointTable/morphTable without declaring them in struct
+✗ NEVER use ZeldaArena_MallocDebug() or ZeldaArena_FreeDebug() - these don't exist in OoT
+✗ NEVER use OPEN_DISPS(play->state.gfxCtx, "file.c", line) - these don't take file/line parameters
+✗ NEVER implement dynamic memory allocation in actors - not an authentic OoT pattern
+✗ NEVER use player->currentShield, player->swordState - these don't exist
+✗ NEVER use PLAYER_SHIELD_MAX, PLAYER_SWORD_MAX, LIMB_COUNT - these constants don't exist
+✗ NEVER use player->actor.id != ACTOR_PLAYER - GET_PLAYER() always returns player
+
+✓ Use SkelAnime_DrawFlexOpa(play, this->skelAnime.skeleton, this->skelAnime.jointTable, this->skelAnime.dListCount, NULL, NULL, this)
+✓ Use gSaveContext.health and gSaveContext.healthCapacity for player health
+✓ Use proper flag checking: if (this->actor.flags & ACTOR_FLAG_0)
+✓ Declare SkelAnime skelAnime; in struct if using skeleton animation
+✓ Use Actor_WorldDistXZToActor(&this->actor, &player->actor) for distance checks
+✓ Use if (gSaveContext.inventory.items[SLOT_HOOKSHOT] != ITEM_NONE) for item checks
+✓ Use Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__) for matrix creation
+✓ Use room-specific water systems instead of direct colCtx manipulation
+✓ Use player actor state machine for ocarina handling
+✓ Use specific quest item flags like QUEST_MEDALLION_FOREST
+✓ Use proper collision access patterns from OoT collision system
+✓ Use authentic drawing function signatures from OoT decompilation
+✓ Use different actor types for illusions/effects (not recursive spawning)
+✓ Use Math_SmoothStepToF(&variable, target, step, maxStep, minStep) without assignment
+✓ Use authentic player state flags from OoT decompilation
+✓ Use SkelAnime_InitFlex(play, &skelAnime, skeleton, animation, jointTable, morphTable, limbCount)
+✓ Declare Vec3s jointTable[LIMB_COUNT]; and Vec3s morphTable[LIMB_COUNT]; in struct if using skeleton animation
+✓ Use ZeldaArena_Malloc(size) and ZeldaArena_Free(ptr) for memory management
+✓ Use OPEN_DISPS(play->state.gfxCtx) and CLOSE_DISPS(play->state.gfxCtx) without file/line parameters
+✓ Use pre-allocated memory structures instead of dynamic allocation in actors
+✓ Use gSaveContext.equips.buttonItems[0] for current sword, gSaveContext.equips.buttonItems[1] for shield
+✓ Use specific numbers like 20 for limb count instead of LIMB_COUNT
+✓ Use GET_PLAYER(play) without additional ID checks
+✓ Use Gfx_SetupDL_25Opa(play->state.gfxCtx) for graphics setup
 """,
             
             "authentic_actor_context": f"""
 AUTHENTIC ACTOR SYSTEM (FROM REAL OoT DECOMPILATION):
+
+🚨 CRITICAL: This is Ocarina of Time, NOT Majora's Mask
+   ✗ NO transformation masks (Deku, Goron, Zora)
+   ✗ NO BGCHECKFLAG_LAVA (doesn't exist in OoT)
+   ✗ NO WaterBox_GetSurface1 (wrong signature)
+   ✗ NO ACTORCAT_PLAYER (reserved for player only)
 
 REAL ACTOR STRUCTURE PATTERN (from actor.h):
 ```c
@@ -251,7 +337,7 @@ void ActorName_Update(Actor* thisx, PlayState* play) {{
 // MANDATORY: Exact ActorProfile format from real decompilation
 const ActorProfile ActorName_Profile = {{
     /**/ ACTOR_ACTORNAME,
-    /**/ ACTORCAT_MISC,
+    /**/ ACTORCAT_MISC,  // Use ACTORCAT_NPC, ACTORCAT_MISC, ACTORCAT_PROP, or ACTORCAT_ENEMY
     /**/ FLAGS,
     /**/ OBJECT_ACTORNAME,
     /**/ sizeof(ActorName),
@@ -284,6 +370,12 @@ AUTHENTIC REFERENCE EXAMPLE:
         
         # Phase 2: Multi-pass validation and correction
         example = self._multi_pass_validation(example)
+        
+        # NEW: Validate against feedback patterns
+        feedback_issues = self.validator.validate_feedback_patterns(example.output)
+        if feedback_issues:
+            example.validation_notes += "Feedback validation issues: " + "; ".join(feedback_issues) + ". "
+            logger.warning(f"Feedback validation found {len(feedback_issues)} issues")
         
         # Fix instruction if it's a placeholder
         if example.instruction.strip().lower() in ["clear instruction", "", None]:
@@ -325,6 +417,7 @@ AUTHENTIC REFERENCE EXAMPLE:
             "complexities": {"basic": 0, "intermediate": 0, "advanced": 0},
             "unique_scenarios": set()
         }
+        logger.refinement(f"🔧 Calculating dynamic temperature for {example_type.value} ({complexity})")
         dynamic_temperature = self.temperature_manager.get_dynamic_temperature(example_type, complexity, diversity_metrics)
         
         # Create enhanced prompt
@@ -398,25 +491,37 @@ Return exactly this JSON:
     def _multi_pass_validation(self, example: TrainingExample) -> TrainingExample:
         """Multi-pass validation with progressive correction"""
         
-        # Pass 1: Function signature validation against real functions
+        # Pass 1: CRITICAL - Feedback pattern validation
+        feedback_issues = self.validator.validate_feedback_patterns(example.output)
+        if feedback_issues:
+            example.validation_notes += f"CRITICAL feedback issues: {len(feedback_issues)}. "
+            logger.error(f"[CRITICAL] Feedback validation issues detected: {feedback_issues}")
+        
+        # Pass 2: Function signature validation against real functions
         signature_issues = self.validator.validate_function_signatures(example.output)
         if signature_issues:
             example.validation_notes += f"Signature issues: {len(signature_issues)}. "
             # Apply mandatory corrections
             example.output = self.validator.apply_mandatory_corrections(example.output)
         
-        # Pass 2: Architectural validation against real patterns
+        # Pass 3: Architectural validation against real patterns
         arch_issues = self.validator.validate_architectural_authenticity(example.output, example.instruction)
         if arch_issues:
             example.validation_notes += f"Architecture issues: {len(arch_issues)}. "
         
-        # Pass 3: Additional source-based validation
+        # Pass 4: Additional source-based validation
         if self.source_analyzer:
             source_issues = self.source_analyzer.validate_against_real_source(example.output)
             if source_issues:
                 example.validation_notes += f"Source validation issues: {len(source_issues)}. "
         
-        # Pass 4: Final quality scoring
+        # Pass 5: Enhanced feedback pattern validation
+        feedback_issues = self.validator.validate_feedback_patterns(example.output)
+        if feedback_issues:
+            example.validation_notes += f"Feedback validation issues: {len(feedback_issues)}. "
+            logger.warning(f"[FEEDBACK] Found {len(feedback_issues)} feedback issues")
+        
+        # Pass 6: Final quality scoring
         example.quality_score = self._calculate_quality_score(example)
         
         return example

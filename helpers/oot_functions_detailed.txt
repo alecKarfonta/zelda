@@ -1,0 +1,4 @@
+# Function signatures with metadata
+# Format: return_type function_name(arg1_type, arg2_type, ...)
+# File: line_number
+

@@ -2,7 +2,9 @@
 import os
 import re
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple, Optional, Set
+from pycparser import parse_file, c_ast, c_parser
+from pycparser.c_ast import FuncDef, Decl, Constant, Typedef, Enum
 
 def parse_function_signature(line: str) -> Optional[Dict]:
     """
@@ -107,18 +109,36 @@ def find_functions_improved(paths):
     """
     functions = set()
     
-    # Multiple patterns to catch different function declaration styles
+    # Simple patterns that match actual OoT function declarations
     func_patterns = [
-        # Standard function definition: return_type func_name(args) {
-        r'^[ \t]*(?:static[ \t]+)?(?:[A-Za-z_][A-Za-z0-9_\* ]+)[ \t]+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)\s*\{',
+        # Standard function definition: void func_name(args) {
+        r'void\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(',
+        # Function with return type: return_type func_name(args) {
+        r'[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)\s*\{',
         # Function declaration: return_type func_name(args);
-        r'^[ \t]*(?:static[ \t]+)?(?:[A-Za-z_][A-Za-z0-9_\* ]+)[ \t]+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)\s*;',
+        r'[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)\s*;',
+        # Static function: static return_type func_name(args) {
+        r'static\s+[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)\s*\{',
         # Function with complex return types
-        r'^[ \t]*(?:static[ \t]+)?(?:[A-Za-z_][A-Za-z0-9_\* ]+)[ \t]+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)',
-        # Simple pattern for basic functions
-        r'\b([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*[{;]'
+        r'[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^)]*\)',
+        # Very permissive pattern for any function-like call
+        r'([A-Za-z_][A-Za-z0-9_]*)\s*\(',
+        # Pattern for function names with underscores (common in OoT)
+        r'([A-Za-z_][A-Za-z0-9_]*_[A-Za-z0-9_]*)\s*\(',
+        # Pattern for Actor functions specifically
+        r'([A-Za-z_][A-Za-z0-9_]*_[A-Za-z0-9_]*)\s*\([^)]*\)\s*[{;]'
     ]
     
+    # Keywords to exclude (much smaller list)
+    exclude_keywords = {
+        'if', 'for', 'while', 'switch', 'return', 'void', 'int', 'float', 'double', 
+        'char', 'static', 'const', 'struct', 'unsigned', 'signed', 'short', 'long', 
+        'inline', 'extern', 'register', 'volatile', 'break', 'continue', 'goto', 
+        'case', 'default', 'do', 'else', 'enum', 'typedef', 'sizeof', 'union', 
+        'auto', 'restrict', 'bool', 'true', 'false', 'NULL', 'TRUE', 'FALSE'
+    }
+    
+    debug_count = 0
     for path in paths:
         for root, _, files in os.walk(path):
             for file in files:
@@ -132,43 +152,35 @@ def find_functions_improved(paths):
                             for pattern in func_patterns:
                                 for match in re.finditer(pattern, content, re.MULTILINE):
                                     name = match.group(1)
+                                    debug_count += 1
                                     
-                                    # Filter out C keywords/types and common false positives
-                                    if (name not in {
-                                        'if', 'for', 'while', 'switch', 'return', 'void', 'int', 'float', 'double', 
-                                        'char', 'static', 'const', 'struct', 'unsigned', 'signed', 'short', 'long', 
-                                        'inline', 'extern', 'register', 'volatile', 'break', 'continue', 'goto', 
-                                        'case', 'default', 'do', 'else', 'enum', 'typedef', 'sizeof', 'union', 
-                                        'auto', 'restrict', 'bool', 'true', 'false', 'NULL', 'TRUE', 'FALSE',
-                                        'malloc', 'free', 'calloc', 'realloc', 'memcpy', 'memmove', 'memset',
-                                        'strcpy', 'strcat', 'strcmp', 'strlen', 'strchr', 'strstr', 'printf',
-                                        'scanf', 'fopen', 'fclose', 'fread', 'fwrite', 'fseek', 'ftell',
-                                        'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh',
-                                        'exp', 'log', 'log10', 'pow', 'sqrt', 'fabs', 'floor', 'ceil',
-                                        'abs', 'min', 'max', 'clamp', 'round', 'sign'
-                                    } and 
-                                    # Filter out very short names (likely not functions)
-                                    len(name) > 2 and
-                                    # Filter out names that are all uppercase (likely macros)
-                                    not name.isupper() and
-                                    # Filter out names starting with common prefixes that are likely not functions
-                                    not name.startswith('g') and
-                                    not name.startswith('s') and
-                                    not name.startswith('D_') and
-                                    not name.startswith('func_') and
-                                    # Filter out names that look like variables
-                                    not name.startswith('sp') and
-                                    not name.startswith('temp') and
-                                    not name.startswith('pad') and
-                                    not name.startswith('arg') and
-                                    not name.startswith('i') and
-                                    not name.startswith('j') and
-                                    not name.startswith('k')):
+                                    # Debug output for first few matches
+                                    if debug_count <= 10:
+                                        print(f"DEBUG: Found potential function '{name}' in {file_path}")
+                                    
+                                    # Much more permissive filtering
+                                    if (name not in exclude_keywords and 
+                                        len(name) > 2 and
+                                        not name.isupper() and
+                                        # Allow more prefixes that are common in OoT
+                                        not name.startswith('g') and  # Global variables
+                                        not name.startswith('s') and  # Static variables
+                                        not name.startswith('D_') and # Debug symbols
+                                        not name.startswith('func_') and # Function pointers
+                                        # Allow common OoT prefixes
+                                        not name.startswith('sp') and
+                                        not name.startswith('temp') and
+                                        not name.startswith('pad') and
+                                        not name.startswith('arg') and
+                                        # Allow single letter variables but not as function names
+                                        not (len(name) == 1 and name in 'ijkxyz')):
                                         functions.add(name)
                                         
                     except Exception as e:
                         print(f"Error reading {file_path}: {e}")
     
+    print(f"DEBUG: Total potential functions found: {debug_count}")
+    print(f"DEBUG: Functions after filtering: {len(functions)}")
     return sorted(functions)
 
 def find_functions(paths):
@@ -243,6 +255,18 @@ def find_macros_and_enums(paths):
                             static_const_pattern = re.compile(r'static\s+const\s+[A-Za-z_][A-Za-z0-9_]*\s+([A-Z][A-Z0-9_]*)\s*=')
                             for match in static_const_pattern.finditer(content):
                                 constants.add(match.group(1))
+                            
+                            # Pattern 6: More permissive enum extraction
+                            # Look for any uppercase identifiers that might be constants
+                            uppercase_pattern = re.compile(r'\b([A-Z][A-Z0-9_]*)\b')
+                            for match in uppercase_pattern.finditer(content):
+                                const_name = match.group(1)
+                                # Filter out common non-constants
+                                if (const_name not in {'NULL', 'TRUE', 'FALSE', 'EOF', 'SEEK_SET', 'SEEK_CUR', 'SEEK_END'} and
+                                    len(const_name) > 2 and
+                                    not const_name.startswith('0x') and
+                                    not const_name.isdigit()):
+                                    constants.add(const_name)
                                 
                     except Exception as e:
                         print(f"Error reading {file_path}: {e}")
@@ -361,61 +385,50 @@ def verify_critical_constants(constants_set):
     
     return missing_constants
 
+def get_all_c_files(root):
+    c_files = []
+    for dirpath, _, filenames in os.walk(root):
+        for f in filenames:
+            if f.endswith('.c') or f.endswith('.h'):
+                c_files.append(os.path.join(dirpath, f))
+    return c_files
+
+def extract_functions_regex(files) -> Set[str]:
+    # Regex for plausible C function definitions and declarations
+    func_patterns = [
+        # return_type func_name(args) { or ;
+        r'^[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*[;{]',
+        # static return_type func_name(args) { or ;
+        r'^static\s+[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*[;{]',
+        # extern return_type func_name(args) { or ;
+        r'^extern\s+[A-Za-z_][A-Za-z0-9_\* ]+\s+([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*[;{]',
+    ]
+    exclude = {
+        'if', 'for', 'while', 'switch', 'return', 'void', 'int', 'float', 'double', 'char', 'static', 'const', 'struct', 'unsigned', 'signed', 'short', 'long', 'inline', 'extern', 'register', 'volatile', 'break', 'continue', 'goto', 'case', 'default', 'do', 'else', 'enum', 'typedef', 'sizeof', 'union', 'auto', 'restrict', 'bool', 'true', 'false', 'NULL', 'TRUE', 'FALSE'
+    }
+    functions = set()
+    for f in files:
+        try:
+            with open(f, 'r', encoding='utf-8', errors='ignore') as src:
+                for line in src:
+                    for pat in func_patterns:
+                        m = re.match(pat, line.strip())
+                        if m:
+                            name = m.group(1)
+                            if name not in exclude and not name.startswith('__') and len(name) > 2:
+                                functions.add(name)
+        except Exception as e:
+            print(f"Error reading {f}: {e}")
+    return functions
+
 def main():
-    oot_include = 'oot/include'
-    oot_src = 'oot/src'
-    sfx_dir = 'oot/include/tables/sfx'
-    out_funcs = 'oot_valid_functions.txt'
-    out_funcs_detailed = 'oot_functions_detailed.txt'
-    out_consts = 'oot_valid_constants.txt'
-    out_sfx = 'oot_valid_sound_effects.txt'
-
-    print('Scanning for functions with metadata...')
-    functions_with_metadata = find_functions_with_metadata([oot_include, oot_src])
-    
-    # Write detailed function information
-    with open(out_funcs_detailed, 'w') as f:
-        f.write("# Function signatures with metadata\n")
-        f.write("# Format: return_type function_name(arg1_type, arg2_type, ...)\n")
-        f.write("# File: line_number\n\n")
-        
-        for func in functions_with_metadata:
-            # Format arguments for display
-            args_str = ", ".join(func['arguments']) if func['arguments'] else "void"
-            f.write(f"{func['return_type']} {func['name']}({args_str})\n")
-            f.write(f"# {func['file']}: {func['line']}\n\n")
-    
-    print(f'Wrote {len(functions_with_metadata)} detailed function signatures to {out_funcs_detailed}')
-
-    # Also write simple function names for backward compatibility
-    print('Scanning for simple function names with improved detection...')
-    functions = find_functions_improved([oot_include, oot_src])
-    
-    # Verify critical functions are captured
-    missing_critical = verify_critical_functions(set(functions))
-    
-    with open(out_funcs, 'w') as f:
-        for fn in functions:
+    oot_root = '../oot'
+    c_files = get_all_c_files(oot_root)
+    all_functions = extract_functions_regex(c_files)
+    with open('../oot_valid_functions.txt', 'w') as f:
+        for fn in sorted(all_functions):
             f.write(fn + '\n')
-    print(f'Wrote {len(functions)} simple function names to {out_funcs}')
-
-    print('Scanning for constants...')
-    constants = find_macros_and_enums([oot_include, oot_src])  # Scan both include and src directories
-    
-    # Verify critical constants are captured
-    missing_critical_constants = verify_critical_constants(set(constants))
-    
-    with open(out_consts, 'w') as f:
-        for c in constants:
-            f.write(c + '\n')
-    print(f'Wrote {len(constants)} constants to {out_consts}')
-
-    print('Scanning for sound effects...')
-    sfx = find_sound_effects(sfx_dir)
-    with open(out_sfx, 'w') as f:
-        for s in sfx:
-            f.write(s + '\n')
-    print(f'Wrote {len(sfx)} sound effects to {out_sfx}')
+    print(f'Wrote {len(all_functions)} functions to ../oot_valid_functions.txt')
 
 if __name__ == '__main__':
     main() 

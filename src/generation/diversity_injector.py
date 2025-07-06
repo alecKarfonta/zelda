@@ -6,8 +6,8 @@ Diversity Injector for OoT Training Data Generation
 import random
 from typing import List, Dict
 
-from models.enums import ExampleType, ActorCategory
-from core.logger import logger
+from src.models.enums import ExampleType, ActorCategory
+from src.core.logger import logger
 
 
 class DiversityInjector:

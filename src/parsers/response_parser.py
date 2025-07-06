@@ -7,8 +7,8 @@ import json
 import re
 from typing import Optional, List
 
-from models.enums import ExampleType, TrainingExample
-from core.logger import logger
+from src.models.enums import ExampleType, TrainingExample
+from src.core.logger import logger
 
 
 class ResponseParser:

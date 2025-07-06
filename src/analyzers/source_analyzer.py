@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 from typing import List, Dict, Optional
 
-from core.logger import logger
+from src.core.logger import logger
 
 
 class DynamicSourceAnalyzer:
@@ -37,11 +37,38 @@ class DynamicSourceAnalyzer:
         self.real_constants = {}
         self.real_examples = {}
         
+        # Load comprehensive function list from our extraction
+        self._load_comprehensive_functions()
+        
         # Initialize analysis
         self._analyze_source_files()
     
+    def _load_comprehensive_functions(self):
+        """Load comprehensive function list from our regex extraction"""
+        try:
+            with open('oot_valid_functions.txt', 'r') as f:
+                for line in f:
+                    func_name = line.strip()
+                    if func_name:
+                        self.real_functions[func_name] = {
+                            "signature": f"void {func_name}()",  # Placeholder signature
+                            "return_type": "void",
+                            "file": "comprehensive_extraction",
+                            "category": "extracted",
+                        }
+            logger.info(f"Loaded {len(self.real_functions)} functions from comprehensive extraction")
+        except FileNotFoundError:
+            logger.warning("oot_valid_functions.txt not found, will use limited extraction")
+            # Fall back to original extraction method
+            pass
+    
     def _analyze_source_files(self):
         """Analyze all source files and extract patterns"""
+        # Skip if we already loaded comprehensive functions
+        if len(self.real_functions) > 10000:  # If we loaded comprehensive list
+            logger.info("Using comprehensive function list, skipping detailed analysis")
+            return
+            
         logger.info("🔍 Analyzing OoT decompilation source files...")
         
         # Analyze core files first
