@@ -309,15 +309,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Anthropic**: For providing the Claude API for generation
 - **OoT Romhacking Community**: For inspiration and feedback
 - **Contributors**: Everyone who has helped improve this project
-
-## 📞 Support
-
-For issues, questions, or contributions:
-
-1. **Check existing issues**: [GitHub Issues](https://github.com/alecKarfonta/zelda/issues)
-2. **Create a new issue**: Provide detailed information about your problem
-3. **Join the community**: Connect with other OoT romhackers
-
+https://github.com/Dragorn421/z64-romhack-tutorials
+https://github.com/fig02/Better-OoT
+https://github.com/triforce-percent/triforce-percent
+https://github.com/HackerN64/HackerOoT
 ---
 
 **Note**: This system requires access to the OoT decompilation source code and an Anthropic API key to function properly. Make sure you have both before attempting to use the generator.

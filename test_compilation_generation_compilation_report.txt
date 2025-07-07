@@ -1,0 +1,190 @@
+Compilation Report for test_compilation_generation.jsonl
+==================================================
+
+Summary:
+- Total C code snippets: 10
+- Successful compilations: 0
+- Failed compilations: 10
+- Success rate: 0.0%
+
+Detailed Results:
+------------------------------
+
+Snippet 1:
+Success: False
+Compilation time: 0.113s
+Errors:
+  /tmp/tmps9orh1z2.c: In function ‘EnCharacter_Init’:
+  /tmp/tmps9orh1z2.c:43:49: error: ‘gCharacterSkel’ undeclared (first use in this function)
+     43 |     SkelAnime_InitFlex(play, &this->skelAnime, &gCharacterSkel, &gCharacterIdleAnim,
+        |                                                 ^~~~~~~~~~~~~~
+  /tmp/tmps9orh1z2.c:43:49: note: each undeclared identifier is reported only once for each function it appears in
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ SkelAnime skelAnime;
+    /* 0x0190 */ Vec3s jointTable[20];
+    /* 0x01F0 */ Vec3s morphTable[20];
+    /* 0x0250 */ s16 actionState;
+   ...
+
+Snippet 2:
+Success: False
+Compilation time: 0.101s
+Errors:
+  /tmp/tmp6w3dx2im.c:45:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     45 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+        |         OCLINE_NONE
+  /tmp/tmp6w3dx2im.c:53:9: error: ‘ELEMTYPE_UNK0’ undeclared here (not in a function)
+Extracted code (first 200 chars):
+  // Magic spell casting system using authentic OoT patterns
+
+typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 spellState;
+    /* 0x0150 */ f32 spellPower;...
+
+Snippet 3:
+Success: False
+Compilation time: 0.085s
+Errors:
+  /tmp/tmpftiqyiby.c: In function ‘EnSariaEffect_Init’:
+  /tmp/tmpftiqyiby.c:57:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     57 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+        |                                                                ^~~~~~~~~~~~~
+        |                                                                ColliderInit
+Extracted code (first 200 chars):
+  // Actor that creates a Saria's Song effect when played
+typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 effectState;
+    /* 0x0150 */ f32 alpha;
+    /* ...
+
+Snippet 4:
+Success: False
+Compilation time: 0.086s
+Errors:
+  /tmp/tmp7rs3sm30.c: In function ‘EnHintSystem_Init’:
+  /tmp/tmp7rs3sm30.c:44:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     44 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+        |                                                                ^~~~~~~~~~~~~
+        |                                                                ColliderInit
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 messageState;
+    /* 0x0150 */ f32 displayRange;
+    /* 0x0154 */ s16 textId;
+    /* 0x0156 */ s16 inter...
+
+Snippet 5:
+Success: False
+Compilation time: 0.059s
+Errors:
+  /tmp/tmpoy5si11o.c: In function ‘EffStorm_Update’:
+  /tmp/tmpoy5si11o.c:67:25: warning: implicit declaration of function ‘Rand_ZeroFloat’ [-Wimplicit-function-declaration]
+     67 |             f32 angle = Rand_ZeroFloat(M_PI * 2);
+        |                         ^~~~~~~~~~~~~~
+  /tmp/tmpoy5si11o.c:75:13: warning: implicit declaration of function ‘EffectSsGSplash_Spawn’ [-Wimplicit-function-declaration]
+Extracted code (first 200 chars):
+  // Authentic pattern following z_actor.h and z_effect_ss.h
+typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 rainCount;
+    /* 0x0150 */ Vec3f rainOrigin;...
+
+Snippet 6:
+Success: False
+Compilation time: 0.107s
+Errors:
+  /tmp/tmpkacnt5gq.c:42:5: error: ‘OCARINA_NOTE_F’ undeclared here (not in a function)
+     42 |     OCARINA_NOTE_F, OCARINA_NOTE_A, OCARINA_NOTE_B,
+        |     ^~~~~~~~~~~~~~
+  /tmp/tmpkacnt5gq.c:42:21: error: ‘OCARINA_NOTE_A’ undeclared here (not in a function)
+     42 |     OCARINA_NOTE_F, OCARINA_NOTE_A, OCARINA_NOTE_B,
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 songTimer;
+    /* 0x014E */ s16 songState;
+    /* 0x0150 */ u8 songNotes[8];
+    /* 0x0158 */ u8 noteIndex;
+    /* 0x0159 */ u8 song...
+
+Snippet 7:
+Success: False
+Compilation time: 0.131s
+Errors:
+  /tmp/tmpqglm12dj.c: In function ‘EnSwordEnemy_Init’:
+  /tmp/tmpqglm12dj.c:51:49: error: ‘gStalfosSkel’ undeclared (first use in this function)
+     51 |     SkelAnime_InitFlex(play, &this->skelAnime, &gStalfosSkel, &gStalfosIdleAnim,
+        |                                                 ^~~~~~~~~~~~
+  /tmp/tmpqglm12dj.c:51:49: note: each undeclared identifier is reported only once for each function it appears in
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 actionState;
+    /* 0x014E */ s16 attackTimer;
+    /* 0x0150 */ s16 comboPhase;
+    /* 0x0152 */ s16 damageTimer;
+    /* 0x0154 */ f...
+
+Snippet 8:
+Success: False
+Compilation time: 0.072s
+Errors:
+  /tmp/tmpufabtzvz.c: In function ‘EnMemMgr_Init’:
+  /tmp/tmpufabtzvz.c:43:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     43 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+        |                                                                ^~~~~~~~~~~~~
+        |                                                                ColliderInit
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 state;
+    /* 0x0150 */ void* allocPtr;
+    /* 0x0154 */ u32 allocSize;
+    /* 0x0158 */ ColliderCylinde...
+
+Snippet 9:
+Success: False
+Compilation time: 0.097s
+Errors:
+  /tmp/tmp1j1bb8q8.c: In function ‘EnBlendActor_Init’:
+  /tmp/tmp1j1bb8q8.c:45:49: error: ‘gSomeSkeleton’ undeclared (first use in this function)
+     45 |     SkelAnime_InitFlex(play, &this->skelAnime, &gSomeSkeleton, NULL,
+        |                                                 ^~~~~~~~~~~~~
+  /tmp/tmp1j1bb8q8.c:45:49: note: each undeclared identifier is reported only once for each function it appears in
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ SkelAnime skelAnime;
+    /* 0x0190 */ Vec3s jointTable[20];
+    /* 0x01F0 */ Vec3s morphTable[20];
+    /* 0x0250 */ s16 blendTimer;
+    ...
+
+Snippet 10:
+Success: False
+Compilation time: 0.092s
+Errors:
+  /tmp/tmp_6huxzk_.c:40:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     40 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+        |         OCLINE_NONE
+  /tmp/tmp_6huxzk_.c:41:17: error: ‘AT_TYPE_EXPLOSIVE’ undeclared here (not in a function); did you mean ‘ACTORCAT_EXPLOSIVE’?
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 explosionState;
+    /* 0x0150 */ f32 scale;
+    /* 0x0154 */ ColliderCylinder collider;
+    /* 0x01A0 */...

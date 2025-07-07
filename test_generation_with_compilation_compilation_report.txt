@@ -1,0 +1,99 @@
+Compilation Report for test_generation_with_compilation.jsonl
+==================================================
+
+Summary:
+- Total C code snippets: 5
+- Successful compilations: 0
+- Failed compilations: 5
+- Success rate: 0.0%
+
+Detailed Results:
+------------------------------
+
+Snippet 1:
+Success: False
+Compilation time: 0.064s
+Errors:
+  /tmp/tmprkq30v08.c: In function ‘EnFireFlow_Update’:
+  /tmp/tmprkq30v08.c:225:25: error: ‘SaveContext’ has no member named ‘health’
+    225 |             gSaveContext.health -= 8;
+        |                         ^
+  /tmp/tmprkq30v08.c: In function ‘EnFireFlow_Draw’:
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 flowState;
+    /* 0x0150 */ f32 flowSpeed;
+    /* 0x0154 */ f32 flowHeight;
+    /* 0x0158 */ Vec3f origi...
+
+Snippet 2:
+Success: False
+Compilation time: 0.069s
+Errors:
+  /tmp/tmpxngpxk7j.c: In function ‘EnSandFlow_Draw’:
+  /tmp/tmpxngpxk7j.c:258:5: warning: implicit declaration of function ‘Gfx_SetupDL_25Opa’ [-Wimplicit-function-declaration]
+    258 |     Gfx_SetupDL_25Opa(play->state.gfxCtx);
+        |     ^~~~~~~~~~~~~~~~~
+  In file included from oot/include/ultra64/mbi.h:35,
+Extracted code (first 200 chars):
+  // Spirit Temple sand flow actor
+typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 actionState;
+    /* 0x0150 */ f32 sandHeight;
+    /* 0x0154 */ f32 targ...
+
+Snippet 3:
+Success: False
+Compilation time: 0.064s
+Errors:
+  /tmp/tmpocnzu269.c: In function ‘EnBarrier_Draw’:
+  /tmp/tmpocnzu269.c:211:5: warning: implicit declaration of function ‘Gfx_SetupDL_25Opa’ [-Wimplicit-function-declaration]
+    211 |     Gfx_SetupDL_25Opa(play->state.gfxCtx);
+        |     ^~~~~~~~~~~~~~~~~
+  In file included from oot/include/ultra64/mbi.h:35,
+Extracted code (first 200 chars):
+  // Barrier Gauntlet actor that creates protective barriers
+typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ ColliderCylinder collider;
+    /* 0x0198 */ s16 timer;
+    /* 0x019A */ s16 a...
+
+Snippet 4:
+Success: False
+Compilation time: 0.072s
+Errors:
+  /tmp/tmpqkfi963n.c: In function ‘EnCrystal_Init’:
+  /tmp/tmpqkfi963n.c:147:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+    147 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+        |                                                                ^~~~~~~~~~~~~
+        |                                                                ColliderInit
+Extracted code (first 200 chars):
+  typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ s16 timer;
+    /* 0x014E */ s16 actionState; 
+    /* 0x0150 */ f32 scale;
+    /* 0x0154 */ ColliderCylinder collider;
+} EnCrystal; // si...
+
+Snippet 5:
+Success: False
+Compilation time: 0.085s
+Errors:
+  /tmp/tmpx1c6wg_z.c: In function ‘EnSpiritThief_Init’:
+  /tmp/tmpx1c6wg_z.c:174:48: warning: passing argument 3 of ‘SkelAnime_InitFlex’ from incompatible pointer type [-Wincompatible-pointer-types]
+    174 |     SkelAnime_InitFlex(play, &this->skelAnime, &gGhostSkel, &gGhostFloatAnim,
+        |                                                ^~~~~~~~~~~
+        |                                                |
+Extracted code (first 200 chars):
+  // Spirit that steals items and mimics player actions
+typedef struct {
+    /* 0x0000 */ Actor actor;
+    /* 0x014C */ SkelAnime skelAnime;
+    /* 0x0190 */ Vec3s jointTable[25];
+    /* 0x01F4 */ Vec3s...

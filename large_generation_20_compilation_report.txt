@@ -1,0 +1,1167 @@
+
+C Code Compilation Report
+========================
+
+Summary:
+- Total C code snippets processed: 210
+- Successful compilations: 26
+- Failed compilations: 184
+- Success rate: 12.4%
+
+Detailed Results:
+
+Snippet 1: ❌ FAILED
+Errors:
+  /tmp/tmpyswxmu63.c: In function ‘EnGargoyle_Init’:
+  /tmp/tmpyswxmu63.c:43:49: error: ‘gGargoyleSkel’ undeclared (first use in this function)
+     43 |     SkelAnime_InitFlex(play, &this->skelAnime, &gGargoyleSkel, &gGargoyleIdleAnim,
+
+Snippet 2: ❌ FAILED
+Errors:
+  /tmp/tmp7fum8oy7.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 3: ❌ FAILED
+Errors:
+  /tmp/tmpoel4m01k.c: In function ‘EnGargoyle_Init’:
+  /tmp/tmpoel4m01k.c:43:49: error: ‘gGargoyleSkel’ undeclared (first use in this function)
+     43 |     SkelAnime_InitFlex(play, &this->skelAnime, &gGargoyleSkel, &gGargoyleIdleAnim,
+
+Snippet 4: ✅ SUCCESS
+
+Snippet 5: ❌ FAILED
+Errors:
+  /tmp/tmp5rcojxk_.c: In function ‘EnGargoyle_Init’:
+  /tmp/tmp5rcojxk_.c:30:5: error: unknown type name ‘EnGargoyle’
+     30 |     EnGargoyle* this = (EnGargoyle*)thisx;
+
+Snippet 6: ❌ FAILED
+Errors:
+  /tmp/tmpbltd9ff2.c: In function ‘EnGargoyle_Update’:
+  /tmp/tmpbltd9ff2.c:30:5: error: unknown type name ‘EnGargoyle’
+     30 |     EnGargoyle* this = (EnGargoyle*)thisx;
+
+Snippet 7: ❌ FAILED
+Errors:
+  /tmp/tmpjhid_q_6.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (gSaveContext.equips.buttonItems[0] == ITEM_SWORD_KOKIRI) {
+        |     ^~
+
+Snippet 8: ❌ FAILED
+Errors:
+  /tmp/tmph8_nuf30.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (gSaveContext.equips.buttonItems[1] == ITEM_SHIELD_DEKU) {
+        |     ^~
+
+Snippet 9: ❌ FAILED
+Errors:
+  /tmp/tmpyru46vmi.c:30:5: error: expected identifier or ‘(’ before ‘switch’
+     30 |     switch(this->actionState) {
+        |     ^~~~~~
+
+Snippet 10: ❌ FAILED
+Errors:
+  /tmp/tmp4cri7cb5.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 11: ❌ FAILED
+Errors:
+  /tmp/tmpwj_wpmbe.c: In function ‘EnGargoyle_Draw’:
+  /tmp/tmpwj_wpmbe.c:30:5: error: unknown type name ‘EnGargoyle’
+     30 |     EnGargoyle* this = (EnGargoyle*)thisx;
+
+Snippet 12: ❌ FAILED
+Errors:
+  /tmp/tmpwfi7kmuc.c: In function ‘EnFloatingItem_Init’:
+  /tmp/tmpwfi7kmuc.c:54:54: warning: comparison between pointer and integer
+     54 |     if (Collider_InitCylinder(play, &this->collider) == NULL) {
+
+Snippet 13: ✅ SUCCESS
+
+Snippet 14: ❌ FAILED
+Errors:
+  /tmp/tmp90_cejp2.c: In function ‘EnFloatingItem_Init’:
+  /tmp/tmp90_cejp2.c:30:5: error: unknown type name ‘EnFloatingItem’
+     30 |     EnFloatingItem* this = (EnFloatingItem*)thisx;
+
+Snippet 15: ❌ FAILED
+Errors:
+  /tmp/tmphrng0h2h.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (Collider_InitCylinder(play, &this->collider) == NULL) {
+        |     ^~
+
+Snippet 16: ❌ FAILED
+Errors:
+  /tmp/tmpk0yx1kkq.c:30:20: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Actor_Kill(&this->actor);
+        |                    ^
+
+Snippet 17: ❌ FAILED
+Errors:
+  /tmp/tmphv5ieexp.c: In function ‘EnFloatingItem_Update’:
+  /tmp/tmphv5ieexp.c:30:5: error: unknown type name ‘EnFloatingItem’
+     30 |     EnFloatingItem* this = (EnFloatingItem*)thisx;
+
+Snippet 18: ❌ FAILED
+Errors:
+  /tmp/tmp2iabqjec.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->oscillationAngle = (this->oscillationAngle + BOB_SPEED) % 0x10000;
+        |         ^~
+
+Snippet 19: ❌ FAILED
+Errors:
+  /tmp/tmpfs8bko49.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->actor.world.pos.y = this->actor.home.pos.y + this->floatHeight + this->bobOffset;
+        |         ^~
+
+Snippet 20: ❌ FAILED
+Errors:
+  /tmp/tmp1rxqi6ks.c:30:48: error: ‘this’ undeclared here (not in a function)
+     30 |     f32 playerDist = Actor_WorldDistXZToActor(&this->actor, &player->actor);
+        |                                                ^~~~
+
+Snippet 21: ❌ FAILED
+Errors:
+  /tmp/tmp4vas5aj8.c:30:13: error: expected identifier or ‘(’ before ‘if’
+     30 |             if (!(gSaveContext.inventory.items[SLOT_OCARINA] == ITEM_OCARINA_TIME)) {
+        |             ^~
+
+Snippet 22: ❌ FAILED
+Errors:
+  /tmp/tmp3sdg9hsq.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 23: ❌ FAILED
+Errors:
+  /tmp/tmpyfuhydcw.c: In function ‘EnMemMgr_Init’:
+  /tmp/tmpyfuhydcw.c:48:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     48 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 24: ❌ FAILED
+Errors:
+  /tmp/tmpvx7qj16a.c: In function ‘EnMemMgr_Init’:
+  /tmp/tmpvx7qj16a.c:47:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     47 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 25: ✅ SUCCESS
+
+Snippet 26: ✅ SUCCESS
+
+Snippet 27: ❌ FAILED
+Errors:
+  /tmp/tmptsj855fs.c: In function ‘EnMemMgr_Init’:
+  /tmp/tmptsj855fs.c:30:5: error: unknown type name ‘EnMemMgr’
+     30 |     EnMemMgr* this = (EnMemMgr*)thisx;
+
+Snippet 28: ❌ FAILED
+Errors:
+  /tmp/tmp12_yedew.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 29: ❌ FAILED
+Errors:
+  /tmp/tmpfp7ks6a5.c:30:20: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Actor_SetScale(&this->actor, 0.01f);
+        |                    ^
+
+Snippet 30: ❌ FAILED
+Errors:
+  /tmp/tmpl0i2bz6o.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->memBlock = ZeldaArena_Malloc(MEMORY_BLOCK_SIZE);
+        |         ^~
+
+Snippet 31: ❌ FAILED
+Errors:
+  /tmp/tmp5etea40_.c: In function ‘EnMemMgr_Destroy’:
+  /tmp/tmp5etea40_.c:30:5: error: unknown type name ‘EnMemMgr’
+     30 |     EnMemMgr* this = (EnMemMgr*)thisx;
+
+Snippet 32: ❌ FAILED
+Errors:
+  /tmp/tmpnr59pn8v.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (this->memBlock != NULL) {
+        |     ^~
+
+Snippet 33: ❌ FAILED
+Errors:
+  /tmp/tmp05t3ugfq.c: In function ‘EnMemMgr_Update’:
+  /tmp/tmp05t3ugfq.c:30:5: error: unknown type name ‘EnMemMgr’
+     30 |     EnMemMgr* this = (EnMemMgr*)thisx;
+
+Snippet 34: ❌ FAILED
+Errors:
+  /tmp/tmpils19zcg.c:30:5: error: expected identifier or ‘(’ before ‘switch’
+     30 |     switch (this->memoryState) {
+        |     ^~~~~~
+
+Snippet 35: ❌ FAILED
+Errors:
+  /tmp/tmp4rib2bvp.c:30:13: error: expected identifier or ‘(’ before ‘if’
+     30 |             if (this->memBlock != NULL) {
+        |             ^~
+
+Snippet 36: ❌ FAILED
+Errors:
+  /tmp/tmphei0uz8z.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 37: ❌ FAILED
+Errors:
+  /tmp/tmpulwtbd39.c: In function ‘EnMemMgr_Draw’:
+  /tmp/tmpulwtbd39.c:30:5: error: unknown type name ‘EnMemMgr’
+     30 |     EnMemMgr* this = (EnMemMgr*)thisx;
+
+Snippet 38: ❌ FAILED
+Errors:
+  /tmp/tmpalnqb1pa.c:42:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     42 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 39: ❌ FAILED
+Errors:
+  /tmp/tmp8bfa8da5.c:41:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     41 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 40: ✅ SUCCESS
+
+Snippet 41: ❌ FAILED
+Errors:
+  /tmp/tmpce_89klg.c: In function ‘EnMemoryDemo_Init’:
+  /tmp/tmpce_89klg.c:30:5: error: unknown type name ‘EnMemoryDemo’
+     30 |     EnMemoryDemo* this = (EnMemoryDemo*)thisx;
+
+Snippet 42: ❌ FAILED
+Errors:
+  /tmp/tmplc6c50_q.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 43: ❌ FAILED
+Errors:
+  /tmp/tmph838bvik.c:30:29: error: expected ‘)’ before ‘&’ token
+     30 |     SkelAnime_InitFlex(play, &this->skelAnime, &gSomeSkeleton, &gSomeAnim,
+        |                             ^~
+
+Snippet 44: ❌ FAILED
+Errors:
+  /tmp/tmp7mv_piyg.c:30:20: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Actor_SetScale(&this->actor, 0.01f);
+        |                    ^
+
+Snippet 45: ❌ FAILED
+Errors:
+  /tmp/tmpyg664c7e.c: In function ‘EnMemoryDemo_Destroy’:
+  /tmp/tmpyg664c7e.c:30:5: error: unknown type name ‘EnMemoryDemo’
+     30 |     EnMemoryDemo* this = (EnMemoryDemo*)thisx;
+
+Snippet 46: ❌ FAILED
+Errors:
+  /tmp/tmpv729dq8t.c: In function ‘EnMemoryDemo_Update’:
+  /tmp/tmpv729dq8t.c:30:5: error: unknown type name ‘EnMemoryDemo’
+     30 |     EnMemoryDemo* this = (EnMemoryDemo*)thisx;
+
+Snippet 47: ❌ FAILED
+Errors:
+  /tmp/tmpv0n9ngeg.c:30:22: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     SkelAnime_Update(&this->skelAnime);
+        |                      ^
+
+Snippet 48: ❌ FAILED
+Errors:
+  /tmp/tmpa1290tkq.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 49: ❌ FAILED
+Errors:
+  /tmp/tmp44lqzat2.c:30:34: error: expected ‘)’ before ‘&’ token
+     30 |     Actor_UpdateBgCheckInfo(play, &this->actor, 35.0f, 30.0f, 30.0f,
+        |                                  ^~
+
+Snippet 50: ❌ FAILED
+Errors:
+  /tmp/tmpwy4n297q.c: In function ‘EnMemoryDemo_Draw’:
+  /tmp/tmpwy4n297q.c:30:5: error: unknown type name ‘EnMemoryDemo’
+     30 |     EnMemoryDemo* this = (EnMemoryDemo*)thisx;
+
+Snippet 51: ❌ FAILED
+Errors:
+  /tmp/tmpwiq91h3s.c:30:34: error: macro "OPEN_DISPS" requires 3 arguments, but only 1 given
+     30 |     OPEN_DISPS(play->state.gfxCtx);
+        |                                  ^
+
+Snippet 52: ❌ FAILED
+Errors:
+  /tmp/tmp0u54tymj.c:30:27: error: expected ‘)’ before ‘->’ token
+     30 |     Gfx_SetupDL_25Opa(play->state.gfxCtx);
+        |                           ^~
+
+Snippet 53: ❌ FAILED
+Errors:
+  /tmp/tmpyuqov3tz.c:30:37: error: expected ‘)’ before ‘->’ token
+     30 |     SkelAnime_DrawFlexOpa(play, this->skelAnime.skeleton, this->skelAnime.jointTable,
+        |                                     ^~
+
+Snippet 54: ❌ FAILED
+Errors:
+  /tmp/tmp7uocc9wd.c:41:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     41 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 55: ❌ FAILED
+Errors:
+  /tmp/tmpj6d4e1d4.c:39:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     39 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 56: ✅ SUCCESS
+
+Snippet 57: ✅ SUCCESS
+
+Snippet 58: ❌ FAILED
+Errors:
+  /tmp/tmpo8uebsd6.c: In function ‘EnSpinItem_Init’:
+  /tmp/tmpo8uebsd6.c:30:5: error: unknown type name ‘EnSpinItem’
+     30 |     EnSpinItem* this = (EnSpinItem*)thisx;
+
+Snippet 59: ❌ FAILED
+Errors:
+  /tmp/tmpmzgmx6q3.c: In function ‘EnSpinItem_Destroy’:
+  /tmp/tmpmzgmx6q3.c:30:5: error: unknown type name ‘EnSpinItem’
+     30 |     EnSpinItem* this = (EnSpinItem*)thisx;
+
+Snippet 60: ❌ FAILED
+Errors:
+  /tmp/tmpfan0u32h.c: In function ‘EnSpinItem_Update’:
+  /tmp/tmpfan0u32h.c:30:5: error: unknown type name ‘EnSpinItem’
+     30 |     EnSpinItem* this = (EnSpinItem*)thisx;
+
+Snippet 61: ❌ FAILED
+Errors:
+  /tmp/tmpm33zub15.c:30:28: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Actor_OfferGetItem(&this->actor, play, GI_RUPEE_BLUE, 50.0f, 50.0f);
+        |                            ^
+
+Snippet 62: ❌ FAILED
+Errors:
+  /tmp/tmpfnbpbht8.c: In function ‘EnSpinItem_Draw’:
+  /tmp/tmpfnbpbht8.c:30:5: error: unknown type name ‘EnSpinItem’
+     30 |     EnSpinItem* this = (EnSpinItem*)thisx;
+
+Snippet 63: ❌ FAILED
+Errors:
+  /tmp/tmpty0bvw4r.c: In function ‘EnCloth_Init’:
+  /tmp/tmpty0bvw4r.c:61:1: error: expected declaration or statement at end of input
+     61 | }
+
+Snippet 64: ❌ FAILED
+Errors:
+  /tmp/tmptjx3104j.c: In function ‘EnCloth_Init’:
+  /tmp/tmptjx3104j.c:60:1: error: expected declaration or statement at end of input
+     60 | }
+
+Snippet 65: ✅ SUCCESS
+
+Snippet 66: ❌ FAILED
+Errors:
+  /tmp/tmpgn0y_sci.c: In function ‘EnCloth_Init’:
+  /tmp/tmpgn0y_sci.c:30:5: error: unknown type name ‘EnCloth’
+     30 |     EnCloth* this = (EnCloth*)thisx;
+
+Snippet 67: ❌ FAILED
+Errors:
+  /tmp/tmp9s6re_ql.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 16; i++) {
+        |     ^~~
+
+Snippet 68: ❌ FAILED
+Errors:
+  /tmp/tmpjx6kkqs2.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 15; i++) {
+        |     ^~~
+
+Snippet 69: ❌ FAILED
+Errors:
+  /tmp/tmpq4vkd7mo.c: In function ‘EnCloth_Update’:
+  /tmp/tmpq4vkd7mo.c:30:5: error: unknown type name ‘EnCloth’
+     30 |     EnCloth* this = (EnCloth*)thisx;
+
+Snippet 70: ❌ FAILED
+Errors:
+  /tmp/tmp5o90k5fc.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 16; i++) {
+        |     ^~~
+
+Snippet 71: ❌ FAILED
+Errors:
+  /tmp/tmp5ru6cguw.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 16; i++) {
+        |     ^~~
+
+Snippet 72: ❌ FAILED
+Errors:
+  /tmp/tmpeiiu1jml.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 15; i++) {
+        |     ^~~
+
+Snippet 73: ❌ FAILED
+Errors:
+  /tmp/tmp9bjzxnlm.c:30:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |             this->points[0] = this->actor.world.pos;
+        |                 ^~
+
+Snippet 74: ❌ FAILED
+Errors:
+  /tmp/tmpkq45rlgm.c:43:8: error: unknown type name ‘InitChainEntry’
+     43 | static InitChainEntry sInitChain[] = {
+        |        ^~~~~~~~~~~~~~
+
+Snippet 75: ❌ FAILED
+Errors:
+  /tmp/tmp9c3w58ps.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 76: ❌ FAILED
+Errors:
+  /tmp/tmpgwbqc2ol.c:43:8: error: unknown type name ‘InitChainEntry’
+     43 | static InitChainEntry sInitChain[] = {
+        |        ^~~~~~~~~~~~~~
+
+Snippet 77: ❌ FAILED
+Errors:
+  /tmp/tmp6_9jf70l.c:42:8: error: unknown type name ‘InitChainEntry’
+     42 | static InitChainEntry sInitChain[] = {
+        |        ^~~~~~~~~~~~~~
+
+Snippet 78: ✅ SUCCESS
+
+Snippet 79: ❌ FAILED
+Errors:
+  /tmp/tmpyj_q9zxy.c: In function ‘EnScholar_Init’:
+  /tmp/tmpyj_q9zxy.c:30:5: error: unknown type name ‘EnScholar’
+     30 |     EnScholar* this = (EnScholar*)thisx;
+
+Snippet 80: ❌ FAILED
+Errors:
+  /tmp/tmp5xz2t5ei.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->destPos[0] = (Vec3f){820.0f, 60.0f, -1340.0f}; // Kakariko
+        |         ^~
+
+Snippet 81: ❌ FAILED
+Errors:
+  /tmp/tmpxh5bbvru.c: In function ‘EnScholar_Destroy’:
+  /tmp/tmpxh5bbvru.c:30:5: error: unknown type name ‘EnScholar’
+     30 |     EnScholar* this = (EnScholar*)thisx;
+
+Snippet 82: ❌ FAILED
+Errors:
+  /tmp/tmp1al7bukj.c: In function ‘EnScholar_Update’:
+  /tmp/tmp1al7bukj.c:30:5: error: unknown type name ‘EnScholar’
+     30 |     EnScholar* this = (EnScholar*)thisx;
+
+Snippet 83: ❌ FAILED
+Errors:
+  /tmp/tmp0shr75ue.c:30:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |         this->locationIndex = (this->locationIndex + 1) & 3;
+        |             ^~
+
+Snippet 84: ❌ FAILED
+Errors:
+  /tmp/tmpf5whaa3k.c:30:21: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Actor_Spawn(&play->actorCtx, play, ACTOR_EN_M_THUNDER,
+        |                     ^
+
+Snippet 85: ❌ FAILED
+Errors:
+  /tmp/tmpq46spwjw.c: In function ‘EnScholar_Draw’:
+  /tmp/tmpq46spwjw.c:30:5: error: unknown type name ‘EnScholar’
+     30 |     EnScholar* this = (EnScholar*)thisx;
+
+Snippet 86: ❌ FAILED
+Errors:
+  /tmp/tmpsoms_bdo.c: In function ‘EnDebugInfo_Init’:
+  /tmp/tmpsoms_bdo.c:50:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     50 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 87: ❌ FAILED
+Errors:
+  /tmp/tmp_hv7ynxy.c: In function ‘EnDebugInfo_Init’:
+  /tmp/tmp_hv7ynxy.c:48:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     48 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 88: ✅ SUCCESS
+
+Snippet 89: ✅ SUCCESS
+
+Snippet 90: ❌ FAILED
+Errors:
+  /tmp/tmp1lenqnzd.c: In function ‘EnDebugInfo_Init’:
+  /tmp/tmp1lenqnzd.c:30:5: error: unknown type name ‘EnDebugInfo’
+     30 |     EnDebugInfo* this = (EnDebugInfo*)thisx;
+
+Snippet 91: ❌ FAILED
+Errors:
+  /tmp/tmphuxert7r.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 92: ❌ FAILED
+Errors:
+  /tmp/tmprq2upcsu.c: In function ‘EnDebugInfo_Update’:
+  /tmp/tmprq2upcsu.c:30:5: error: unknown type name ‘EnDebugInfo’
+     30 |     EnDebugInfo* this = (EnDebugInfo*)thisx;
+
+Snippet 93: ❌ FAILED
+Errors:
+  /tmp/tmpt57lmxmg.c:30:42: error: ‘this’ undeclared here (not in a function)
+     30 |     f32 dist = Actor_WorldDistXZToActor(&this->actor, &player->actor);
+        |                                          ^~~~
+
+Snippet 94: ❌ FAILED
+Errors:
+  /tmp/tmpbza71f7l.c:30:38: error: expected ‘)’ before ‘&’ token
+     30 |         Actor_UpdateBgCheckInfo(play, &this->actor, 35.0f, 60.0f, 0.0f,
+        |                                      ^~
+
+Snippet 95: ❌ FAILED
+Errors:
+  /tmp/tmpd4ppm50r.c:30:33: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                                 ^
+
+Snippet 96: ❌ FAILED
+Errors:
+  /tmp/tmpowa6ki5f.c:30:24: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Math_SmoothStepToF(&this->actor.world.pos.y, this->debugPos.y, 0.3f, 5.0f, 0.0f);
+        |                        ^
+
+Snippet 97: ❌ FAILED
+Errors:
+  /tmp/tmp82hnbku7.c: In function ‘EnDebugInfo_Draw’:
+  /tmp/tmp82hnbku7.c:30:5: error: unknown type name ‘EnDebugInfo’
+     30 |     EnDebugInfo* this = (EnDebugInfo*)thisx;
+
+Snippet 98: ❌ FAILED
+Errors:
+  /tmp/tmplbxmqj4h.c:30:26: error: expected ‘)’ before ‘->’ token
+     30 |     Matrix_Translate(this->actor.world.pos.x, this->actor.world.pos.y,
+        |                          ^~
+
+Snippet 99: ❌ FAILED
+Errors:
+  /tmp/tmpsk4uixju.c:30:27: error: expected ‘)’ before ‘->’ token
+     30 |     Gfx_SetupDL_25Opa(play->state.gfxCtx);
+        |                           ^~
+
+Snippet 100: ❌ FAILED
+Errors:
+  /tmp/tmpv3v36gnk.c:30:1: error: expected identifier or ‘(’ before ‘if’
+     30 | if (gSaveContext.inventory.items[SLOT_TUNIC] == ITEM_TUNIC_ZORA) {
+        | ^~
+
+Snippet 101: ❌ FAILED
+Errors:
+  /tmp/tmpahqs7pbe.c:31:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘if’
+     31 | if (gSaveContext.inventory.items[SLOT_TUNIC] == ITEM_TUNIC_ZORA) {
+        | ^~
+
+Snippet 102: ❌ FAILED
+Errors:
+  /tmp/tmphw9t_kz6.c:30:1: error: expected identifier or ‘(’ before ‘if’
+     30 | if (gSaveContext.inventory.items[SLOT_TUNIC] == ITEM_TUNIC_ZORA) {
+        | ^~
+
+Snippet 103: ❌ FAILED
+Errors:
+  /tmp/tmp7ogwdf94.c: In function ‘EnSoundOpt_Init’:
+  /tmp/tmp7ogwdf94.c:44:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     44 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 104: ❌ FAILED
+Errors:
+  /tmp/tmpln3tujce.c: In function ‘EnSoundOpt_Init’:
+  /tmp/tmpln3tujce.c:42:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     42 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 105: ✅ SUCCESS
+
+Snippet 106: ✅ SUCCESS
+
+Snippet 107: ❌ FAILED
+Errors:
+  /tmp/tmp91r9nmra.c: In function ‘EnSoundOpt_Init’:
+  /tmp/tmp91r9nmra.c:30:5: error: unknown type name ‘EnSoundOpt’
+     30 |     EnSoundOpt* this = (EnSoundOpt*)thisx;
+
+Snippet 108: ❌ FAILED
+Errors:
+  /tmp/tmp1fiwk5z4.c: In function ‘EnSoundOpt_Update’:
+  /tmp/tmp1fiwk5z4.c:30:5: error: unknown type name ‘EnSoundOpt’
+     30 |     EnSoundOpt* this = (EnSoundOpt*)thisx;
+
+Snippet 109: ❌ FAILED
+Errors:
+  /tmp/tmp2ikghgcr.c:30:5: warning: data definition has no type or storage class
+     30 |     distToPlayer = Actor_WorldDistXZToActor(&this->actor, &player->actor);
+        |     ^~~~~~~~~~~~
+
+Snippet 110: ❌ FAILED
+Errors:
+  /tmp/tmplvts7peq.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (distToPlayer < this->soundRadius) {
+        |     ^~
+
+Snippet 111: ❌ FAILED
+Errors:
+  /tmp/tmp1o5h_ian.c:30:9: error: expected identifier or ‘(’ before ‘if’
+     30 |         if (Math_Vec3f_DistXYZ(&this->lastSoundPos, &this->actor.world.pos) > 50.0f) {
+        |         ^~
+
+Snippet 112: ❌ FAILED
+Errors:
+  /tmp/tmpb9iiznvh.c:30:34: error: expected ‘)’ before ‘&’ token
+     30 |     Actor_UpdateBgCheckInfo(play, &this->actor, 35.0f, 50.0f, 0.0f, UPDBGCHECKINFO_FLAG_0);
+        |                                  ^~
+
+Snippet 113: ❌ FAILED
+Errors:
+  /tmp/tmpmpls8it1.c: In function ‘EnSoundOpt_Draw’:
+  /tmp/tmpmpls8it1.c:30:5: error: unknown type name ‘EnSoundOpt’
+     30 |     EnSoundOpt* this = (EnSoundOpt*)thisx;
+
+Snippet 114: ❌ FAILED
+Errors:
+  /tmp/tmp91yn5j18.c: In function ‘EnStatue_Init’:
+  /tmp/tmp91yn5j18.c:51:49: error: ‘gStatueSkel’ undeclared (first use in this function)
+     51 |     SkelAnime_InitFlex(play, &this->skelAnime, &gStatueSkel, &gStatueIdleAnim,
+
+Snippet 115: ❌ FAILED
+Errors:
+  /tmp/tmpb21vrzbj.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 116: ❌ FAILED
+Errors:
+  /tmp/tmpql_drax2.c: In function ‘EnStatue_Init’:
+  /tmp/tmpql_drax2.c:51:49: error: ‘gStatueSkel’ undeclared (first use in this function)
+     51 |     SkelAnime_InitFlex(play, &this->skelAnime, &gStatueSkel, &gStatueIdleAnim,
+
+Snippet 117: ✅ SUCCESS
+
+Snippet 118: ✅ SUCCESS
+
+Snippet 119: ❌ FAILED
+Errors:
+  /tmp/tmp2hqz5lzv.c: In function ‘EnStatue_Init’:
+  /tmp/tmp2hqz5lzv.c:30:5: error: unknown type name ‘EnStatue’
+     30 |     EnStatue* this = (EnStatue*)thisx;
+
+Snippet 120: ❌ FAILED
+Errors:
+  /tmp/tmpf8u607ve.c: In function ‘EnStatue_Update’:
+  /tmp/tmpf8u607ve.c:30:5: error: unknown type name ‘EnStatue’
+     30 |     EnStatue* this = (EnStatue*)thisx;
+
+Snippet 121: ❌ FAILED
+Errors:
+  /tmp/tmpdygmu55q.c: In function ‘EnStatue_Draw’:
+  /tmp/tmpdygmu55q.c:30:5: error: unknown type name ‘EnStatue’
+     30 |     EnStatue* this = (EnStatue*)thisx;
+
+Snippet 122: ❌ FAILED
+Errors:
+  /tmp/tmpgtu2wt8c.c: In function ‘EnOptimizer_Init’:
+  /tmp/tmpgtu2wt8c.c:51:26: error: ‘ACTOR_FLAG_0’ undeclared (first use in this function); did you mean ‘ACTOR_PLAYER’?
+     51 |     this->actor.flags |= ACTOR_FLAG_0;
+
+Snippet 123: ✅ SUCCESS
+
+Snippet 124: ❌ FAILED
+Errors:
+  /tmp/tmpnx_pgg0n.c: In function ‘EnOptimizer_Init’:
+  /tmp/tmpnx_pgg0n.c:30:5: error: unknown type name ‘EnOptimizer’
+     30 |     EnOptimizer* this = (EnOptimizer*)thisx;
+
+Snippet 125: ❌ FAILED
+Errors:
+  /tmp/tmptqc_30m8.c: In function ‘EnOptimizer_Update’:
+  /tmp/tmptqc_30m8.c:30:5: error: unknown type name ‘EnOptimizer’
+     30 |     EnOptimizer* this = (EnOptimizer*)thisx;
+
+Snippet 126: ❌ FAILED
+Errors:
+  /tmp/tmp1a8tpa1r.c:41:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     41 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 127: ❌ FAILED
+Errors:
+  /tmp/tmp2_qd7z_g.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 128: ❌ FAILED
+Errors:
+  /tmp/tmp1solk6u5.c:41:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     41 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 129: ❌ FAILED
+Errors:
+  /tmp/tmpzh7zjzu6.c:39:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     39 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 130: ✅ SUCCESS
+
+Snippet 131: ❌ FAILED
+Errors:
+  /tmp/tmpo9uqsici.c: In function ‘EnDoorSlide_Init’:
+  /tmp/tmpo9uqsici.c:30:5: error: unknown type name ‘EnDoorSlide’
+     30 |     EnDoorSlide* this = (EnDoorSlide*)thisx;
+
+Snippet 132: ❌ FAILED
+Errors:
+  /tmp/tmpr8oq4rpv.c: In function ‘EnDoorSlide_Destroy’:
+  /tmp/tmpr8oq4rpv.c:30:5: error: unknown type name ‘EnDoorSlide’
+     30 |     EnDoorSlide* this = (EnDoorSlide*)thisx;
+
+Snippet 133: ❌ FAILED
+Errors:
+  /tmp/tmpfref2jw0.c: In function ‘EnDoorSlide_Update’:
+  /tmp/tmpfref2jw0.c:30:5: error: unknown type name ‘EnDoorSlide’
+     30 |     EnDoorSlide* this = (EnDoorSlide*)thisx;
+
+Snippet 134: ❌ FAILED
+Errors:
+  /tmp/tmpq1cirksc.c:30:17: error: expected identifier or ‘(’ before ‘if’
+     30 |                 if ((gSaveContext.inventory.items[SLOT_BOW] != ITEM_NONE) &&
+        |                 ^~
+
+Snippet 135: ❌ FAILED
+Errors:
+  /tmp/tmpul2rqy6d.c: In function ‘EnDoorSlide_Draw’:
+  /tmp/tmpul2rqy6d.c:30:5: error: unknown type name ‘EnDoorSlide’
+     30 |     EnDoorSlide* this = (EnDoorSlide*)thisx;
+
+Snippet 136: ❌ FAILED
+Errors:
+  /tmp/tmptvy8m2ht.c:41:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     41 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 137: ❌ FAILED
+Errors:
+  /tmp/tmpicvw616_.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 138: ❌ FAILED
+Errors:
+  /tmp/tmpvq26vxah.c:41:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     41 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 139: ❌ FAILED
+Errors:
+  /tmp/tmp4jqnzhu3.c:40:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     40 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 140: ✅ SUCCESS
+
+Snippet 141: ❌ FAILED
+Errors:
+  /tmp/tmpwrexouve.c: In function ‘EnJjBubble_Init’:
+  /tmp/tmpwrexouve.c:30:5: error: unknown type name ‘EnJjBubble’
+     30 |     EnJjBubble* this = (EnJjBubble*)thisx;
+
+Snippet 142: ❌ FAILED
+Errors:
+  /tmp/tmpfnq0_yog.c: In function ‘EnJjBubble_Destroy’:
+  /tmp/tmpfnq0_yog.c:30:5: error: unknown type name ‘EnJjBubble’
+     30 |     EnJjBubble* this = (EnJjBubble*)thisx;
+
+Snippet 143: ❌ FAILED
+Errors:
+  /tmp/tmpe8l1wu3m.c: In function ‘EnJjBubble_Update’:
+  /tmp/tmpe8l1wu3m.c:30:5: error: unknown type name ‘EnJjBubble’
+     30 |     EnJjBubble* this = (EnJjBubble*)thisx;
+
+Snippet 144: ❌ FAILED
+Errors:
+  /tmp/tmpc4xa6_cc.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->actor.world.pos.y += this->yVelocity;
+        |         ^~
+
+Snippet 145: ❌ FAILED
+Errors:
+  /tmp/tmpdst5_nbt.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->scale = 0.015f + sinf(this->timer * 0.2f) * 0.003f;
+        |         ^~
+
+Snippet 146: ❌ FAILED
+Errors:
+  /tmp/tmprssvzftk.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 147: ❌ FAILED
+Errors:
+  /tmp/tmpmlcdlowy.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (this->timer >= this->lifespan) {
+        |     ^~
+
+Snippet 148: ❌ FAILED
+Errors:
+  /tmp/tmps703h8bv.c: In function ‘EnJjBubble_Draw’:
+  /tmp/tmps703h8bv.c:30:5: error: unknown type name ‘EnJjBubble’
+     30 |     EnJjBubble* this = (EnJjBubble*)thisx;
+
+Snippet 149: ❌ FAILED
+Errors:
+  /tmp/tmppxl_lu69.c: In function ‘EnVoiceAct_Init’:
+  /tmp/tmppxl_lu69.c:45:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     45 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 150: ❌ FAILED
+Errors:
+  /tmp/tmpht5cqpl8.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 151: ❌ FAILED
+Errors:
+  /tmp/tmpf833a4vd.c: In function ‘EnVoiceAct_Init’:
+  /tmp/tmpf833a4vd.c:45:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     45 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 152: ❌ FAILED
+Errors:
+  /tmp/tmpzmkdivdl.c: In function ‘EnVoiceAct_Init’:
+  /tmp/tmpzmkdivdl.c:44:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     44 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 153: ✅ SUCCESS
+
+Snippet 154: ❌ FAILED
+Errors:
+  /tmp/tmpttfajsd4.c: In function ‘EnVoiceAct_Init’:
+  /tmp/tmpttfajsd4.c:30:5: error: unknown type name ‘EnVoiceAct’
+     30 |     EnVoiceAct* this = (EnVoiceAct*)thisx;
+
+Snippet 155: ❌ FAILED
+Errors:
+  /tmp/tmpg8m_sg14.c: In function ‘EnVoiceAct_Destroy’:
+  /tmp/tmpg8m_sg14.c:30:5: error: unknown type name ‘EnVoiceAct’
+     30 |     EnVoiceAct* this = (EnVoiceAct*)thisx;
+
+Snippet 156: ❌ FAILED
+Errors:
+  /tmp/tmp09d43j3f.c: In function ‘EnVoiceAct_Update’:
+  /tmp/tmp09d43j3f.c:30:5: error: unknown type name ‘EnVoiceAct’
+     30 |     EnVoiceAct* this = (EnVoiceAct*)thisx;
+
+Snippet 157: ❌ FAILED
+Errors:
+  /tmp/tmpcjhrq_v6.c:30:34: error: expected ‘)’ before ‘&’ token
+     30 |     Actor_UpdateBgCheckInfo(play, &this->actor, 20.0f, 20.0f, 20.0f, UPDBGCHECKINFO_FLAG_0);
+        |                                  ^~
+
+Snippet 158: ❌ FAILED
+Errors:
+  /tmp/tmp68f9nc64.c:30:48: error: ‘this’ undeclared here (not in a function)
+     30 |     f32 playerDist = Actor_WorldDistXZToActor(&this->actor, &player->actor);
+        |                                                ^~~~
+
+Snippet 159: ❌ FAILED
+Errors:
+  /tmp/tmpjajgl9hs.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (CHECK_BTN_ALL(input->press.button, BTN_B)) {
+        |     ^~
+
+Snippet 160: ❌ FAILED
+Errors:
+  /tmp/tmpugnejhf5.c:30:5: error: expected identifier or ‘(’ before ‘switch’
+     30 |     switch(this->voiceState) {
+        |     ^~~~~~
+
+Snippet 161: ❌ FAILED
+Errors:
+  /tmp/tmpcrgvw6yy.c: In function ‘EnVoiceAct_Draw’:
+  /tmp/tmpcrgvw6yy.c:30:5: error: unknown type name ‘EnVoiceAct’
+     30 |     EnVoiceAct* this = (EnVoiceAct*)thisx;
+
+Snippet 162: ❌ FAILED
+Errors:
+  /tmp/tmpwj_7jz0g.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (this->debugMode) {
+        |     ^~
+
+Snippet 163: ❌ FAILED
+Errors:
+  In file included from oot/include/ultra64/mbi.h:35,
+                   from oot/include/ultra64.h:30,
+                   from /tmp/tmpjwc4oe8t.c:2:
+
+Snippet 164: ❌ FAILED
+Errors:
+  /tmp/tmpt27fe26p.c: In function ‘EnNpc_Init’:
+  /tmp/tmpt27fe26p.c:39:5: error: unknown type name ‘EnNpc’
+     39 |     EnNpc* this = (EnNpc*)thisx;
+
+Snippet 165: ❌ FAILED
+Errors:
+  /tmp/tmpuwp_9tze.c: In function ‘EnNpc_Init’:
+  /tmp/tmpuwp_9tze.c:50:49: error: ‘gNpcSkel’ undeclared (first use in this function)
+     50 |     SkelAnime_InitFlex(play, &this->skelAnime, &gNpcSkel, &gNpcIdleAnim,
+
+Snippet 166: ✅ SUCCESS
+
+Snippet 167: ❌ FAILED
+Errors:
+  /tmp/tmpxjv8akaw.c: In function ‘EnNpc_Init’:
+  /tmp/tmpxjv8akaw.c:30:5: error: unknown type name ‘EnNpc’
+     30 |     EnNpc* this = (EnNpc*)thisx;
+
+Snippet 168: ❌ FAILED
+Errors:
+  /tmp/tmpbv93g1oh.c:29:28: error: unknown type name ‘EnNpc’
+     29 | void EnNpc_UpdateAnimation(EnNpc* this, PlayState* play) {
+        |                            ^~~~~
+
+Snippet 169: ❌ FAILED
+Errors:
+  /tmp/tmp50z_9p2h.c: In function ‘EnNpc_Update’:
+  /tmp/tmp50z_9p2h.c:30:5: error: unknown type name ‘EnNpc’
+     30 |     EnNpc* this = (EnNpc*)thisx;
+
+Snippet 170: ❌ FAILED
+Errors:
+  /tmp/tmpvpni81bo.c: In function ‘EnNpc_Draw’:
+  /tmp/tmpvpni81bo.c:30:5: error: unknown type name ‘EnNpc’
+     30 |     EnNpc* this = (EnNpc*)thisx;
+
+Snippet 171: ❌ FAILED
+Errors:
+  /tmp/tmp5tt3lvvx.c: In function ‘EnNpcAI_Init’:
+  /tmp/tmp5tt3lvvx.c:47:49: error: ‘gNpcSkel’ undeclared (first use in this function)
+     47 |     SkelAnime_InitFlex(play, &this->skelAnime, &gNpcSkel, &gNpcIdleAnim,
+
+Snippet 172: ❌ FAILED
+Errors:
+  /tmp/tmpazkztj8l.c: In function ‘EnNpcAI_Init’:
+  /tmp/tmpazkztj8l.c:46:49: error: ‘gNpcSkel’ undeclared (first use in this function)
+     46 |     SkelAnime_InitFlex(play, &this->skelAnime, &gNpcSkel, &gNpcIdleAnim,
+
+Snippet 173: ✅ SUCCESS
+
+Snippet 174: ❌ FAILED
+Errors:
+  /tmp/tmpw_k54yx_.c: In function ‘EnNpcAI_Init’:
+  /tmp/tmpw_k54yx_.c:30:5: error: unknown type name ‘EnNpcAI’
+     30 |     EnNpcAI* this = (EnNpcAI*)thisx;
+
+Snippet 175: ❌ FAILED
+Errors:
+  /tmp/tmpjdkdn82x.c:29:29: error: unknown type name ‘EnNpcAI’
+     29 | void EnNpcAI_UpdateBehavior(EnNpcAI* this, PlayState* play) {
+        |                             ^~~~~~~
+
+Snippet 176: ❌ FAILED
+Errors:
+  /tmp/tmpn_0tsetx.c:30:5: error: expected identifier or ‘(’ before ‘switch’
+     30 |     switch (this->actionState) {
+        |     ^~~~~~
+
+Snippet 177: ❌ FAILED
+Errors:
+  /tmp/tmpf6pqe49y.c:30:36: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |                 Math_SmoothStepToF(&this->actor.world.pos.x, player->actor.world.pos.x, 0.3f, 3.0f, 0.0f);
+        |                                    ^
+
+Snippet 178: ❌ FAILED
+Errors:
+  /tmp/tmpn7fb9t04.c:30:41: error: ‘this’ undeclared here (not in a function)
+     30 |                 f32 angle = Math_Atan2F(this->actor.world.pos.z - player->actor.world.pos.z,
+        |                                         ^~~~
+
+Snippet 179: ❌ FAILED
+Errors:
+  /tmp/tmp8oi92gqg.c: In function ‘EnNpcAI_Update’:
+  /tmp/tmp8oi92gqg.c:30:5: error: unknown type name ‘EnNpcAI’
+     30 |     EnNpcAI* this = (EnNpcAI*)thisx;
+
+Snippet 180: ❌ FAILED
+Errors:
+  /tmp/tmpoiyuu82r.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 181: ❌ FAILED
+Errors:
+  /tmp/tmp4vtzqyy6.c:30:22: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     SkelAnime_Update(&this->skelAnime);
+        |                      ^
+
+Snippet 182: ❌ FAILED
+Errors:
+  /tmp/tmp6feqvupy.c:30:34: error: expected ‘)’ before ‘&’ token
+     30 |     Actor_UpdateBgCheckInfo(play, &this->actor, 20.0f, 20.0f, 50.0f,
+        |                                  ^~
+
+Snippet 183: ❌ FAILED
+Errors:
+  /tmp/tmp3iaxux8b.c: In function ‘EnNpcAI_Draw’:
+  /tmp/tmp3iaxux8b.c:30:5: error: unknown type name ‘EnNpcAI’
+     30 |     EnNpcAI* this = (EnNpcAI*)thisx;
+
+Snippet 184: ❌ FAILED
+Errors:
+  /tmp/tmppdcq885u.c:40:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     40 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 185: ❌ FAILED
+Errors:
+  /tmp/tmptnq93rk4.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 186: ❌ FAILED
+Errors:
+  /tmp/tmp0r97r2oo.c:40:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     40 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 187: ✅ SUCCESS
+
+Snippet 188: ❌ FAILED
+Errors:
+  /tmp/tmp02wnwchs.c: In function ‘EnLift_Init’:
+  /tmp/tmp02wnwchs.c:30:5: error: unknown type name ‘EnLift’
+     30 |     EnLift* this = (EnLift*)thisx;
+
+Snippet 189: ❌ FAILED
+Errors:
+  /tmp/tmpkz1dxhi4.c: In function ‘EnLift_Destroy’:
+  /tmp/tmpkz1dxhi4.c:30:5: error: unknown type name ‘EnLift’
+     30 |     EnLift* this = (EnLift*)thisx;
+
+Snippet 190: ❌ FAILED
+Errors:
+  /tmp/tmpmb_3ejmo.c: In function ‘EnLift_Update’:
+  /tmp/tmpmb_3ejmo.c:30:5: error: unknown type name ‘EnLift’
+     30 |     EnLift* this = (EnLift*)thisx;
+
+Snippet 191: ❌ FAILED
+Errors:
+  /tmp/tmplc2tj3sl.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 192: ❌ FAILED
+Errors:
+  /tmp/tmprwiecub9.c: In function ‘EnLift_Draw’:
+  /tmp/tmprwiecub9.c:30:5: error: unknown type name ‘EnLift’
+     30 |     EnLift* this = (EnLift*)thisx;
+
+Snippet 193: ❌ FAILED
+Errors:
+  /tmp/tmpbw0n71dg.c: In function ‘EnItemManage_Init’:
+  /tmp/tmpbw0n71dg.c:42:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     42 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 194: ❌ FAILED
+Errors:
+  /tmp/tmpiyip3w_x.c: In function ‘EnItemManage_Init’:
+  /tmp/tmpiyip3w_x.c:41:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     41 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 195: ✅ SUCCESS
+
+Snippet 196: ❌ FAILED
+Errors:
+  /tmp/tmp7w2o_9wk.c: In function ‘EnItemManage_Init’:
+  /tmp/tmp7w2o_9wk.c:30:5: error: unknown type name ‘EnItemManage’
+     30 |     EnItemManage* this = (EnItemManage*)thisx;
+
+Snippet 197: ❌ FAILED
+Errors:
+  /tmp/tmpg8mmbt_4.c:29:40: error: unknown type name ‘EnItemManage’
+     29 | void EnItemManage_CheckTradingSequence(EnItemManage* this, PlayState* play) {
+        |                                        ^~~~~~~~~~~~
+
+Snippet 198: ❌ FAILED
+Errors:
+  /tmp/tmpoy014ysr.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (gSaveContext.inventory.items[SLOT_TRADE_CHILD] == ITEM_WEIRD_EGG) {
+        |     ^~
+
+Snippet 199: ❌ FAILED
+Errors:
+  /tmp/tmp_6tt5hvg.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if ((gSaveContext.inventory.items[SLOT_SWORD] != ITEM_NONE) &&
+        |     ^~
+
+Snippet 200: ❌ FAILED
+Errors:
+  /tmp/tmpq4a37338.c:29:28: error: unknown type name ‘EnItemManage’
+     29 | void EnItemManage_GiveItem(EnItemManage* this, PlayState* play) {
+        |                            ^~~~~~~~~~~~
+
+Snippet 201: ❌ FAILED
+Errors:
+  /tmp/tmpz09vbnab.c: In function ‘EnItemManage_Update’:
+  /tmp/tmpz09vbnab.c:30:5: error: unknown type name ‘EnItemManage’
+     30 |     EnItemManage* this = (EnItemManage*)thisx;
+
+Snippet 202: ❌ FAILED
+Errors:
+  /tmp/tmp4pli2j5_.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 203: ❌ FAILED
+Errors:
+  /tmp/tmpv1n1e1e7.c: In function ‘EnItemManage_Draw’:
+  /tmp/tmpv1n1e1e7.c:30:5: error: unknown type name ‘EnItemManage’
+     30 |     EnItemManage* this = (EnItemManage*)thisx;
+
+Snippet 204: ❌ FAILED
+Errors:
+  /tmp/tmp23aqgtoq.c: In function ‘EnLavaBeast_Init’:
+  /tmp/tmp23aqgtoq.c:55:49: error: ‘gLavaBeastSkel’ undeclared (first use in this function)
+     55 |     SkelAnime_InitFlex(play, &this->skelAnime, &gLavaBeastSkel, &gLavaBeastIdleAnim,
+
+Snippet 205: ❌ FAILED
+Errors:
+  /tmp/tmp1zcj6v49.c: In function ‘EnLavaBeast_Init’:
+  /tmp/tmp1zcj6v49.c:53:49: error: ‘gLavaBeastSkel’ undeclared (first use in this function)
+     53 |     SkelAnime_InitFlex(play, &this->skelAnime, &gLavaBeastSkel, &gLavaBeastIdleAnim,
+
+Snippet 206: ✅ SUCCESS
+
+Snippet 207: ✅ SUCCESS
+
+Snippet 208: ✅ SUCCESS
+
+Snippet 209: ❌ FAILED
+Errors:
+  /tmp/tmph5h91ajn.c: In function ‘EnLavaBeast_Init’:
+  /tmp/tmph5h91ajn.c:30:5: error: unknown type name ‘EnLavaBeast’
+     30 |     EnLavaBeast* this = (EnLavaBeast*)thisx;
+
+Snippet 210: ❌ FAILED
+Errors:
+  /tmp/tmpuiul5we8.c: In function ‘EnLavaBeast_Update’:
+  /tmp/tmpuiul5we8.c:30:5: error: unknown type name ‘EnLavaBeast’
+     30 |     EnLavaBeast* this = (EnLavaBeast*)thisx;

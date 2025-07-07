@@ -8,6 +8,7 @@ Two major fabricated functions were discovered that do not exist in the authenti
 DebugDisplay_AddObject - This function is completely fabricated and not found anywhere in the zeldaret/oot repository. No debug display functions matching this pattern exist.
 MATRIX_NEWMTX - This macro does not exist in the authentic codebase. The correct alternatives are Matrix_NewMtx(play->state.gfxCtx, __FILE__, __LINE__) or MATRIX_FINALIZE_AND_LOAD. GitHub
 
+- [ ] GUI for modifying ocarina of time source code. It should include things like sliders for imporant values used like run speed and colors, other important values. I should be able to swap visual assets very easily (in the backround do all the conversion from and to png to c). Include detailed information from our asset analysis scripts.
 
 
 ## Executive Summary

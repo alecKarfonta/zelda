@@ -1,0 +1,415 @@
+
+C Code Compilation Report
+========================
+
+Summary:
+- Total C code snippets processed: 72
+- Successful compilations: 7
+- Failed compilations: 65
+- Success rate: 9.7%
+
+Detailed Results:
+
+Snippet 1: ❌ FAILED
+Errors:
+  /tmp/tmpluk4f19i.c: In function ‘EnWaterConduit_Init’:
+  /tmp/tmpluk4f19i.c:45:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     45 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 2: ❌ FAILED
+Errors:
+  /tmp/tmplergd58f.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 3: ❌ FAILED
+Errors:
+  /tmp/tmp_xd_l9bb.c: In function ‘EnWaterConduit_Init’:
+  /tmp/tmp_xd_l9bb.c:45:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     45 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 4: ❌ FAILED
+Errors:
+  /tmp/tmpmrs_n4qs.c: In function ‘EnWaterConduit_Init’:
+  /tmp/tmpmrs_n4qs.c:44:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     44 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 5: ✅ SUCCESS
+
+Snippet 6: ❌ FAILED
+Errors:
+  /tmp/tmp4vqtxtp2.c: In function ‘EnWaterConduit_Init’:
+  /tmp/tmp4vqtxtp2.c:30:5: error: unknown type name ‘EnWaterConduit’
+     30 |     EnWaterConduit* this = (EnWaterConduit*)thisx;
+
+Snippet 7: ❌ FAILED
+Errors:
+  /tmp/tmpe_si4tep.c: In function ‘EnWaterConduit_Destroy’:
+  /tmp/tmpe_si4tep.c:30:5: error: unknown type name ‘EnWaterConduit’
+     30 |     EnWaterConduit* this = (EnWaterConduit*)thisx;
+
+Snippet 8: ❌ FAILED
+Errors:
+  /tmp/tmpwdymefly.c: In function ‘EnWaterConduit_Update’:
+  /tmp/tmpwdymefly.c:30:5: error: unknown type name ‘EnWaterConduit’
+     30 |     EnWaterConduit* this = (EnWaterConduit*)thisx;
+
+Snippet 9: ❌ FAILED
+Errors:
+  /tmp/tmpote6wav9.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (Flags_GetSwitch(play, this->switchFlag)) {
+        |     ^~
+
+Snippet 10: ❌ FAILED
+Errors:
+  /tmp/tmp9so031qo.c:30:24: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Math_SmoothStepToS(&this->waterLevel, this->targetLevel, 3, 20, 1);
+        |                        ^
+
+Snippet 11: ❌ FAILED
+Errors:
+  /tmp/tmpak2krkpe.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->spinRate += 0.1f;
+        |         ^~
+
+Snippet 12: ❌ FAILED
+Errors:
+  /tmp/tmpjatoskjc.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 13: ❌ FAILED
+Errors:
+  /tmp/tmpqn9t0s1t.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (this->activeState == 1 && (this->timer & 0xF) == 0) {
+        |     ^~
+
+Snippet 14: ❌ FAILED
+Errors:
+  /tmp/tmp8fl_896e.c: In function ‘EnWaterConduit_Draw’:
+  /tmp/tmp8fl_896e.c:30:5: error: unknown type name ‘EnWaterConduit’
+     30 |     EnWaterConduit* this = (EnWaterConduit*)thisx;
+
+Snippet 15: ❌ FAILED
+Errors:
+  /tmp/tmpjzvecp7s.c:52:9: error: ‘COLTYPE_HIT0’ undeclared here (not in a function)
+     52 |         COLTYPE_HIT0,
+        |         ^~~~~~~~~~~~
+
+Snippet 16: ❌ FAILED
+Errors:
+  /tmp/tmp9_5qvb5b.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 17: ❌ FAILED
+Errors:
+  /tmp/tmpdg765dx4.c:52:9: error: ‘COLTYPE_HIT0’ undeclared here (not in a function)
+     52 |         COLTYPE_HIT0,
+        |         ^~~~~~~~~~~~
+
+Snippet 18: ❌ FAILED
+Errors:
+  /tmp/tmpmcmw785k.c:51:9: error: ‘COLTYPE_HIT0’ undeclared here (not in a function)
+     51 |         COLTYPE_HIT0,
+        |         ^~~~~~~~~~~~
+
+Snippet 19: ✅ SUCCESS
+
+Snippet 20: ✅ SUCCESS
+
+Snippet 21: ❌ FAILED
+Errors:
+  /tmp/tmpesx34qr_.c: In function ‘EnForestGuard_Init’:
+  /tmp/tmpesx34qr_.c:30:5: error: unknown type name ‘EnForestGuard’
+     30 |     EnForestGuard* this = (EnForestGuard*)thisx;
+
+Snippet 22: ❌ FAILED
+Errors:
+  /tmp/tmphhqv6o5x.c: In function ‘EnForestGuard_Destroy’:
+  /tmp/tmphhqv6o5x.c:30:5: error: unknown type name ‘EnForestGuard’
+     30 |     EnForestGuard* this = (EnForestGuard*)thisx;
+
+Snippet 23: ❌ FAILED
+Errors:
+  /tmp/tmp_8_8plfu.c:29:30: error: unknown type name ‘EnForestGuard’
+     29 | void EnForestGuard_SetupIdle(EnForestGuard* this) {
+        |                              ^~~~~~~~~~~~~
+
+Snippet 24: ❌ FAILED
+Errors:
+  /tmp/tmpw1s_4fap.c:29:32: error: unknown type name ‘EnForestGuard’
+     29 | void EnForestGuard_SetupAttack(EnForestGuard* this) {
+        |                                ^~~~~~~~~~~~~
+
+Snippet 25: ❌ FAILED
+Errors:
+  /tmp/tmpb93_xnnd.c:29:25: error: unknown type name ‘EnForestGuard’
+     29 | void EnForestGuard_Idle(EnForestGuard* this, PlayState* play) {
+        |                         ^~~~~~~~~~~~~
+
+Snippet 26: ❌ FAILED
+Errors:
+  /tmp/tmpcutzbqvn.c:29:27: error: unknown type name ‘EnForestGuard’
+     29 | void EnForestGuard_Notice(EnForestGuard* this, PlayState* play) {
+        |                           ^~~~~~~~~~~~~
+
+Snippet 27: ❌ FAILED
+Errors:
+  /tmp/tmp6v13c5ya.c:29:27: error: unknown type name ‘EnForestGuard’
+     29 | void EnForestGuard_Attack(EnForestGuard* this, PlayState* play) {
+        |                           ^~~~~~~~~~~~~
+
+Snippet 28: ❌ FAILED
+Errors:
+  /tmp/tmpbgyobrdg.c:30:28: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Actor_SpawnAsChild(&play->actorCtx, &this->actor, play, ACTOR_EN_WOOD_EFFECT,
+        |                            ^
+
+Snippet 29: ❌ FAILED
+Errors:
+  /tmp/tmpz92bhdl3.c: In function ‘EnForestGuard_Update’:
+  /tmp/tmpz92bhdl3.c:30:5: error: unknown type name ‘EnForestGuard’
+     30 |     EnForestGuard* this = (EnForestGuard*)thisx;
+
+Snippet 30: ❌ FAILED
+Errors:
+  /tmp/tmpsoy8uaez.c: In function ‘EnForestGuard_Draw’:
+  /tmp/tmpsoy8uaez.c:30:5: error: unknown type name ‘EnForestGuard’
+     30 |     EnForestGuard* this = (EnForestGuard*)thisx;
+
+Snippet 31: ❌ FAILED
+Errors:
+  /tmp/tmptjv31jp5.c: In function ‘EnWaterWell_Init’:
+  /tmp/tmptjv31jp5.c:59:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     59 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 32: ❌ FAILED
+Errors:
+  /tmp/tmp6m_phocf.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 33: ❌ FAILED
+Errors:
+  /tmp/tmpotewecvx.c: In function ‘EnWaterWell_Init’:
+  /tmp/tmpotewecvx.c:59:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     59 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 34: ❌ FAILED
+Errors:
+  /tmp/tmp4j5slhpu.c: In function ‘EnWaterWell_Init’:
+  /tmp/tmp4j5slhpu.c:58:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     58 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 35: ✅ SUCCESS
+
+Snippet 36: ❌ FAILED
+Errors:
+  /tmp/tmp9e6o80pd.c: In function ‘EnWaterWell_Init’:
+  /tmp/tmp9e6o80pd.c:30:5: error: unknown type name ‘EnWaterWell’
+     30 |     EnWaterWell* this = (EnWaterWell*)thisx;
+
+Snippet 37: ❌ FAILED
+Errors:
+  /tmp/tmp2r2adjex.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->roomWaterLevel[0] = -200;  // Low water
+        |         ^~
+
+Snippet 38: ❌ FAILED
+Errors:
+  /tmp/tmpz758pmsm.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 39: ❌ FAILED
+Errors:
+  /tmp/tmpkcmabuyy.c: In function ‘EnWaterWell_Destroy’:
+  /tmp/tmpkcmabuyy.c:30:5: error: unknown type name ‘EnWaterWell’
+     30 |     EnWaterWell* this = (EnWaterWell*)thisx;
+
+Snippet 40: ❌ FAILED
+Errors:
+  /tmp/tmpadis0mr3.c:29:35: error: unknown type name ‘EnWaterWell’
+     29 | void EnWaterWell_UpdateWaterLevel(EnWaterWell* this, PlayState* play) {
+        |                                   ^~~~~~~~~~~
+
+Snippet 41: ❌ FAILED
+Errors:
+  /tmp/tmpsijymgpq.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (distToPlayer < this->effectRadius) {
+        |     ^~
+
+Snippet 42: ❌ FAILED
+Errors:
+  /tmp/tmpr4vrcn44.c:30:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |         play->roomCtx.curRoom.waterLevelPres = this->targetWaterLevel;
+        |             ^~
+
+Snippet 43: ❌ FAILED
+Errors:
+  /tmp/tmpwru652mv.c: In function ‘EnWaterWell_Update’:
+  /tmp/tmpwru652mv.c:30:5: error: unknown type name ‘EnWaterWell’
+     30 |     EnWaterWell* this = (EnWaterWell*)thisx;
+
+Snippet 44: ❌ FAILED
+Errors:
+  /tmp/tmp60l4d73s.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 45: ❌ FAILED
+Errors:
+  /tmp/tmprl_6knvt.c:30:34: error: expected ‘)’ before ‘&’ token
+     30 |     Actor_UpdateBgCheckInfo(play, &this->actor, 20.0f, 20.0f, 20.0f, UPDBGCHECKINFO_FLAG_0 | UPDBGCHECKINFO_FLAG_2);
+        |                                  ^~
+
+Snippet 46: ❌ FAILED
+Errors:
+  /tmp/tmph9h3cso1.c: In function ‘EnWaterWell_Draw’:
+  /tmp/tmph9h3cso1.c:30:5: error: unknown type name ‘EnWaterWell’
+     30 |     EnWaterWell* this = (EnWaterWell*)thisx;
+
+Snippet 47: ❌ FAILED
+Errors:
+  /tmp/tmpuley_5qi.c: In function ‘EnSoundOpt_Init’:
+  /tmp/tmpuley_5qi.c:59:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     59 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 48: ❌ FAILED
+Errors:
+  /tmp/tmp7frqfovl.c: In function ‘EnSoundOpt_Init’:
+  /tmp/tmp7frqfovl.c:57:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     57 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 49: ✅ SUCCESS
+
+Snippet 50: ✅ SUCCESS
+
+Snippet 51: ❌ FAILED
+Errors:
+  /tmp/tmp9gpxnnjp.c: In function ‘EnSoundOpt_Init’:
+  /tmp/tmp9gpxnnjp.c:30:5: error: unknown type name ‘EnSoundOpt’
+     30 |     EnSoundOpt* this = (EnSoundOpt*)thisx;
+
+Snippet 52: ❌ FAILED
+Errors:
+  /tmp/tmpgwyuw61o.c: In function ‘EnSoundOpt_Update’:
+  /tmp/tmpgwyuw61o.c:30:5: error: unknown type name ‘EnSoundOpt’
+     30 |     EnSoundOpt* this = (EnSoundOpt*)thisx;
+
+Snippet 53: ❌ FAILED
+Errors:
+  /tmp/tmp_wh7smc6.c: In function ‘EnSoundOpt_Draw’:
+  /tmp/tmp_wh7smc6.c:30:5: error: unknown type name ‘EnSoundOpt’
+     30 |     EnSoundOpt* this = (EnSoundOpt*)thisx;
+
+Snippet 54: ❌ FAILED
+Errors:
+  /tmp/tmp2wp2uh92.c: In function ‘EnEffect_Init’:
+  /tmp/tmp2wp2uh92.c:57:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     57 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 55: ❌ FAILED
+Errors:
+  /tmp/tmp1ea2fh_s.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 56: ❌ FAILED
+Errors:
+  /tmp/tmpci6hzy7_.c: In function ‘EnEffect_Init’:
+  /tmp/tmpci6hzy7_.c:58:1: error: expected declaration or statement at end of input
+     58 | }
+
+Snippet 57: ❌ FAILED
+Errors:
+  /tmp/tmp4o4bq070.c: In function ‘EnEffect_Init’:
+  /tmp/tmp4o4bq070.c:57:1: error: expected declaration or statement at end of input
+     57 | }
+
+Snippet 58: ✅ SUCCESS
+
+Snippet 59: ❌ FAILED
+Errors:
+  /tmp/tmpzn48gruy.c: In function ‘EnEffect_Init’:
+  /tmp/tmpzn48gruy.c:30:5: error: unknown type name ‘EnEffect’; did you mean ‘SoundEffect’?
+     30 |     EnEffect* this = (EnEffect*)thisx;
+
+Snippet 60: ❌ FAILED
+Errors:
+  /tmp/tmp1n_dzgig.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 8; i++) {
+        |     ^~~
+
+Snippet 61: ❌ FAILED
+Errors:
+  /tmp/tmps8chs1tj.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 62: ❌ FAILED
+Errors:
+  /tmp/tmp_446rhw_.c:30:29: error: expected ‘)’ before ‘&’ token
+     30 |     SkelAnime_InitFlex(play, &this->skelAnime, &gEffectSkel, &gEffectAnim,
+        |                             ^~
+
+Snippet 63: ❌ FAILED
+Errors:
+  /tmp/tmp37qfg8hq.c: In function ‘EnEffect_Destroy’:
+  /tmp/tmp37qfg8hq.c:30:5: error: unknown type name ‘EnEffect’; did you mean ‘SoundEffect’?
+     30 |     EnEffect* this = (EnEffect*)thisx;
+
+Snippet 64: ❌ FAILED
+Errors:
+  /tmp/tmp3ffdd_dm.c: In function ‘EnEffect_Update’:
+  /tmp/tmp3ffdd_dm.c:30:5: error: unknown type name ‘EnEffect’; did you mean ‘SoundEffect’?
+     30 |     EnEffect* this = (EnEffect*)thisx;
+
+Snippet 65: ❌ FAILED
+Errors:
+  /tmp/tmp8gzqziyr.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 8; i++) {
+        |     ^~~
+
+Snippet 66: ❌ FAILED
+Errors:
+  /tmp/tmp29detvo6.c:30:34: error: expected ‘)’ before ‘&’ token
+     30 |     Actor_UpdateBgCheckInfo(play, &this->actor, 35.0f, 30.0f, 30.0f,
+        |                                  ^~
+
+Snippet 67: ❌ FAILED
+Errors:
+  /tmp/tmpw726fbcz.c:30:22: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     SkelAnime_Update(&this->skelAnime);
+        |                      ^
+
+Snippet 68: ❌ FAILED
+Errors:
+  /tmp/tmpzm3lgo1f.c: In function ‘EnEffect_Draw’:
+  /tmp/tmpzm3lgo1f.c:30:5: error: unknown type name ‘EnEffect’; did you mean ‘SoundEffect’?
+     30 |     EnEffect* this = (EnEffect*)thisx;
+
+Snippet 69: ❌ FAILED
+Errors:
+  /tmp/tmpkgc5oojv.c:30:27: error: expected ‘)’ before ‘->’ token
+     30 |     Gfx_SetupDL_25Opa(play->state.gfxCtx);
+        |                           ^~
+
+Snippet 70: ❌ FAILED
+Errors:
+  In file included from oot/include/ultra64/mbi.h:35,
+                   from oot/include/ultra64.h:30,
+                   from /tmp/tmplc0sfxp3.c:2:
+
+Snippet 71: ❌ FAILED
+Errors:
+  /tmp/tmprbu8fs64.c:30:37: error: expected ‘)’ before ‘->’ token
+     30 |     SkelAnime_DrawFlexOpa(play, this->skelAnime.skeleton, this->skelAnime.jointTable,
+        |                                     ^~
+
+Snippet 72: ❌ FAILED
+Errors:
+  /tmp/tmpb65j97bl.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 8; i++) {
+        |     ^~~

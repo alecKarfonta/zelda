@@ -1,0 +1,317 @@
+
+C Code Compilation Report
+========================
+
+Summary:
+- Total C code snippets processed: 57
+- Successful compilations: 9
+- Failed compilations: 48
+- Success rate: 15.8%
+
+Detailed Results:
+
+Snippet 1: ❌ FAILED
+Errors:
+  /tmp/tmpjg6t0gf7.c: In function ‘EnCrystalShield_Init’:
+  /tmp/tmpjg6t0gf7.c:49:24: error: ‘ColliderInit’ has no member named ‘colType’
+     49 |             .base = { .colType = COLTYPE_NONE,
+
+Snippet 2: ❌ FAILED
+Errors:
+  /tmp/tmpgtromrjq.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 3: ❌ FAILED
+Errors:
+  /tmp/tmpt8ev1amh.c: In function ‘EnCrystalShield_Init’:
+  /tmp/tmpt8ev1amh.c:49:24: error: ‘ColliderInit’ has no member named ‘colType’
+     49 |             .base = { .colType = COLTYPE_NONE,
+
+Snippet 4: ❌ FAILED
+Errors:
+  /tmp/tmpq1upfmxu.c: In function ‘EnCrystalShield_Init’:
+  /tmp/tmpq1upfmxu.c:48:24: error: ‘ColliderInit’ has no member named ‘colType’
+     48 |             .base = { .colType = COLTYPE_NONE,
+
+Snippet 5: ✅ SUCCESS
+
+Snippet 6: ❌ FAILED
+Errors:
+  /tmp/tmpbxqjz77p.c: In function ‘EnCrystalShield_Init’:
+  /tmp/tmpbxqjz77p.c:30:5: error: unknown type name ‘EnCrystalShield’
+     30 |     EnCrystalShield* this = (EnCrystalShield*)thisx;
+
+Snippet 7: ❌ FAILED
+Errors:
+  /tmp/tmp38a9i7t9.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 8: ❌ FAILED
+Errors:
+  /tmp/tmprreokrq9.c: In function ‘EnCrystalShield_Destroy’:
+  /tmp/tmprreokrq9.c:30:5: error: unknown type name ‘EnCrystalShield’
+     30 |     EnCrystalShield* this = (EnCrystalShield*)thisx;
+
+Snippet 9: ❌ FAILED
+Errors:
+  /tmp/tmphmmp0thf.c: In function ‘EnCrystalShield_Update’:
+  /tmp/tmphmmp0thf.c:30:5: error: unknown type name ‘EnCrystalShield’
+     30 |     EnCrystalShield* this = (EnCrystalShield*)thisx;
+
+Snippet 10: ❌ FAILED
+Errors:
+  /tmp/tmpaxa0q0oe.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->floatVelocity += Math_SinS(this->timer * 0x800) * 0.13f;
+        |         ^~
+
+Snippet 11: ❌ FAILED
+Errors:
+  /tmp/tmpz23ofal1.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (Actor_WorldDistXZToActor(&this->actor, &player->actor) < 100.0f) {
+        |     ^~
+
+Snippet 12: ❌ FAILED
+Errors:
+  /tmp/tmp2art7ytr.c:30:35: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |             Audio_PlayActorSound2(&this->actor, NA_SE_IT_GET_SHIELD);
+        |                                   ^
+
+Snippet 13: ❌ FAILED
+Errors:
+  /tmp/tmpu5hgsfyr.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 14: ❌ FAILED
+Errors:
+  /tmp/tmpjx4q04zd.c: In function ‘EnCrystalShield_Draw’:
+  /tmp/tmpjx4q04zd.c:30:5: error: unknown type name ‘EnCrystalShield’
+     30 |     EnCrystalShield* this = (EnCrystalShield*)thisx;
+
+Snippet 15: ❌ FAILED
+Errors:
+  /tmp/tmp5o665ul4.c:48:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     48 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 16: ❌ FAILED
+Errors:
+  /tmp/tmpuf6d7cca.c:47:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     47 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 17: ✅ SUCCESS
+
+Snippet 18: ✅ SUCCESS
+
+Snippet 19: ❌ FAILED
+Errors:
+  /tmp/tmp5y2n6m6v.c: In function ‘EnSoundFilter_Init’:
+  /tmp/tmp5y2n6m6v.c:30:5: error: unknown type name ‘EnSoundFilter’
+     30 |     EnSoundFilter* this = (EnSoundFilter*)thisx;
+
+Snippet 20: ❌ FAILED
+Errors:
+  /tmp/tmpytlqqg0c.c: In function ‘EnSoundFilter_Destroy’:
+  /tmp/tmpytlqqg0c.c:30:5: error: unknown type name ‘EnSoundFilter’
+     30 |     EnSoundFilter* this = (EnSoundFilter*)thisx;
+
+Snippet 21: ❌ FAILED
+Errors:
+  /tmp/tmptp6t0pal.c: In function ‘EnSoundFilter_Update’:
+  /tmp/tmptp6t0pal.c:30:5: error: unknown type name ‘EnSoundFilter’
+     30 |     EnSoundFilter* this = (EnSoundFilter*)thisx;
+
+Snippet 22: ❌ FAILED
+Errors:
+  /tmp/tmpfd0djanl.c:30:9: error: expected identifier or ‘(’ before ‘if’
+     30 |         if (this->filterState == FILTER_STATE_INACTIVE) {
+        |         ^~
+
+Snippet 23: ❌ FAILED
+Errors:
+  /tmp/tmpkjv_hx6j.c:30:28: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Math_SmoothStepToF(&this->filterAmount, 1.0f, 0.1f, 0.3f, 0.01f);
+        |                            ^
+
+Snippet 24: ❌ FAILED
+Errors:
+  /tmp/tmpvo5htr8t.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 25: ✅ SUCCESS
+
+Snippet 26: ❌ FAILED
+Errors:
+  /tmp/tmp_w006p_f.c: In function ‘EnDekuWeb_Init’:
+  /tmp/tmp_w006p_f.c:49:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     49 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 27: ❌ FAILED
+Errors:
+  /tmp/tmpxmnlexjf.c:29:2: error: expected ‘;’ before ‘typedef’
+     29 | c
+        |  ^
+
+Snippet 28: ❌ FAILED
+Errors:
+  /tmp/tmp7cto1mnf.c: In function ‘EnDekuWeb_Init’:
+  /tmp/tmp7cto1mnf.c:49:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     49 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 29: ❌ FAILED
+Errors:
+  /tmp/tmp9pfvai_p.c: In function ‘EnDekuWeb_Init’:
+  /tmp/tmp9pfvai_p.c:48:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     48 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 30: ✅ SUCCESS
+
+Snippet 31: ❌ FAILED
+Errors:
+  /tmp/tmpvf6dhqv6.c: In function ‘EnDekuWeb_Init’:
+  /tmp/tmpvf6dhqv6.c:30:5: error: unknown type name ‘EnDekuWeb’
+     30 |     EnDekuWeb* this = (EnDekuWeb*)thisx;
+
+Snippet 32: ❌ FAILED
+Errors:
+  /tmp/tmpaf6sge81.c:30:32: error: expected ‘)’ before ‘&’ token
+     30 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 33: ❌ FAILED
+Errors:
+  /tmp/tmpqq7zr0d1.c: In function ‘EnDekuWeb_Destroy’:
+  /tmp/tmpqq7zr0d1.c:30:5: error: unknown type name ‘EnDekuWeb’
+     30 |     EnDekuWeb* this = (EnDekuWeb*)thisx;
+
+Snippet 34: ❌ FAILED
+Errors:
+  /tmp/tmp9gzuf3qf.c: In function ‘EnDekuWeb_Update’:
+  /tmp/tmp9gzuf3qf.c:30:5: error: unknown type name ‘EnDekuWeb’
+     30 |     EnDekuWeb* this = (EnDekuWeb*)thisx;
+
+Snippet 35: ❌ FAILED
+Errors:
+  /tmp/tmp8bk48no5.c:30:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     30 |     this->actor.world.pos.y = this->initY + (Math_SinS(this->oscillation) * 5.0f);
+        |         ^~
+
+Snippet 36: ❌ FAILED
+Errors:
+  /tmp/tmp9f4n50gj.c:30:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 37: ❌ FAILED
+Errors:
+  /tmp/tmp79ruk2gd.c:30:5: error: expected identifier or ‘(’ before ‘if’
+     30 |     if (Actor_WorldDistXZToActor(&this->actor, &player->actor) < 50.0f) {
+        |     ^~
+
+Snippet 38: ❌ FAILED
+Errors:
+  /tmp/tmpagzhrk2_.c: In function ‘EnDekuWeb_Draw’:
+  /tmp/tmpagzhrk2_.c:30:5: error: unknown type name ‘EnDekuWeb’
+     30 |     EnDekuWeb* this = (EnDekuWeb*)thisx;
+
+Snippet 39: ❌ FAILED
+Errors:
+  /tmp/tmprd6woz1i.c: In function ‘EffHeal_Init’:
+  /tmp/tmprd6woz1i.c:59:1: error: expected declaration or statement at end of input
+     59 | }
+
+Snippet 40: ❌ FAILED
+Errors:
+  /tmp/tmplk8wtj34.c: In function ‘EffHeal_Init’:
+  /tmp/tmplk8wtj34.c:57:1: error: expected declaration or statement at end of input
+     57 | }
+
+Snippet 41: ✅ SUCCESS
+
+Snippet 42: ✅ SUCCESS
+
+Snippet 43: ❌ FAILED
+Errors:
+  /tmp/tmp2azokgnn.c: In function ‘EffHeal_Init’:
+  /tmp/tmp2azokgnn.c:30:5: error: unknown type name ‘EffHeal’
+     30 |     EffHeal* this = (EffHeal*)thisx;
+
+Snippet 44: ❌ FAILED
+Errors:
+  /tmp/tmpg_qh_0qq.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 8; i++) {
+        |     ^~~
+
+Snippet 45: ❌ FAILED
+Errors:
+  /tmp/tmpjdoanbni.c:33:1: error: expected identifier or ‘(’ before ‘}’ token
+     33 | }
+        | ^
+
+Snippet 46: ✅ SUCCESS
+
+Snippet 47: ❌ FAILED
+Errors:
+  /tmp/tmphy35ufpw.c: In function ‘EffHeal_Update’:
+  /tmp/tmphy35ufpw.c:30:5: error: unknown type name ‘EffHeal’
+     30 |     EffHeal* this = (EffHeal*)thisx;
+
+Snippet 48: ❌ FAILED
+Errors:
+  /tmp/tmpo8xzdvft.c:30:28: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     30 |         Math_SmoothStepToF(&this->scale, 0.01f, 0.2f, 0.001f, 0.0001f);
+        |                            ^
+
+Snippet 49: ❌ FAILED
+Errors:
+  /tmp/tmp9ww_y3ut.c:30:9: error: expected identifier or ‘(’ before ‘for’
+     30 |         for (i = 0; i < 8; i++) {
+        |         ^~~
+
+Snippet 50: ❌ FAILED
+Errors:
+  /tmp/tmpmuf3ykzi.c: In function ‘EffHeal_Draw’:
+  /tmp/tmpmuf3ykzi.c:30:5: error: unknown type name ‘EffHeal’
+     30 |     EffHeal* this = (EffHeal*)thisx;
+
+Snippet 51: ❌ FAILED
+Errors:
+  /tmp/tmpunx63lqi.c:30:27: error: expected ‘)’ before ‘->’ token
+     30 |     Gfx_SetupDL_25Opa(play->state.gfxCtx);
+        |                           ^~
+
+Snippet 52: ❌ FAILED
+Errors:
+  /tmp/tmpbbk5wdk7.c:30:5: error: expected identifier or ‘(’ before ‘for’
+     30 |     for (i = 0; i < 8; i++) {
+        |     ^~~
+
+Snippet 53: ❌ FAILED
+Errors:
+  /tmp/tmpnwpvuq7p.c: In function ‘EnOptimizer_Init’:
+  /tmp/tmpnwpvuq7p.c:47:64: error: ‘sCylinderInit’ undeclared (first use in this function); did you mean ‘ColliderInit’?
+     47 |     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
+
+Snippet 54: ✅ SUCCESS
+
+Snippet 55: ❌ FAILED
+Errors:
+  /tmp/tmp1edm3wn7.c: In function ‘EnOptimizer_Init’:
+  /tmp/tmp1edm3wn7.c:30:5: error: unknown type name ‘EnOptimizer’
+     30 |     EnOptimizer* this = (EnOptimizer*)thisx;
+
+Snippet 56: ❌ FAILED
+Errors:
+  /tmp/tmpza51xkqu.c: In function ‘EnOptimizer_Update’:
+  /tmp/tmpza51xkqu.c:30:5: error: unknown type name ‘EnOptimizer’
+     30 |     EnOptimizer* this = (EnOptimizer*)thisx;
+
+Snippet 57: ❌ FAILED
+Errors:
+  /tmp/tmpc04d8jwq.c: In function ‘EnOptimizer_Draw’:
+  /tmp/tmpc04d8jwq.c:30:5: error: unknown type name ‘EnOptimizer’
+     30 |     EnOptimizer* this = (EnOptimizer*)thisx;

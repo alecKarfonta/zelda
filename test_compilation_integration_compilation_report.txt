@@ -1,0 +1,169 @@
+
+C Code Compilation Report
+========================
+
+Summary:
+- Total C code snippets processed: 29
+- Successful compilations: 4
+- Failed compilations: 25
+- Success rate: 13.8%
+
+Detailed Results:
+
+Snippet 1: ❌ FAILED
+Errors:
+  /tmp/tmp8b92ng83.c:21:35: error: unknown type name ‘PlayState’
+     21 | void EnGndBarr_Init(Actor* thisx, PlayState* play) {
+        |                                   ^~~~~~~~~
+
+Snippet 2: ✅ SUCCESS
+
+Snippet 3: ❌ FAILED
+Errors:
+  /tmp/tmph0ct9_b3.c:13:35: error: unknown type name ‘PlayState’
+     13 | void EnGndBarr_Init(Actor* thisx, PlayState* play) {
+        |                                   ^~~~~~~~~
+
+Snippet 4: ❌ FAILED
+Errors:
+  /tmp/tmptqhxjlp5.c:14:32: error: expected ‘)’ before ‘&’ token
+     14 |     Collider_InitCylinder(play, &this->collider);
+        |                                ^~
+
+Snippet 5: ❌ FAILED
+Errors:
+  /tmp/tmpa3o_nsff.c:13:38: error: unknown type name ‘PlayState’
+     13 | void EnGndBarr_Destroy(Actor* thisx, PlayState* play) {
+        |                                      ^~~~~~~~~
+
+Snippet 6: ❌ FAILED
+Errors:
+  /tmp/tmpbcd6_w3y.c:13:37: error: unknown type name ‘PlayState’
+     13 | void EnGndBarr_Update(Actor* thisx, PlayState* play) {
+        |                                     ^~~~~~~~~
+
+Snippet 7: ❌ FAILED
+Errors:
+  /tmp/tmp7whpbmpf.c:14:5: error: expected identifier or ‘(’ before ‘if’
+     14 |     if ((gSaveContext.eventChkInf[4] & 0xF) == 0xF) {
+        |     ^~
+
+Snippet 8: ❌ FAILED
+Errors:
+  /tmp/tmpl4vcdllg.c:14:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     14 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 9: ❌ FAILED
+Errors:
+  /tmp/tmpcovufahm.c:13:35: error: unknown type name ‘PlayState’
+     13 | void EnGndBarr_Draw(Actor* thisx, PlayState* play) {
+        |                                   ^~~~~~~~~
+
+Snippet 10: ❌ FAILED
+Errors:
+  /tmp/tmpwxljteic.c:24:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     24 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 11: ❌ FAILED
+Errors:
+  /tmp/tmpksihancl.c:13:2: error: expected ‘;’ before ‘typedef’
+     13 | c
+        |  ^
+
+Snippet 12: ❌ FAILED
+Errors:
+  /tmp/tmp6fzwizqm.c:24:9: error: ‘COLTYPE_NONE’ undeclared here (not in a function); did you mean ‘OCLINE_NONE’?
+     24 |         COLTYPE_NONE,
+        |         ^~~~~~~~~~~~
+
+Snippet 13: ✅ SUCCESS
+
+Snippet 14: ❌ FAILED
+Errors:
+  /tmp/tmpj1oyrq_y.c:13:37: error: unknown type name ‘PlayState’
+     13 | void EnJabuWater_Init(Actor* thisx, PlayState* play) {
+        |                                     ^~~~~~~~~
+
+Snippet 15: ❌ FAILED
+Errors:
+  /tmp/tmp_zusxn9w.c:13:40: error: unknown type name ‘PlayState’
+     13 | void EnJabuWater_Destroy(Actor* thisx, PlayState* play) {
+        |                                        ^~~~~~~~~
+
+Snippet 16: ❌ FAILED
+Errors:
+  /tmp/tmptx3nyjcf.c:13:39: error: unknown type name ‘PlayState’
+     13 | void EnJabuWater_Update(Actor* thisx, PlayState* play) {
+        |                                       ^~~~~~~~~
+
+Snippet 17: ❌ FAILED
+Errors:
+  /tmp/tmpywqj3hbo.c:14:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     14 |     this->rippleScale = 0.1f + (Math_SinS(this->timer * 0x800) * 0.02f);
+        |         ^~
+
+Snippet 18: ❌ FAILED
+Errors:
+  /tmp/tmp11b90kjh.c:14:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     14 |     this->bubbleTimer--;
+        |         ^~
+
+Snippet 19: ❌ FAILED
+Errors:
+  /tmp/tmpljphwcnz.c:14:5: error: expected identifier or ‘(’ before ‘if’
+     14 |     if (sqrtf(SQ(dx) + SQ(dz))(&player->actor.world.pos, &this->actor.world.pos) < 100.0f) {
+        |     ^~
+
+Snippet 20: ❌ FAILED
+Errors:
+  /tmp/tmpkdndvmtd.c:13:37: error: unknown type name ‘PlayState’
+     13 | void EnJabuWater_Draw(Actor* thisx, PlayState* play) {
+        |                                     ^~~~~~~~~
+
+Snippet 21: ❌ FAILED
+Errors:
+  /tmp/tmp59any220.c:24:41: error: unknown type name ‘PlayState’
+     24 | void EnCrystalSwitch_Init(Actor* thisx, PlayState* play) {
+        |                                         ^~~~~~~~~
+
+Snippet 22: ❌ FAILED
+Errors:
+  /tmp/tmpm9rdrr0c.c:22:41: error: unknown type name ‘PlayState’
+     22 | void EnCrystalSwitch_Init(Actor* thisx, PlayState* play) {
+        |                                         ^~~~~~~~~
+
+Snippet 23: ✅ SUCCESS
+
+Snippet 24: ✅ SUCCESS
+
+Snippet 25: ❌ FAILED
+Errors:
+  /tmp/tmpstovk_a2.c:13:41: error: unknown type name ‘PlayState’
+     13 | void EnCrystalSwitch_Init(Actor* thisx, PlayState* play) {
+        |                                         ^~~~~~~~~
+
+Snippet 26: ❌ FAILED
+Errors:
+  /tmp/tmpkesaz5bv.c:13:43: error: unknown type name ‘PlayState’
+     13 | void EnCrystalSwitch_Update(Actor* thisx, PlayState* play) {
+        |                                           ^~~~~~~~~
+
+Snippet 27: ❌ FAILED
+Errors:
+  /tmp/tmptbx8brzm.c:14:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+     14 |             this->effectPos.x = this->actor.world.pos.x;
+        |                 ^~
+
+Snippet 28: ❌ FAILED
+Errors:
+  /tmp/tmpqghtck0y.c:14:29: error: expected declaration specifiers or ‘...’ before ‘&’ token
+     14 |     Collider_UpdateCylinder(&this->actor, &this->collider);
+        |                             ^
+
+Snippet 29: ❌ FAILED
+Errors:
+  /tmp/tmp3fjj_nwz.c:13:41: error: unknown type name ‘PlayState’
+     13 | void EnCrystalSwitch_Draw(Actor* thisx, PlayState* play) {
+        |                                         ^~~~~~~~~
