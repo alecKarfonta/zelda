@@ -231,6 +231,465 @@ This document outlines a comprehensive plan to convert The Legend of Zelda: Ocar
   - [ ] Create asset extraction tools (OTRExporter-style)
   - [ ] Add support for custom asset mods and replacements
 
+### 2.5 Game Logic Integration *(Core OOT Decompiled Source Integration)* - **NEXT PRIORITY**
+
+This section represents the critical bridge between our completed native backend systems and the actual OOT game logic from the zeldaret/oot decompilation project.
+
+#### 2.5.1 LibUltra Function Replacement Strategy
+- [ ] **Critical LibUltra Function Mapping** *(174 functions identified in Phase 1)*
+  - [ ] **Memory Management Functions** (Priority 1 - Core Game Stability)
+    - [ ] `osGetMemSize()` → Modern memory detection
+    - [ ] `osCreateHeap()` / `osDestroyHeap()` → Custom arena allocators
+    - [ ] DMA functions (`osPiStartDma()`, `osWritebackDCache()`) → File I/O abstraction
+  - [ ] **Threading and Synchronization** (Priority 1 - Game Loop)
+    - [ ] `osCreateThread()` / `osStartThread()` → Modern threading abstraction
+    - [ ] `osRecvMesg()` / `osSendMesg()` (50+ uses) → Message queue system
+    - [ ] `osSetEventMesg()` → Event callback system
+  - [ ] **Timer and Timing Functions** (Priority 2 - Game Timing)
+    - [ ] `osGetTime()` / `osGetCount()` → High-resolution timing
+    - [ ] `osSetTimer()` → Modern timer system
+    - [ ] Frame-rate dependent code adaptation
+
+- [ ] **Libultra Compatibility Layer Implementation**
+  - [ ] Create `libultra_compat.h` with all function signatures
+  - [ ] Implement core message passing system for game threading
+  - [ ] Create memory management bridge for OOT's arena system
+  - [ ] Implement N64-compatible timing and synchronization
+
+#### 2.5.2 Game Architecture Integration
+- [ ] **Main Game Loop Integration**
+  - [ ] Replace N64 boot sequence with modern initialization
+  - [ ] Integrate `main()` function with our SDL2/OpenGL framework
+  - [ ] Adapt game loop timing (16.67ms frame target → flexible FPS)
+  - [ ] Connect game state management with our backend systems
+
+- [ ] **Scene and Room Management**
+  - [ ] Integrate scene loading system with our asset pipeline
+  - [ ] Connect room rendering with our OpenGL backend
+  - [ ] Implement scene transition handling
+  - [ ] Adapt collision detection and physics systems
+
+- [ ] **Actor System Integration**
+  - [ ] Connect Link actor with our input system
+  - [ ] Integrate NPC actors with AI and animation systems
+  - [ ] Connect enemy actors with combat and behavior systems
+  - [ ] Implement prop and environmental actor systems
+
+#### 2.5.3 Rendering Pipeline Integration
+- [ ] **Display List Processing**
+  - [ ] Connect OOT's display list generation with our graphics backend
+  - [ ] Implement `gSPDisplayList()` → Our N64 graphics command processor
+  - [ ] Adapt all `gDPSetXXX()` functions to our OpenGL state management
+  - [ ] Handle matrix transformations and camera systems
+
+- [ ] **Texture and Material System**
+  - [ ] Integrate OOT's texture loading with our texture management
+  - [ ] Connect material properties with our shader system
+  - [ ] Implement texture animation and effects
+  - [ ] Handle texture memory management and caching
+
+- [ ] **Model and Animation System**
+  - [ ] Connect skeletal animation with our rendering pipeline
+  - [ ] Implement vertex morphing and deformation
+  - [ ] Integrate particle effects and weather systems
+  - [ ] Connect UI rendering with our 2D graphics capabilities
+
+#### 2.5.4 Audio System Integration
+- [ ] **Sound Effect Integration**
+  - [ ] Connect OOT's sound effect calls with our audio backend
+  - [ ] Map N64 sound bank format to our audio buffers
+  - [ ] Implement 3D positional audio for environmental sounds
+  - [ ] Handle sound effect layering and mixing
+
+- [ ] **Music and Sequence Integration**
+  - [ ] Connect OOT's music system with our audio sequencer
+  - [ ] Implement MIDI-style sequence playback
+  - [ ] Handle music transitions and dynamic audio
+  - [ ] Connect music with game state and events
+
+#### 2.5.5 Input and Control Integration
+- [ ] **Control Mapping Integration**
+  - [ ] Connect OOT's input handling with our controller abstraction
+  - [ ] Map N64 controller inputs to modern controllers
+  - [ ] Implement analog stick sensitivity and dead zones
+  - [ ] Handle camera controls and context-sensitive inputs
+
+- [ ] **Game State Input Handling**
+  - [ ] Connect menu navigation with our input system
+  - [ ] Implement inventory and equipment controls
+  - [ ] Handle in-game vs menu input contexts
+  - [ ] Connect debug and developer input shortcuts
+
+#### 2.5.6 Memory Management Adaptation
+- [ ] **Arena System Modernization**
+  - [ ] Replace N64's fixed memory layout with dynamic allocation
+  - [ ] Implement game state and scene memory management
+  - [ ] Create texture and model memory pools
+  - [ ] Handle garbage collection and memory defragmentation
+
+- [ ] **Save Data Integration**
+  - [ ] Connect OOT's save system with our save abstraction
+  - [ ] Implement cross-platform save file management
+  - [ ] Handle save state functionality for modern features
+  - [ ] Implement save data validation and corruption handling
+
+#### 2.5.7 Performance and Optimization
+- [ ] **Frame Rate Optimization**
+  - [ ] Adapt 20 FPS N64 code to 60+ FPS target
+  - [ ] Implement variable time step for smooth animation
+  - [ ] Optimize rendering pipeline for modern hardware
+  - [ ] Add performance profiling and monitoring
+
+- [ ] **Modern Hardware Utilization**
+  - [ ] Implement multi-threading for non-critical systems
+  - [ ] Optimize texture loading and caching
+  - [ ] Add GPU-accelerated effects where beneficial
+  - [ ] Implement modern culling and LOD systems
+
+#### 2.5.8 Integration Testing and Validation
+- [ ] **Core Gameplay Testing**
+  - [ ] Validate Link movement and basic controls
+  - [ ] Test scene loading and transition functionality
+  - [ ] Verify combat system integration
+  - [ ] Validate inventory and equipment systems
+
+- [ ] **System Integration Testing**
+  - [ ] Test audio/visual synchronization
+  - [ ] Validate input responsiveness across different controllers
+  - [ ] Test save/load functionality
+  - [ ] Verify cross-platform compatibility
+
+- [ ] **Regression Testing Framework**
+  - [ ] Create automated tests for core game mechanics
+  - [ ] Implement performance benchmarking for key scenarios
+  - [ ] Add visual regression testing for rendering accuracy
+  - [ ] Create compatibility testing for different hardware configs
+
+### 2.6 Enhancement Framework Integration *(Ship of Harkinian-Style Modern Features)*
+- [ ] **Configuration System (CVAR)**
+  - [ ] Implement runtime configuration without restarts
+  - [ ] Create persistent settings storage (JSON/INI format)
+  - [ ] Add graphics quality presets and customization
+  - [ ] Implement mod loading and management system
+
+- [ ] **Modern UI Integration (ImGui)**
+  - [ ] Integrate Dear ImGui for in-game configuration
+  - [ ] Create settings menus (graphics, audio, controls, gameplay)
+  - [ ] Implement developer tools and debug overlays
+  - [ ] Add enhancement configuration interfaces
+
+- [ ] **Quality of Life Improvements**
+  - [ ] Implement save states and quick save/load
+  - [ ] Add screenshot and video recording capabilities
+  - [ ] Implement widescreen and resolution scaling
+  - [ ] Add accessibility options and customizable controls
+
+---
+
+## 🗺️ Game Logic Integration Implementation Roadmap
+
+### Phase 2A: Foundation Integration *(Weeks 11-13)*
+**Goal**: Establish basic game integration infrastructure and minimal viable game state
+
+#### Week 11: LibUltra Compatibility Layer
+**Deliverables**:
+- [ ] `include/libultra/libultra_compat.h` - Complete function signature definitions
+- [ ] `src/libultra/memory_mgmt.c` - Arena allocator and heap management
+- [ ] `src/libultra/threading.c` - Message queue and thread abstraction
+- [ ] `src/libultra/timing.c` - High-resolution timing and frame control
+
+**Testing Milestones**:
+- [ ] Memory allocation/deallocation stress testing
+- [ ] Thread creation and message passing validation
+- [ ] Timing accuracy verification (60 FPS target)
+
+#### Week 12: Basic Game Loop Integration
+**Deliverables**:
+- [ ] `src/game/main_native.c` - Replace N64 boot with modern initialization
+- [ ] `src/game/game_state.c` - Connect OOT game state with our backend
+- [ ] `src/game/frame_controller.c` - Implement variable time step system
+- [ ] Integration with existing graphics/audio/input systems
+
+**Testing Milestones**:
+- [ ] Game initialization without crashes
+- [ ] Basic frame loop running at stable FPS
+- [ ] Clean shutdown and resource cleanup
+
+#### Week 13: Scene Loading Foundation
+**Deliverables**:
+- [ ] `src/assets/scene_loader.c` - Basic scene file loading
+- [ ] `src/assets/asset_manager.c` - Asset caching and management
+- [ ] `src/game/scene_manager.c` - Scene transition handling
+- [ ] Basic room rendering without actors
+
+**Testing Milestones**:
+- [ ] Load and display a simple scene (e.g., Title Screen)
+- [ ] Memory usage validation during scene transitions
+- [ ] Asset loading performance benchmarks
+
+### Phase 2B: Core Gameplay Integration *(Weeks 14-16)*
+**Goal**: Implement fundamental gameplay systems and player character
+
+#### Week 14: Actor System Foundation
+**Deliverables**:
+- [ ] `src/actors/actor_system.c` - Core actor management
+- [ ] `src/actors/link_actor.c` - Basic Link character integration
+- [ ] `src/physics/collision.c` - Basic collision detection
+- [ ] `src/camera/camera_system.c` - Camera controls and movement
+
+**Testing Milestones**:
+- [ ] Link spawns and responds to basic movement inputs
+- [ ] Camera follows Link with smooth movement
+- [ ] Basic collision detection prevents walking through walls
+
+#### Week 15: Rendering Pipeline Completion
+**Deliverables**:
+- [ ] `src/graphics/display_list_processor.c` - Complete display list handling
+- [ ] `src/graphics/texture_manager_native.c` - OOT texture integration
+- [ ] `src/graphics/model_renderer.c` - 3D model rendering system
+- [ ] `src/graphics/ui_renderer.c` - UI and HUD rendering
+
+**Testing Milestones**:
+- [ ] 3D models render correctly with textures
+- [ ] UI elements display properly
+- [ ] Performance maintains 60+ FPS with full scene
+
+#### Week 16: Audio Integration Completion
+**Deliverables**:
+- [ ] `src/audio/sound_effects.c` - SFX integration with game events
+- [ ] `src/audio/music_sequencer.c` - Background music system
+- [ ] `src/audio/audio_3d.c` - Positional audio implementation
+- [ ] `src/audio/audio_mixer_native.c` - Multi-channel audio mixing
+
+**Testing Milestones**:
+- [ ] Sound effects trigger correctly with player actions
+- [ ] Background music plays and transitions smoothly
+- [ ] 3D audio positioning works correctly
+
+### Phase 2C: Gameplay Systems Integration *(Weeks 17-19)*
+**Goal**: Complete core gameplay mechanics and systems
+
+#### Week 17: Combat and Interaction Systems
+**Deliverables**:
+- [ ] `src/combat/combat_system.c` - Sword combat and targeting
+- [ ] `src/interaction/npc_system.c` - NPC dialogue and interaction
+- [ ] `src/inventory/inventory_system.c` - Item management
+- [ ] `src/items/item_effects.c` - Item usage and effects
+
+**Testing Milestones**:
+- [ ] Basic sword combat works (swing, hit detection)
+- [ ] NPC interactions trigger dialogue systems
+- [ ] Inventory opens and items can be selected/used
+
+#### Week 18: Advanced Gameplay Features
+**Deliverables**:
+- [ ] `src/game/save_system_native.c` - Save/load functionality
+- [ ] `src/game/menu_system.c` - In-game menus and pause screen
+- [ ] `src/game/cutscene_system.c` - Cutscene playback
+- [ ] `src/game/dungeon_mechanics.c` - Dungeon-specific systems
+
+**Testing Milestones**:
+- [ ] Save game creates files and loads properly
+- [ ] Pause menu functions correctly
+- [ ] Basic cutscenes play without issues
+
+#### Week 19: Polish and Optimization
+**Deliverables**:
+- [ ] Performance optimization across all systems
+- [ ] Memory leak detection and fixes
+- [ ] Cross-platform compatibility validation
+- [ ] Error handling and stability improvements
+
+**Testing Milestones**:
+- [ ] Game runs stably for extended periods
+- [ ] Performance benchmarks meet targets on all platforms
+- [ ] No memory leaks during normal gameplay
+
+### Phase 2D: Testing and Validation *(Week 20)*
+**Goal**: Comprehensive testing and preparation for release
+
+#### Comprehensive Game Testing
+**Test Scenarios**:
+- [ ] **Basic Gameplay Loop**: Start game → Move around → Basic interactions → Save → Load
+- [ ] **Scene Transitions**: Move between different areas and rooms
+- [ ] **Combat Testing**: Test all basic combat mechanics and enemy interactions
+- [ ] **Performance Testing**: Extended gameplay sessions with performance monitoring
+- [ ] **Cross-Platform Testing**: Validate functionality on Linux and Windows
+
+**Deliverables**:
+- [ ] Complete test suite for all integrated systems
+- [ ] Performance benchmarking report
+- [ ] Cross-platform compatibility documentation
+- [ ] Known issues and limitation documentation
+
+### 🎯 Integration Success Criteria
+
+**Minimum Viable Game (MVP) Requirements**:
+- ✅ Game starts and initializes properly
+- ✅ Player can control Link with modern controllers
+- ✅ Basic scene navigation and room transitions work
+- ✅ Audio and visual systems function synchronously
+- ✅ Save/load functionality preserves game state
+- ✅ Game runs at 60+ FPS on target hardware
+- ✅ Cross-platform compatibility (Linux + Windows)
+
+**Quality Targets**:
+- 🎯 **Performance**: Stable 60+ FPS during normal gameplay
+- 🎯 **Memory**: No memory leaks during 30+ minute sessions
+- 🎯 **Compatibility**: Works on OpenGL 3.3+ hardware
+- 🎯 **Stability**: No crashes during basic gameplay scenarios
+- 🎯 **Accuracy**: Gameplay feels faithful to original OOT experience
+
+### 🔧 Development Tools and Infrastructure
+
+**Required Development Setup**:
+- [ ] **OOT Decompiled Source**: Clone and set up zeldaret/oot project
+- [ ] **Asset Extraction Tools**: ROM dumping and asset conversion pipeline
+- [ ] **Debugging Tools**: GDB integration and runtime debugging capabilities
+- [ ] **Performance Profiling**: CPU and GPU profiling tools integration
+- [ ] **Automated Testing**: CI/CD pipeline for regression testing
+
+**Development Dependencies**:
+- [ ] Access to original OOT ROM for asset extraction
+- [ ] Development builds of OOT decompiled source
+- [ ] Asset conversion tools (texture, model, audio extraction)
+- [ ] Performance monitoring and profiling tools
+
+---
+
+## 📊 Game Integration Priority Matrix & Risk Assessment
+
+### 🎯 Critical Path Analysis
+
+**Priority 1 - Blocking Dependencies** *(Must complete first)*:
+1. **LibUltra Compatibility Layer** (2.5.1) - Nothing works without this foundation
+2. **Memory Management System** (2.5.6) - Required for all game systems to function
+3. **Basic Game Loop Integration** (2.5.2) - Core framework for all other systems
+4. **Asset Loading Pipeline** (2.5.3) - Required to load any game content
+
+**Priority 2 - Core Systems** *(Essential for basic gameplay)*:
+5. **Scene and Room Management** (2.5.2) - Required to display game world
+6. **Actor System Foundation** (2.5.2) - Required for Link and basic entities
+7. **Input Integration** (2.5.5) - Required for player control
+8. **Basic Rendering Pipeline** (2.5.3) - Required to see anything
+
+**Priority 3 - Gameplay Features** *(Makes it feel like OOT)*:
+9. **Audio Integration** (2.5.4) - Enhances experience but not blocking
+10. **Combat System** (2.5.7) - Core gameplay mechanic
+11. **Save System** (2.5.6) - Important but can be stubbed initially
+12. **UI and Menu Systems** (2.5.3) - Polish and usability
+
+### ⚠️ Risk Assessment & Mitigation Strategies
+
+#### High Risk Areas:
+**🔴 Memory Management Compatibility** *(Risk Level: Critical)*
+- **Issue**: OOT uses fixed memory layouts; modern systems use dynamic allocation
+- **Impact**: Could cause crashes, corrupted game state, or poor performance
+- **Mitigation**: 
+  - Create compatibility shims for all arena allocator functions
+  - Implement memory debugging and validation tools
+  - Test with extensive memory stress scenarios
+  - Gradual migration strategy with fallback options
+
+**🔴 Threading Model Differences** *(Risk Level: High)*
+- **Issue**: N64 uses cooperative threading; modern systems use preemptive
+- **Impact**: Race conditions, timing issues, game logic breaks
+- **Mitigation**: 
+  - Implement message queue system to maintain N64 threading semantics
+  - Use synchronization primitives to prevent race conditions
+  - Extensive testing of thread interactions and timing
+
+**🔴 Frame Rate Dependencies** *(Risk Level: High)*
+- **Issue**: Original game assumes 20 FPS; we target 60+ FPS
+- **Impact**: Animation speed, physics timing, game balance issues
+- **Mitigation**: 
+  - Implement variable time step with proper delta time handling
+  - Identify and fix frame-rate dependent code sections
+  - Add frame rate limiting options for compatibility
+
+#### Medium Risk Areas:
+**🟡 Asset Format Compatibility** *(Risk Level: Medium)*
+- **Issue**: N64 asset formats may not translate directly to modern systems
+- **Impact**: Missing textures, broken models, corrupted audio
+- **Mitigation**: 
+  - Create robust asset conversion pipeline with validation
+  - Implement fallback assets for unsupported formats
+  - Extensive visual and audio testing across different assets
+
+**🟡 Performance Bottlenecks** *(Risk Level: Medium)*
+- **Issue**: Modern hardware may have different performance characteristics
+- **Impact**: Poor performance, inconsistent frame rates
+- **Mitigation**: 
+  - Implement performance profiling from day one
+  - Create configurable quality settings
+  - Optimize critical rendering and audio paths
+
+#### Low Risk Areas:
+**🟢 Input Mapping** *(Risk Level: Low)*
+- **Issue**: N64 controller differences from modern controllers
+- **Impact**: Poor user experience, control issues
+- **Mitigation**: Already addressed in Phase 2.3 input system
+
+**🟢 Audio Synchronization** *(Risk Level: Low)*
+- **Issue**: Audio/video sync issues
+- **Impact**: Audio drift, poor experience
+- **Mitigation**: Already addressed in Phase 2.2 audio system
+
+### 🛠️ Technical Debt Management Strategy
+
+**Planned Technical Debt** *(Acceptable shortcuts for MVP)*:
+- [ ] **Stub Complex Systems Initially**: Implement basic versions of complex systems first
+- [ ] **Hardcode Common Scenarios**: Use hardcoded values for initial testing
+- [ ] **Skip Advanced Features**: Focus on core gameplay loop first
+- [ ] **Minimal Error Handling**: Basic error handling with plans for improvement
+
+**Technical Debt Paydown Schedule**:
+- **Phase 2A**: Allow technical debt to focus on core integration
+- **Phase 2B**: Begin paying down debt in completed systems
+- **Phase 2C**: Comprehensive debt paydown and optimization
+- **Phase 2D**: Final cleanup and documentation
+
+### 📈 Success Metrics and KPIs
+
+**Development Velocity Metrics**:
+- [ ] **Weekly Integration Milestones**: Track completion of planned deliverables
+- [ ] **Code Coverage**: Aim for 70%+ test coverage of integration layer
+- [ ] **Performance Benchmarks**: Maintain 60+ FPS target throughout development
+- [ ] **Memory Usage**: Track and limit memory growth during development
+
+**Quality Metrics**:
+- [ ] **Crash Frequency**: Target <1 crash per hour of gameplay
+- [ ] **Visual Accuracy**: 95%+ visual similarity to original game
+- [ ] **Audio Accuracy**: 90%+ audio similarity with modern enhancements
+- [ ] **Input Responsiveness**: <16ms input latency (1 frame at 60 FPS)
+
+**Testing Coverage Targets**:
+- [ ] **Unit Tests**: 80%+ coverage of libultra compatibility layer
+- [ ] **Integration Tests**: 90%+ coverage of core game systems
+- [ ] **Performance Tests**: All critical paths benchmarked
+- [ ] **Cross-Platform Tests**: Full validation on Linux and Windows
+
+### 🔄 Iterative Development Strategy
+
+**Weekly Development Cycle**:
+1. **Monday**: Plan week's integration work and set success criteria
+2. **Tuesday-Thursday**: Implementation and unit testing
+3. **Friday**: Integration testing and performance validation
+4. **Weekend**: Documentation and preparation for next week
+
+**Milestone Validation Process**:
+1. **Implementation Complete**: Code written and unit tested
+2. **Integration Testing**: Works with existing systems
+3. **Performance Validation**: Meets performance targets
+4. **Cross-Platform Testing**: Works on all target platforms
+5. **Documentation Updated**: Implementation documented
+
+**Risk Review Process**:
+- **Weekly Risk Assessment**: Review and update risk levels
+- **Mitigation Effectiveness**: Evaluate if strategies are working
+- **Contingency Planning**: Prepare backup approaches for high-risk areas
+- **Stakeholder Communication**: Regular updates on progress and risks
+
 ---
 
 ## 📊 Current Project Status *(Updated Post-Phase 2 Completion)*
@@ -281,16 +740,16 @@ The native OOT conversion can now:
 
 ### 3.2 Modern Features Integration
 - [ ] **Performance Features**
-  - [ ] Implement unlocked framerate support
-  - [ ] Add VSync and frame pacing options
-  - [ ] Implement multi-threading for non-critical systems
-  - [ ] Add performance profiling tools
+  SAVE FOR LATER - [ ] Implement unlocked framerate support
+  SAVE FOR LATER - [ ] Add VSync and frame pacing options
+  SAVE FOR LATER - [ ] Implement multi-threading for non-critical systems
+  SAVE FOR LATER - [ ] Add performance profiling tools
 
 - [ ] **User Experience Features**
-  - [ ] Add widescreen and resolution scaling
-  - [ ] Implement save state system
-  - [ ] Add screenshot and recording capabilities
-  - [ ] Implement in-game settings menu
+  SAVE FOR LATER - [ ] Add widescreen and resolution scaling
+  SAVE FOR LATER - [ ] Implement save state system
+  SAVE FOR LATER - [ ] Add screenshot and recording capabilities
+  SAVE FOR LATER - [ ] Implement in-game settings menu
 
 ### 3.3 Configuration System
 - [ ] **Settings Management**
