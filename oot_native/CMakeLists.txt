@@ -31,6 +31,7 @@ set(GRAPHICS_SOURCES
     src/graphics/opengl_resources.c
     src/graphics/opengl_shaders.c
     src/graphics/n64_graphics.c
+    src/glad.c
 )
 
 # Audio source files
@@ -43,6 +44,17 @@ set(AUDIO_SOURCES
 set(INPUT_SOURCES
     src/input/input_api.c
     src/input/sdl_input_backend.c
+)
+
+# LibUltra compatibility layer source files
+set(LIBULTRA_SOURCES
+    src/libultra/memory_mgmt.c
+    src/libultra/dma_functions.c
+    src/libultra/threading.c
+    src/libultra/message_system.c
+    src/libultra/event_system.c
+    src/libultra/timing.c
+    src/libultra/libultra_system.c
 )
 
 # Test program
@@ -246,8 +258,199 @@ if(NOT WIN32)
     target_compile_options(test_unified PRIVATE ${SDL2_CFLAGS_OTHER})
 endif()
 
+# LibUltra Test Executable
+add_executable(test_libultra
+    src/test_libultra.c
+    ${LIBULTRA_SOURCES}
+)
+
+# Force console subsystem for Windows
+if(WIN32)
+    set_target_properties(test_libultra PROPERTIES
+        WIN32_EXECUTABLE FALSE
+        LINK_FLAGS "-Wl,--subsystem,console"
+    )
+endif()
+
+# Link libraries for libultra test
+target_link_libraries(test_libultra
+    pthread  # POSIX threads
+)
+
+# Platform-specific libraries for test_libultra
+if(WIN32)
+    target_link_libraries(test_libultra
+        mingw32 ws2_32 winmm ole32 oleaut32 imm32 version
+    )
+else()
+    target_link_libraries(test_libultra
+        ${CMAKE_DL_LIBS}
+        m # math library
+        rt # real-time extensions (for clock_gettime)
+    )
+endif()
+
+# Compiler flags for libultra test
+target_compile_options(test_libultra PRIVATE
+    -Wall
+    -Wextra
+    -Wno-unused-parameter
+    -Wno-unused-variable
+    -Wno-unused-function
+    -pthread  # Enable pthread support
+)
+
+# Add custom target to run libultra tests
+add_custom_target(run_libultra_test
+    COMMAND ./test_libultra
+    DEPENDS test_libultra
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+)
+
+# Main Native Game Loop (OOT Integration Foundation)
+add_executable(main_native
+    src/main_native.c
+    ${GRAPHICS_SOURCES}
+    ${AUDIO_SOURCES}
+    ${INPUT_SOURCES}
+    ${LIBULTRA_SOURCES}
+)
+
+# Force console subsystem for Windows
+if(WIN32)
+    set_target_properties(main_native PROPERTIES
+        WIN32_EXECUTABLE FALSE
+        LINK_FLAGS "-Wl,--subsystem,console"
+    )
+endif()
+
+# Link libraries for main_native
+target_link_libraries(main_native
+    ${OPENGL_LIBRARIES}
+    ${SDL2_LIBRARIES}
+    pthread  # POSIX threads
+)
+
+# Platform-specific libraries for main_native
+if(WIN32)
+    target_link_libraries(main_native
+        mingw32 ws2_32 winmm ole32 oleaut32 imm32 version
+    )
+else()
+    target_link_libraries(main_native
+        ${CMAKE_DL_LIBS}
+        m # math library
+        rt # real-time extensions (for clock_gettime)
+    )
+endif()
+
+# Compiler flags for main_native
+target_compile_options(main_native PRIVATE
+    -Wall
+    -Wextra
+    -Wno-unused-parameter
+    -Wno-unused-variable
+    -Wno-unused-function
+    -pthread  # Enable pthread support
+)
+
+# Platform-specific compiler flags for main_native
+if(NOT WIN32)
+    target_compile_options(main_native PRIVATE ${SDL2_CFLAGS_OTHER})
+endif()
+
+# Simplified Native Game Loop Test (LibUltra integration only)
+add_executable(main_native_simple
+    src/main_native_simple.c
+    ${LIBULTRA_SOURCES}
+)
+
+# Advanced Native Game Loop Test (with all systems once OpenGL is fixed)
+add_executable(main_native_test
+    src/main_native_simple.c
+    ${AUDIO_SOURCES}
+    ${INPUT_SOURCES}
+    ${LIBULTRA_SOURCES}
+)
+
+# Force console subsystem for Windows
+if(WIN32)
+    set_target_properties(main_native_simple PROPERTIES
+        WIN32_EXECUTABLE FALSE
+        LINK_FLAGS "-Wl,--subsystem,console"
+    )
+endif()
+
+# Link libraries for main_native_simple
+target_link_libraries(main_native_simple
+    ${SDL2_LIBRARIES}
+    pthread  # POSIX threads
+)
+
+# Platform-specific libraries for main_native_simple
+if(WIN32)
+    target_link_libraries(main_native_simple
+        mingw32 ws2_32 winmm ole32 oleaut32 imm32 version
+    )
+else()
+    target_link_libraries(main_native_simple
+        ${CMAKE_DL_LIBS}
+        m # math library
+        rt # real-time extensions (for clock_gettime)
+    )
+endif()
+
+# Compiler flags for main_native_simple
+target_compile_options(main_native_simple PRIVATE
+    -Wall
+    -Wextra
+    -Wno-unused-parameter
+    -Wno-unused-variable
+    -Wno-unused-function
+    -pthread  # Enable pthread support
+)
+
+# Platform-specific compiler flags for main_native_simple
+if(NOT WIN32)
+    target_compile_options(main_native_simple PRIVATE ${SDL2_CFLAGS_OTHER})
+endif()
+
+# Link libraries for main_native_test (audio + input + libultra)
+target_link_libraries(main_native_test
+    ${SDL2_LIBRARIES}
+    pthread  # POSIX threads
+)
+
+# Platform-specific libraries for main_native_test
+if(WIN32)
+    target_link_libraries(main_native_test
+        mingw32 ws2_32 winmm ole32 oleaut32 imm32 version
+    )
+else()
+    target_link_libraries(main_native_test
+        ${CMAKE_DL_LIBS}
+        m # math library
+        rt # real-time extensions (for clock_gettime)
+    )
+endif()
+
+# Compiler flags for main_native_test
+target_compile_options(main_native_test PRIVATE
+    -Wall
+    -Wextra
+    -Wno-unused-parameter
+    -Wno-unused-variable
+    -Wno-unused-function
+    -pthread  # Enable pthread support
+)
+
+# Platform-specific compiler flags for main_native_test
+if(NOT WIN32)
+    target_compile_options(main_native_test PRIVATE ${SDL2_CFLAGS_OTHER})
+endif()
+
 # Installation
-install(TARGETS test_graphics test_audio test_input test_unified
+install(TARGETS test_graphics test_audio test_input test_unified test_libultra main_native main_native_simple main_native_test
     RUNTIME DESTINATION bin
 )
 

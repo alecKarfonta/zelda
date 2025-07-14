@@ -1,6 +1,7 @@
 #include "graphics/opengl_backend.h"
 #include "graphics/opengl_shaders.h"
 #include "graphics/n64_graphics.h"
+#include <glad/glad.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -18,50 +19,6 @@
     #include <GL/gl.h>
     #include <GL/glext.h>
     #include <GL/glx.h>
-#endif
-
-// OpenGL function pointers (for platforms that need them)
-#ifndef __APPLE__
-PFNGLCREATESHADERPROC glCreateShader = NULL;
-PFNGLSHADERSOURCEPROC glShaderSource = NULL;
-PFNGLCOMPILESHADERPROC glCompileShader = NULL;
-PFNGLGETSHADERIVPROC glGetShaderiv = NULL;
-PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog = NULL;
-PFNGLDELETESHADERPROC glDeleteShader = NULL;
-PFNGLCREATEPROGRAMPROC glCreateProgram = NULL;
-PFNGLATTACHSHADERPROC glAttachShader = NULL;
-PFNGLLINKPROGRAMPROC glLinkProgram = NULL;
-PFNGLGETPROGRAMIVPROC glGetProgramiv = NULL;
-PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog = NULL;
-PFNGLVALIDATEPROGRAMPROC glValidateProgram = NULL;
-PFNGLUSEPROGRAMPROC glUseProgram = NULL;
-PFNGLDELETEPROGRAMPROC glDeleteProgram = NULL;
-PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation = NULL;
-PFNGLUNIFORM1IPROC glUniform1i = NULL;
-PFNGLUNIFORM1FPROC glUniform1f = NULL;
-PFNGLUNIFORM2FVPROC glUniform2fv = NULL;
-PFNGLUNIFORM3FVPROC glUniform3fv = NULL;
-PFNGLUNIFORM4FVPROC glUniform4fv = NULL;
-PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv = NULL;
-PFNGLGENBUFFERSPROC glGenBuffers = NULL;
-PFNGLBINDBUFFERPROC glBindBuffer = NULL;
-PFNGLBUFFERDATAPROC glBufferData = NULL;
-PFNGLBUFFERSUBDATAPROC glBufferSubData = NULL;
-PFNGLDELETEBUFFERSPROC glDeleteBuffers = NULL;
-PFNGLGENVERTEXARRAYSPROC glGenVertexArrays = NULL;
-PFNGLBINDVERTEXARRAYPROC glBindVertexArray = NULL;
-PFNGLDELETEVERTEXARRAYSPROC glDeleteVertexArrays = NULL;
-PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray = NULL;
-PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer = NULL;
-PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers = NULL;
-PFNGLBINDFRAMEBUFFERPROC glBindFramebuffer = NULL;
-PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D = NULL;
-PFNGLCHECKFRAMEBUFFERSTATUSPROC glCheckFramebufferStatus = NULL;
-PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers = NULL;
-PFNGLACTIVETEXTUREPROC glActiveTexture = NULL;
-PFNGLDRAWARRAYSINSTANCEDPROC glDrawArraysInstanced = NULL;
-PFNGLDRAWELEMENTSINSTANCEDPROC glDrawElementsInstanced = NULL;
-PFNGLGENERATEMIPMAPPROC glGenerateMipmap = NULL;
 #endif
 
 // Forward declarations
@@ -97,72 +54,6 @@ const char* OpenGL_GetErrorString(uint32_t error) {
         default: return "Unknown Error";
     }
 }
-
-// Load OpenGL functions (for platforms that need them)
-#ifndef __APPLE__
-static void* OpenGL_GetProcAddress(const char* name) {
-#ifdef _WIN32
-    return wglGetProcAddress(name);
-#else
-    return (void*)glXGetProcAddress((const GLubyte*)name);
-#endif
-}
-
-static bool OpenGL_LoadFunctions(void) {
-    glCreateShader = (PFNGLCREATESHADERPROC)OpenGL_GetProcAddress("glCreateShader");
-    glShaderSource = (PFNGLSHADERSOURCEPROC)OpenGL_GetProcAddress("glShaderSource");
-    glCompileShader = (PFNGLCOMPILESHADERPROC)OpenGL_GetProcAddress("glCompileShader");
-    glGetShaderiv = (PFNGLGETSHADERIVPROC)OpenGL_GetProcAddress("glGetShaderiv");
-    glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC)OpenGL_GetProcAddress("glGetShaderInfoLog");
-    glDeleteShader = (PFNGLDELETESHADERPROC)OpenGL_GetProcAddress("glDeleteShader");
-    glCreateProgram = (PFNGLCREATEPROGRAMPROC)OpenGL_GetProcAddress("glCreateProgram");
-    glAttachShader = (PFNGLATTACHSHADERPROC)OpenGL_GetProcAddress("glAttachShader");
-    glLinkProgram = (PFNGLLINKPROGRAMPROC)OpenGL_GetProcAddress("glLinkProgram");
-    glGetProgramiv = (PFNGLGETPROGRAMIVPROC)OpenGL_GetProcAddress("glGetProgramiv");
-    glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC)OpenGL_GetProcAddress("glGetProgramInfoLog");
-    glValidateProgram = (PFNGLVALIDATEPROGRAMPROC)OpenGL_GetProcAddress("glValidateProgram");
-    glUseProgram = (PFNGLUSEPROGRAMPROC)OpenGL_GetProcAddress("glUseProgram");
-    glDeleteProgram = (PFNGLDELETEPROGRAMPROC)OpenGL_GetProcAddress("glDeleteProgram");
-    glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC)OpenGL_GetProcAddress("glGetUniformLocation");
-    glUniform1i = (PFNGLUNIFORM1IPROC)OpenGL_GetProcAddress("glUniform1i");
-    glUniform1f = (PFNGLUNIFORM1FPROC)OpenGL_GetProcAddress("glUniform1f");
-    glUniform2fv = (PFNGLUNIFORM2FVPROC)OpenGL_GetProcAddress("glUniform2fv");
-    glUniform3fv = (PFNGLUNIFORM3FVPROC)OpenGL_GetProcAddress("glUniform3fv");
-    glUniform4fv = (PFNGLUNIFORM4FVPROC)OpenGL_GetProcAddress("glUniform4fv");
-    glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC)OpenGL_GetProcAddress("glUniformMatrix4fv");
-    glGenBuffers = (PFNGLGENBUFFERSPROC)OpenGL_GetProcAddress("glGenBuffers");
-    glBindBuffer = (PFNGLBINDBUFFERPROC)OpenGL_GetProcAddress("glBindBuffer");
-    glBufferData = (PFNGLBUFFERDATAPROC)OpenGL_GetProcAddress("glBufferData");
-    glBufferSubData = (PFNGLBUFFERSUBDATAPROC)OpenGL_GetProcAddress("glBufferSubData");
-    glDeleteBuffers = (PFNGLDELETEBUFFERSPROC)OpenGL_GetProcAddress("glDeleteBuffers");
-    glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC)OpenGL_GetProcAddress("glGenVertexArrays");
-    glBindVertexArray = (PFNGLBINDVERTEXARRAYPROC)OpenGL_GetProcAddress("glBindVertexArray");
-    glDeleteVertexArrays = (PFNGLDELETEVERTEXARRAYSPROC)OpenGL_GetProcAddress("glDeleteVertexArrays");
-    glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC)OpenGL_GetProcAddress("glEnableVertexAttribArray");
-    glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC)OpenGL_GetProcAddress("glVertexAttribPointer");
-    glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC)OpenGL_GetProcAddress("glGenFramebuffers");
-    glBindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC)OpenGL_GetProcAddress("glBindFramebuffer");
-    glFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC)OpenGL_GetProcAddress("glFramebufferTexture2D");
-    glCheckFramebufferStatus = (PFNGLCHECKFRAMEBUFFERSTATUSPROC)OpenGL_GetProcAddress("glCheckFramebufferStatus");
-    glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC)OpenGL_GetProcAddress("glDeleteFramebuffers");
-    glActiveTexture = (PFNGLACTIVETEXTUREPROC)OpenGL_GetProcAddress("glActiveTexture");
-    glDrawArraysInstanced = (PFNGLDRAWARRAYSINSTANCEDPROC)OpenGL_GetProcAddress("glDrawArraysInstanced");
-    glDrawElementsInstanced = (PFNGLDRAWELEMENTSINSTANCEDPROC)OpenGL_GetProcAddress("glDrawElementsInstanced");
-    glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC)OpenGL_GetProcAddress("glGenerateMipmap");
-    
-    return glCreateShader && glShaderSource && glCompileShader && glGetShaderiv &&
-           glGetShaderInfoLog && glDeleteShader && glCreateProgram && glAttachShader &&
-           glLinkProgram && glGetProgramiv && glGetProgramInfoLog && glValidateProgram &&
-           glUseProgram && glDeleteProgram && glGetUniformLocation && glUniform1i &&
-           glUniform1f && glUniform2fv && glUniform3fv && glUniform4fv &&
-           glUniformMatrix4fv && glGenBuffers && glBindBuffer && glBufferData &&
-           glBufferSubData && glDeleteBuffers && glGenVertexArrays && glBindVertexArray &&
-           glDeleteVertexArrays && glEnableVertexAttribArray && glVertexAttribPointer &&
-           glGenFramebuffers && glBindFramebuffer && glFramebufferTexture2D &&
-           glCheckFramebufferStatus && glDeleteFramebuffers && glActiveTexture &&
-           glDrawArraysInstanced && glDrawElementsInstanced && glGenerateMipmap;
-}
-#endif
 
 // Format conversion functions
 uint32_t OpenGL_GetInternalFormat(TextureFormat format) {
@@ -273,28 +164,23 @@ uint32_t OpenGL_GetPrimitiveType(PrimitiveType type) {
     }
 }
 
-// Backend interface implementation
+// Initialize OpenGL with GLAD
 static bool OpenGL_InitBackend(RendererBackend* backend, GraphicsConfig* config) {
     if (!backend || !config) {
         return false;
     }
     
+    // Initialize GLAD to load OpenGL function pointers
+    if (!gladLoadGL()) {
+        printf("Failed to initialize GLAD\n");
+        return false;
+    }
+    
     // Check OpenGL version
-    const char* version = (const char*)glGetString(GL_VERSION);
-    if (!version) {
-        printf("Failed to get OpenGL version\n");
-        return false;
-    }
-    
-    printf("OpenGL Version: %s\n", version);
-    
-#ifndef __APPLE__
-    // Load OpenGL functions
-    if (!OpenGL_LoadFunctions()) {
-        printf("Failed to load OpenGL functions\n");
-        return false;
-    }
-#endif
+    printf("OpenGL Version: %s\n", (const char*)glGetString(GL_VERSION));
+    printf("OpenGL Renderer: %s\n", (const char*)glGetString(GL_RENDERER));
+    printf("OpenGL Vendor: %s\n", (const char*)glGetString(GL_VENDOR));
+    printf("GLSL Version: %s\n", (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION));
     
     // Create backend data
     OpenGLBackendData* data = (OpenGLBackendData*)malloc(sizeof(OpenGLBackendData));

@@ -130,6 +130,14 @@ OpenGLShaderProgram* OpenGL_CreateShaderProgram(OpenGLShader* vertex_shader,
                                                OpenGLShader* fragment_shader);
 void OpenGL_DestroyShaderProgram(OpenGLShaderProgram* program);
 
+// OpenGL uniform functions
+void OpenGL_SetUniformInt(OpenGLShaderProgram* program, const char* name, int value);
+void OpenGL_SetUniformFloat(OpenGLShaderProgram* program, const char* name, float value);
+void OpenGL_SetUniformVec2(OpenGLShaderProgram* program, const char* name, const float* value);
+void OpenGL_SetUniformVec3(OpenGLShaderProgram* program, const char* name, const float* value);
+void OpenGL_SetUniformVec4(OpenGLShaderProgram* program, const char* name, const float* value);
+void OpenGL_SetUniformMat4(OpenGLShaderProgram* program, const char* name, const float* value);
+
 OpenGLBuffer* OpenGL_CreateBuffer(BufferType type, uint32_t size,
                                  const void* data, bool dynamic);
 void OpenGL_DestroyBuffer(OpenGLBuffer* buffer);

@@ -1,62 +1,8 @@
 #include "graphics/opengl_backend.h"
+#include <glad/glad.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-
-// OpenGL headers (platform-specific)
-#ifdef _WIN32
-    #include <windows.h>
-    #include <GL/gl.h>
-    #include <GL/glext.h>
-#elif defined(__APPLE__)
-    #include <OpenGL/OpenGL.h>
-    #include <OpenGL/gl3.h>
-#else
-    #include <GL/gl.h>
-    #include <GL/glext.h>
-#endif
-
-// External OpenGL function pointers (declared in opengl_backend.c)
-#ifndef __APPLE__
-extern PFNGLGENBUFFERSPROC glGenBuffers;
-extern PFNGLBINDBUFFERPROC glBindBuffer;
-extern PFNGLBUFFERDATAPROC glBufferData;
-extern PFNGLBUFFERSUBDATAPROC glBufferSubData;
-extern PFNGLDELETEBUFFERSPROC glDeleteBuffers;
-extern PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
-extern PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
-extern PFNGLDELETEVERTEXARRAYSPROC glDeleteVertexArrays;
-extern PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
-extern PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
-extern PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers;
-extern PFNGLBINDFRAMEBUFFERPROC glBindFramebuffer;
-extern PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D;
-extern PFNGLCHECKFRAMEBUFFERSTATUSPROC glCheckFramebufferStatus;
-extern PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers;
-// extern PFNGLACTIVETEXTUREPROC glActiveTexture; // Available in OpenGL 1.3+ core profile
-extern PFNGLGENERATEMIPMAPPROC glGenerateMipmap;
-extern PFNGLCREATESHADERPROC glCreateShader;
-extern PFNGLSHADERSOURCEPROC glShaderSource;
-extern PFNGLCOMPILESHADERPROC glCompileShader;
-extern PFNGLGETSHADERIVPROC glGetShaderiv;
-extern PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog;
-extern PFNGLDELETESHADERPROC glDeleteShader;
-extern PFNGLCREATEPROGRAMPROC glCreateProgram;
-extern PFNGLATTACHSHADERPROC glAttachShader;
-extern PFNGLLINKPROGRAMPROC glLinkProgram;
-extern PFNGLGETPROGRAMIVPROC glGetProgramiv;
-extern PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog;
-extern PFNGLVALIDATEPROGRAMPROC glValidateProgram;
-extern PFNGLUSEPROGRAMPROC glUseProgram;
-extern PFNGLDELETEPROGRAMPROC glDeleteProgram;
-extern PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation;
-extern PFNGLUNIFORM1IPROC glUniform1i;
-extern PFNGLUNIFORM1FPROC glUniform1f;
-extern PFNGLUNIFORM2FVPROC glUniform2fv;
-extern PFNGLUNIFORM3FVPROC glUniform3fv;
-extern PFNGLUNIFORM4FVPROC glUniform4fv;
-extern PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv;
-#endif
 
 // Texture management
 OpenGLTexture* OpenGL_CreateTexture(TextureType type, TextureFormat format,
