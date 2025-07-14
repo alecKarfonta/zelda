@@ -6,21 +6,6 @@
 #include <string.h>
 #include <stdio.h>
 
-// OpenGL headers (platform-specific)
-#ifdef _WIN32
-    #include <windows.h>
-    #include <GL/gl.h>
-    #include <GL/glext.h>
-    #include <GL/wglext.h>
-#elif defined(__APPLE__)
-    #include <OpenGL/OpenGL.h>
-    #include <OpenGL/gl3.h>
-#else
-    #include <GL/gl.h>
-    #include <GL/glext.h>
-    #include <GL/glx.h>
-#endif
-
 // Forward declarations
 static bool OpenGL_InitBackend(RendererBackend* backend, GraphicsConfig* config);
 static void OpenGL_ShutdownBackend(RendererBackend* backend);

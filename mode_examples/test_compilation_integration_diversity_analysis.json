@@ -1,0 +1,124 @@
+{
+  "total_examples": 3,
+  "average_quality": 9.021739130434787,
+  "average_authenticity": 8.131400966183575,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 1,
+    "debugging_help": 0,
+    "actor_creation": 0,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 0,
+    "sound_system": 0,
+    "ai_behavior": 0,
+    "environmental": 2,
+    "combat_system": 0,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 13675,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 1,
+      "debugging_help": 0,
+      "actor_creation": 0,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 2,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 2,
+    "category_coverage": 0,
+    "type_coverage": 2
+  },
+  "generation_stats": {
+    "total_generated": 5,
+    "total_accepted": 4,
+    "total_rejected": 1,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 1,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 1,
+      "environmental": 2,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 3,
+      "intermediate": 1,
+      "advanced": 1
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.033333333333335,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. Compilation: FAILED (4 errors). "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.565217391304351,
+      "authenticity_score": 8.060869565217391,
+      "validation_notes": "Signature issues: 14. Source validation issues: 12. Compilation: FAILED (71 errors). "
+    },
+    {
+      "instruction": "Implement a complex feature implementation system for enhanced gameplay implementing standard patter...",
+      "type": "feature_implementation",
+      "quality_score": 8.46666666666667,
+      "authenticity_score": 7.666666666666666,
+      "validation_notes": "Signature issues: 10. Source validation issues: 9. Compilation: FAILED (4 errors). "
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+---
+description: Building the custom rom after making source code changes to oot_custom
+alwaysApply: false
+---
+cd oot_custom && make VERSION=ntsc-1.2 REGION=US COMPARE=0 -j32

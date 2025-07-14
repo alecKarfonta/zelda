@@ -1,0 +1,243 @@
+{
+  "total_examples": 20,
+  "average_quality": 8.915469127363867,
+  "average_authenticity": 7.8244955570745045,
+  "type_distribution": {
+    "code_explanation": 1,
+    "feature_implementation": 4,
+    "debugging_help": 0,
+    "actor_creation": 5,
+    "animation_system": 2,
+    "collision_system": 0,
+    "interaction_system": 1,
+    "effect_system": 0,
+    "sound_system": 2,
+    "ai_behavior": 0,
+    "environmental": 0,
+    "combat_system": 2,
+    "puzzle_system": 1,
+    "ui_system": 0,
+    "memory_management": 1,
+    "optimization": 1,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 13675,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 1,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 1,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 1,
+      "feature_implementation": 4,
+      "debugging_help": 0,
+      "actor_creation": 5,
+      "animation_system": 2,
+      "collision_system": 0,
+      "interaction_system": 1,
+      "effect_system": 0,
+      "sound_system": 2,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 2,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 1,
+      "optimization": 1,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 15,
+    "category_coverage": 2,
+    "type_coverage": 10
+  },
+  "generation_stats": {
+    "total_generated": 36,
+    "total_accepted": 33,
+    "total_rejected": 3,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 1,
+      "feature_implementation": 4,
+      "debugging_help": 1,
+      "actor_creation": 7,
+      "animation_system": 7,
+      "collision_system": 2,
+      "interaction_system": 3,
+      "effect_system": 0,
+      "sound_system": 4,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 2,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 1,
+      "optimization": 1,
+      "debugging_tools": 0,
+      "custom_mechanics": 2
+    },
+    "complexity_distribution": {
+      "basic": 10,
+      "intermediate": 13,
+      "advanced": 13
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.950000000000003,
+      "authenticity_score": 8.25,
+      "validation_notes": "Signature issues: 11. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create an advanced code explanation with multiple features with extensive error handling and edge ca...",
+      "type": "code_explanation",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create an advanced memory management with multiple features with minimal features",
+      "type": "memory_management",
+      "quality_score": 8.985714285714288,
+      "authenticity_score": 8.428571428571429,
+      "validation_notes": "CRITICAL feedback issues: 1. Signature issues: 10. Source validation issues: 10. Feedback validation issues: 1. Feedback validation issues: Dynamic memory allocation not allowed in actors. "
+    },
+    {
+      "instruction": "Create a feature implementation system",
+      "type": "feature_implementation",
+      "quality_score": 8.766666666666667,
+      "authenticity_score": 7.333333333333333,
+      "validation_notes": "Signature issues: 13. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Implement feature implementation functionality using authentic code with good code organization",
+      "type": "feature_implementation",
+      "quality_score": 8.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 10. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Implement a complex feature implementation system for enhanced gameplay with basic debugging support",
+      "type": "feature_implementation",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Transformation masks are specific to Majora's Mask and cannot be authentically implemented in OoT be...",
+      "type": "combat_system",
+      "quality_score": 7.5,
+      "authenticity_score": 10.0,
+      "validation_notes": ""
+    },
+    {
+      "instruction": "Implement a sound optimization system for performance with complex interaction patterns",
+      "type": "sound_system",
+      "quality_score": 9.066666666666668,
+      "authenticity_score": 7.333333333333333,
+      "validation_notes": "Signature issues: 13. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a feature implementation system",
+      "type": "feature_implementation",
+      "quality_score": 9.360000000000003,
+      "authenticity_score": 7.24,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Implement optimization functionality using authentic code with multiple states and transitions",
+      "type": "optimization",
+      "quality_score": 8.66666666666667,
+      "authenticity_score": 8.466666666666667,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 9.473684210526319,
+      "authenticity_score": 7.694736842105263,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.473684210526319,
+      "authenticity_score": 7.694736842105263,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a sound system system",
+      "type": "sound_system",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 14. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 8.783333333333335,
+      "authenticity_score": 7.416666666666666,
+      "validation_notes": "Signature issues: 16. Source validation issues: 16. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 8.360000000000003,
+      "authenticity_score": 7.24,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.068421052631582,
+      "authenticity_score": 7.273684210526316,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 8.900000000000002,
+      "authenticity_score": 8.0,
+      "validation_notes": "Signature issues: 13. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Implement a lava beast enemy with the ability to uses hit-and-run tactics to avoid damage using esta...",
+      "type": "actor_creation",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 9.5,
+      "validation_notes": "Signature issues: 8. Source validation issues: 8. "
+    }
+  ]
+}

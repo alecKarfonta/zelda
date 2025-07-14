@@ -1,0 +1,35 @@
+CMakeFiles/test_unified.dir/src/graphics/opengl_shaders.c.obj: \
+ /home/alec/git/zelda/oot_native/src/graphics/opengl_shaders.c \
+ /home/alec/git/zelda/oot_native/include/graphics/opengl_shaders.h \
+ /home/alec/git/zelda/oot_native/include/graphics/opengl_backend.h \
+ /home/alec/git/zelda/oot_native/include/graphics/renderer_backend.h \
+ /home/alec/git/zelda/oot_native/include/graphics/graphics_api.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/13-win32/include/stdint.h \
+ /usr/share/mingw-w64/include/stdint.h \
+ /usr/share/mingw-w64/include/crtdefs.h \
+ /usr/share/mingw-w64/include/corecrt.h \
+ /usr/share/mingw-w64/include/_mingw.h \
+ /usr/share/mingw-w64/include/_mingw_mac.h \
+ /usr/share/mingw-w64/include/_mingw_secapi.h \
+ /usr/share/mingw-w64/include/vadefs.h \
+ /usr/share/mingw-w64/include/sdks/_mingw_ddk.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/13-win32/include/stddef.h \
+ /usr/share/mingw-w64/include/stddef.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/13-win32/include/stdbool.h \
+ /home/alec/git/zelda/oot_native/include/graphics/n64_graphics.h \
+ /usr/share/mingw-w64/include/stdlib.h \
+ /usr/share/mingw-w64/include/corecrt_wstdlib.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/13-win32/include/limits.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/13-win32/include/syslimits.h \
+ /usr/share/mingw-w64/include/limits.h \
+ /usr/share/mingw-w64/include/sec_api/stdlib_s.h \
+ /usr/share/mingw-w64/include/malloc.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/13-win32/include/mm_malloc.h \
+ /usr/share/mingw-w64/include/errno.h \
+ /usr/share/mingw-w64/include/string.h \
+ /usr/share/mingw-w64/include/sec_api/string_s.h \
+ /usr/share/mingw-w64/include/stdio.h \
+ /usr/share/mingw-w64/include/corecrt_stdio_config.h \
+ /usr/share/mingw-w64/include/_mingw_off_t.h \
+ /usr/share/mingw-w64/include/swprintf.inl \
+ /usr/share/mingw-w64/include/sec_api/stdio_s.h

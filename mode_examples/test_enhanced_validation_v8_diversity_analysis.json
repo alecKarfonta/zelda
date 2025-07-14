@@ -1,0 +1,117 @@
+{
+  "total_examples": 2,
+  "average_quality": 9.695652173913045,
+  "average_authenticity": 8.528762541806021,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 1,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 1,
+    "effect_system": 0,
+    "sound_system": 0,
+    "ai_behavior": 0,
+    "environmental": 0,
+    "combat_system": 0,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 11944,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 1,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 2,
+    "category_coverage": 0,
+    "type_coverage": 2
+  },
+  "generation_stats": {
+    "total_generated": 4,
+    "total_accepted": 3,
+    "total_rejected": 1,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 1,
+      "effect_system": 1,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 2,
+      "intermediate": 0,
+      "advanced": 2
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.39130434782609,
+      "authenticity_score": 7.3652173913043475,
+      "validation_notes": "Signature issues: 15. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 10.0,
+      "authenticity_score": 9.692307692307693,
+      "validation_notes": "CRITICAL feedback issues: 1. Signature issues: 11. Source validation issues: 10. Feedback validation issues: 1. Feedback validation issues: Wrong Matrix_NewMtx parameters - use __FILE__ and __LINE__. "
+    }
+  ]
+}

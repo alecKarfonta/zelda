@@ -11,7 +11,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gRedMessageXRightTex.i4.png",
     "asset_path": "message_texture_static/gRedMessageXRightTex.i4.png",
-    "analysis_timestamp": 1751816690.7924473
+    "analysis_timestamp": 1752438710.6015103
   },
   {
     "description": "Message texture: gRedMessageXLeftTex.i4",
@@ -25,7 +25,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gRedMessageXLeftTex.i4.png",
     "asset_path": "message_texture_static/gRedMessageXLeftTex.i4.png",
-    "analysis_timestamp": 1751816691.7928185
+    "analysis_timestamp": 1752438711.601867
   },
   {
     "description": "Texture asset: gDungeonMapBlankFloorButtonTex.ia8",
@@ -38,7 +38,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapBlankFloorButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapBlankFloorButtonTex.ia8.png",
-    "analysis_timestamp": 1751816692.7930841
+    "analysis_timestamp": 1752438712.6021245
   },
   {
     "description": "Texture asset: gDungeonMapLinkHeadTex.rgba16",
@@ -51,7 +51,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapLinkHeadTex.rgba16.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapLinkHeadTex.rgba16.png",
-    "analysis_timestamp": 1751816693.7934144
+    "analysis_timestamp": 1752438713.6024563
   },
   {
     "description": "Texture asset: gDungeonMapB1ButtonTex.ia8",
@@ -64,7 +64,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB1ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB1ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816694.7937708
+    "analysis_timestamp": 1752438714.6028273
   },
   {
     "description": "Texture asset: gDungeonMapSkullTex.rgba16",
@@ -77,7 +77,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapSkullTex.rgba16.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapSkullTex.rgba16.png",
-    "analysis_timestamp": 1751816695.794058
+    "analysis_timestamp": 1752438715.6031268
   },
   {
     "description": "Texture asset: gDungeonMapB7ButtonTex.ia8",
@@ -90,7 +90,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB7ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB7ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816696.7943048
+    "analysis_timestamp": 1752438716.6034594
   },
   {
     "description": "Texture asset: gDungeonMapB6ButtonTex.ia8",
@@ -103,7 +103,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB6ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB6ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816697.7945814
+    "analysis_timestamp": 1752438717.6038482
   },
   {
     "description": "Texture asset: gDungeonMap6FButtonTex.ia8",
@@ -116,7 +116,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap6FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap6FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816698.7949095
+    "analysis_timestamp": 1752438718.6042383
   },
   {
     "description": "Texture asset: gDungeonMap2FButtonTex.ia8",
@@ -129,7 +129,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap2FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap2FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816699.795236
+    "analysis_timestamp": 1752438719.604565
   },
   {
     "description": "Texture asset: gDungeonMap8FButtonTex.ia8",
@@ -142,7 +142,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap8FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap8FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816700.7955854
+    "analysis_timestamp": 1752438720.6049442
   },
   {
     "description": "Texture asset: gDungeonMapB3ButtonTex.ia8",
@@ -155,7 +155,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB3ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB3ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816701.795925
+    "analysis_timestamp": 1752438721.605262
   },
   {
     "description": "Texture asset: gDungeonMap4FButtonTex.ia8",
@@ -168,7 +168,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap4FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap4FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816702.7961934
+    "analysis_timestamp": 1752438722.6056156
   },
   {
     "description": "Texture asset: gDungeonMap3FButtonTex.ia8",
@@ -181,7 +181,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap3FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap3FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816703.7965217
+    "analysis_timestamp": 1752438723.6059098
   },
   {
     "description": "Texture asset: gDungeonMapB8ButtonTex.ia8",
@@ -194,7 +194,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB8ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB8ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816704.7968044
+    "analysis_timestamp": 1752438724.6062481
   },
   {
     "description": "Texture asset: gDungeonMap7FButtonTex.ia8",
@@ -207,7 +207,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap7FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap7FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816705.7971275
+    "analysis_timestamp": 1752438725.6065655
   },
   {
     "description": "Texture asset: gDungeonMapB5ButtonTex.ia8",
@@ -220,7 +220,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB5ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB5ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816706.7973936
+    "analysis_timestamp": 1752438726.6069455
   },
   {
     "description": "Texture asset: gDungeonMapB2ButtonTex.ia8",
@@ -233,7 +233,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB2ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB2ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816707.7977145
+    "analysis_timestamp": 1752438727.6073058
   },
   {
     "description": "Texture asset: gDungeonMap1FButtonTex.ia8",
@@ -246,7 +246,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap1FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap1FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816708.798047
+    "analysis_timestamp": 1752438728.6076875
   },
   {
     "description": "Texture asset: gDungeonMap5FButtonTex.ia8",
@@ -259,7 +259,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMap5FButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMap5FButtonTex.ia8.png",
-    "analysis_timestamp": 1751816709.7983851
+    "analysis_timestamp": 1752438729.6080542
   },
   {
     "description": "Texture asset: gDungeonMapB4ButtonTex.ia8",
@@ -272,7 +272,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gDungeonMapB4ButtonTex.ia8.png",
     "asset_path": "icon_item_dungeon_static/gDungeonMapB4ButtonTex.ia8.png",
-    "analysis_timestamp": 1751816710.798756
+    "analysis_timestamp": 1752438730.6084256
   },
   {
     "description": "Nintendo logo texture: nintendo_rogo_static_000029C0_Tex.i8",
@@ -285,7 +285,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "nintendo_rogo_static_000029C0_Tex.i8.png",
     "asset_path": "nintendo_rogo_static/nintendo_rogo_static_000029C0_Tex.i8.png",
-    "analysis_timestamp": 1751816711.7990189
+    "analysis_timestamp": 1752438731.608851
   },
   {
     "description": "Nintendo logo texture: nintendo_rogo_static_Tex_001800.i8",
@@ -298,7 +298,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "nintendo_rogo_static_Tex_001800.i8.png",
     "asset_path": "nintendo_rogo_static/nintendo_rogo_static_Tex_001800.i8.png",
-    "analysis_timestamp": 1751816712.7992618
+    "analysis_timestamp": 1752438732.6091607
   },
   {
     "description": "Nintendo logo texture: nintendo_rogo_static_Tex_000000.i8",
@@ -311,7 +311,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "nintendo_rogo_static_Tex_000000.i8.png",
     "asset_path": "nintendo_rogo_static/nintendo_rogo_static_Tex_000000.i8.png",
-    "analysis_timestamp": 1751816713.799514
+    "analysis_timestamp": 1752438733.6094687
   },
   {
     "error": "Image file not found"
@@ -326,7 +326,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconStoneOfAgonyTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconStoneOfAgonyTex.rgba32.png",
-    "analysis_timestamp": 1751816715.8000638
+    "analysis_timestamp": 1752438735.6100152
   },
   {
     "description": "Texture asset: gQuestIconMedallionFireTex.rgba32",
@@ -338,7 +338,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMedallionFireTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMedallionFireTex.rgba32.png",
-    "analysis_timestamp": 1751816716.8004067
+    "analysis_timestamp": 1752438736.6103575
   },
   {
     "description": "Texture asset: gQuestIconDungeonMapTex.rgba32",
@@ -350,7 +350,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconDungeonMapTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconDungeonMapTex.rgba32.png",
-    "analysis_timestamp": 1751816717.8006806
+    "analysis_timestamp": 1752438737.6106305
   },
   {
     "description": "Texture asset: gQuestIconGoldSkulltulaTex.rgba32",
@@ -362,7 +362,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconGoldSkulltulaTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconGoldSkulltulaTex.rgba32.png",
-    "analysis_timestamp": 1751816718.804745
+    "analysis_timestamp": 1752438738.6109931
   },
   {
     "description": "Texture asset: gQuestIconHeartContainerTex.rgba32",
@@ -374,7 +374,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconHeartContainerTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconHeartContainerTex.rgba32.png",
-    "analysis_timestamp": 1751816719.805079
+    "analysis_timestamp": 1752438739.6113267
   },
   {
     "description": "Texture asset: gQuestIconGerudosCardTex.rgba32",
@@ -386,7 +386,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconGerudosCardTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconGerudosCardTex.rgba32.png",
-    "analysis_timestamp": 1751816720.805418
+    "analysis_timestamp": 1752438740.611688
   },
   {
     "description": "Texture asset: gQuestIconMagicJarBigTex.rgba32",
@@ -398,7 +398,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMagicJarBigTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMagicJarBigTex.rgba32.png",
-    "analysis_timestamp": 1751816721.8057725
+    "analysis_timestamp": 1752438741.6120036
   },
   {
     "description": "Texture asset: gQuestIconMedallionLightTex.rgba32",
@@ -410,7 +410,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMedallionLightTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMedallionLightTex.rgba32.png",
-    "analysis_timestamp": 1751816722.8060412
+    "analysis_timestamp": 1752438742.6122599
   },
   {
     "description": "Texture asset: gQuestIconDungeonCompassTex.rgba32",
@@ -422,7 +422,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconDungeonCompassTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconDungeonCompassTex.rgba32.png",
-    "analysis_timestamp": 1751816723.8063767
+    "analysis_timestamp": 1752438743.6125703
   },
   {
     "description": "Texture asset: gQuestIconHeartPieceTex.rgba32",
@@ -434,7 +434,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconHeartPieceTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconHeartPieceTex.rgba32.png",
-    "analysis_timestamp": 1751816724.8066916
+    "analysis_timestamp": 1752438744.6129532
   },
   {
     "description": "Texture asset: gQuestIconKokiriEmeraldTex.rgba32",
@@ -446,7 +446,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconKokiriEmeraldTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconKokiriEmeraldTex.rgba32.png",
-    "analysis_timestamp": 1751816725.8070147
+    "analysis_timestamp": 1752438745.6132338
   },
   {
     "description": "Texture asset: gQuestIconMagicJarSmallTex.rgba32",
@@ -458,7 +458,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMagicJarSmallTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMagicJarSmallTex.rgba32.png",
-    "analysis_timestamp": 1751816726.8073595
+    "analysis_timestamp": 1752438746.6135497
   },
   {
     "description": "Texture asset: gQuestIconMedallionSpiritTex.rgba32",
@@ -470,7 +470,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMedallionSpiritTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMedallionSpiritTex.rgba32.png",
-    "analysis_timestamp": 1751816727.807787
+    "analysis_timestamp": 1752438747.6138809
   },
   {
     "description": "Texture asset: gQuestIconMedallionWaterTex.rgba32",
@@ -482,7 +482,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMedallionWaterTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMedallionWaterTex.rgba32.png",
-    "analysis_timestamp": 1751816728.8081295
+    "analysis_timestamp": 1752438748.614197
   },
   {
     "description": "Texture asset: gQuestIconSmallKeyTex.rgba32",
@@ -494,7 +494,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconSmallKeyTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconSmallKeyTex.rgba32.png",
-    "analysis_timestamp": 1751816729.8084664
+    "analysis_timestamp": 1752438749.614496
   },
   {
     "description": "Texture asset: gQuestIconDungeonBossKeyTex.rgba32",
@@ -506,7 +506,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconDungeonBossKeyTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconDungeonBossKeyTex.rgba32.png",
-    "analysis_timestamp": 1751816730.8088682
+    "analysis_timestamp": 1752438750.6148603
   },
   {
     "description": "Texture asset: gQuestIconZoraSapphireTex.rgba32",
@@ -518,7 +518,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconZoraSapphireTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconZoraSapphireTex.rgba32.png",
-    "analysis_timestamp": 1751816731.8091288
+    "analysis_timestamp": 1752438751.6152081
   },
   {
     "description": "Texture asset: gQuestIconGoronRubyTex.rgba32",
@@ -530,7 +530,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconGoronRubyTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconGoronRubyTex.rgba32.png",
-    "analysis_timestamp": 1751816732.8094182
+    "analysis_timestamp": 1752438752.615527
   },
   {
     "description": "Texture asset: gQuestIconMedallionForestTex.rgba32",
@@ -542,7 +542,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMedallionForestTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMedallionForestTex.rgba32.png",
-    "analysis_timestamp": 1751816733.8097606
+    "analysis_timestamp": 1752438753.6158745
   },
   {
     "description": "Texture asset: gQuestIconMedallionShadowTex.rgba32",
@@ -554,7 +554,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gQuestIconMedallionShadowTex.rgba32.png",
     "asset_path": "icon_item_24_static/gQuestIconMedallionShadowTex.rgba32.png",
-    "analysis_timestamp": 1751816734.8101056
+    "analysis_timestamp": 1752438754.6161404
   },
   {
     "description": "Map name texture: gHyruleCastlePositionNameJPNTex.ia8",
@@ -568,7 +568,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gHyruleCastlePositionNameJPNTex.ia8.png",
     "asset_path": "map_name_static/gHyruleCastlePositionNameJPNTex.ia8.png",
-    "analysis_timestamp": 1751816735.8103855
+    "analysis_timestamp": 1752438755.61653
   },
   {
     "description": "Map name texture: gHyruleFieldPointNameENGTex.ia4",
@@ -581,7 +581,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gHyruleFieldPointNameENGTex.ia4.png",
     "asset_path": "map_name_static/gHyruleFieldPointNameENGTex.ia4.png",
-    "analysis_timestamp": 1751816736.8107495
+    "analysis_timestamp": 1752438756.61688
   },
   {
     "description": "Map name texture: gHyliaLakesidePointNameJPNTex.ia4",
@@ -594,7 +594,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gHyliaLakesidePointNameJPNTex.ia4.png",
     "asset_path": "map_name_static/gHyliaLakesidePointNameJPNTex.ia4.png",
-    "analysis_timestamp": 1751816737.8110204
+    "analysis_timestamp": 1752438757.617213
   },
   {
     "description": "Map name texture: gHauntedWastelandPointNameENGTex.ia4",
@@ -607,7 +607,7 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gHauntedWastelandPointNameENGTex.ia4.png",
     "asset_path": "map_name_static/gHauntedWastelandPointNameENGTex.ia4.png",
-    "analysis_timestamp": 1751816738.8113542
+    "analysis_timestamp": 1752438758.6175385
   },
   {
     "description": "Map name texture: gHauntedWastelandPointNameJPNTex.ia4",
@@ -620,6 +620,6 @@
     "analysis_method": "filename_pattern",
     "asset_name": "gHauntedWastelandPointNameJPNTex.ia4.png",
     "asset_path": "map_name_static/gHauntedWastelandPointNameJPNTex.ia4.png",
-    "analysis_timestamp": 1751816739.811716
+    "analysis_timestamp": 1752438759.6178446
   }
 ]

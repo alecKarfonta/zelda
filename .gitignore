@@ -85,3 +85,4 @@ cuda_*
 # API keys and secrets
 api_key.txt
 secrets.json
+repo_documentation/*

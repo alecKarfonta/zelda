@@ -1,5 +1,6 @@
 #include "graphics/opengl_shaders.h"
 #include "graphics/opengl_backend.h"
+#include <glad/glad.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

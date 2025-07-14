@@ -1,0 +1,110 @@
+{
+  "total_examples": 1,
+  "average_quality": 9.144444444444447,
+  "average_authenticity": 9.222222222222221,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 0,
+    "animation_system": 1,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 0,
+    "sound_system": 0,
+    "ai_behavior": 0,
+    "environmental": 0,
+    "combat_system": 0,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 11944,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 0,
+      "animation_system": 1,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 1,
+    "category_coverage": 0,
+    "type_coverage": 1
+  },
+  "generation_stats": {
+    "total_generated": 3,
+    "total_accepted": 3,
+    "total_rejected": 0,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 0,
+      "animation_system": 1,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 1,
+      "combat_system": 1,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 0,
+      "intermediate": 2,
+      "advanced": 1
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 9.144444444444447,
+      "authenticity_score": 9.222222222222221,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    }
+  ]
+}

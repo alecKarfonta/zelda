@@ -1,0 +1,138 @@
+{
+  "total_examples": 5,
+  "average_quality": 9.506551226551228,
+  "average_authenticity": 7.938537018537017,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 1,
+    "debugging_help": 0,
+    "actor_creation": 2,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 0,
+    "sound_system": 1,
+    "ai_behavior": 0,
+    "environmental": 0,
+    "combat_system": 0,
+    "puzzle_system": 1,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 11944,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 1,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 1,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 0,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 4,
+    "category_coverage": 0,
+    "type_coverage": 4
+  },
+  "generation_stats": {
+    "total_generated": 7,
+    "total_accepted": 5,
+    "total_rejected": 2,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 2,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 1,
+      "ai_behavior": 0,
+      "environmental": 1,
+      "combat_system": 0,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 0,
+      "intermediate": 2,
+      "advanced": 5
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.545454545454549,
+      "authenticity_score": 7.9818181818181815,
+      "validation_notes": "Signature issues: 12. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.811111111111114,
+      "authenticity_score": 7.555555555555555,
+      "validation_notes": "Signature issues: 22. Source validation issues: 22. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 14. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Implement a sound optimization system for performance with multiple states and transitions",
+      "type": "sound_system",
+      "quality_score": 8.842857142857143,
+      "authenticity_score": 7.7142857142857135,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a feature implementation system",
+      "type": "feature_implementation",
+      "quality_score": 10.0,
+      "authenticity_score": 9.307692307692307,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    }
+  ]
+}

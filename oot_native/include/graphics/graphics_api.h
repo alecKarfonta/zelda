@@ -65,6 +65,8 @@ void Graphics_Present(void);
 void Graphics_EnableDebugMode(bool enabled);
 void Graphics_GetStats(uint32_t* draw_calls, uint32_t* vertices, uint32_t* triangles);
 
+
+
 #ifdef __cplusplus
 }
 #endif 

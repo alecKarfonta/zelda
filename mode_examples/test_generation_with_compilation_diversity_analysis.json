@@ -1,0 +1,138 @@
+{
+  "total_examples": 5,
+  "average_quality": 9.327252188442124,
+  "average_authenticity": 7.646151610911336,
+  "type_distribution": {
+    "code_explanation": 1,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 2,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 0,
+    "sound_system": 0,
+    "ai_behavior": 0,
+    "environmental": 2,
+    "combat_system": 0,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 13675,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 1,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 1,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 2,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 4,
+    "category_coverage": 1,
+    "type_coverage": 3
+  },
+  "generation_stats": {
+    "total_generated": 5,
+    "total_accepted": 5,
+    "total_rejected": 0,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 1,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 2,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 2,
+      "intermediate": 1,
+      "advanced": 2
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Implement a Fire Temple lava flow mechanics with proper error handling",
+      "type": "environmental",
+      "quality_score": 8.368421052631582,
+      "authenticity_score": 7.273684210526316,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. Compilation: FAILED (92 errors). "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.533333333333337,
+      "authenticity_score": 7.933333333333334,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. Compilation: FAILED (85 errors). "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.444444444444448,
+      "authenticity_score": 7.5777777777777775,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. Compilation: FAILED (98 errors). "
+    },
+    {
+      "instruction": "Create a code explanation system",
+      "type": "code_explanation",
+      "quality_score": 9.98571428571429,
+      "authenticity_score": 8.428571428571429,
+      "validation_notes": "Signature issues: 10. Source validation issues: 10. Compilation: FAILED (84 errors). "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.30434782608696,
+      "authenticity_score": 7.017391304347826,
+      "validation_notes": "Signature issues: 16. Source validation issues: 15. Compilation: FAILED (84 errors). "
+    }
+  ]
+}

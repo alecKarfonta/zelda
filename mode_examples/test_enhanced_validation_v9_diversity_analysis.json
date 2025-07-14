@@ -1,0 +1,138 @@
+{
+  "total_examples": 5,
+  "average_quality": 9.395757575757578,
+  "average_authenticity": 8.461491841491842,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 1,
+    "animation_system": 1,
+    "collision_system": 0,
+    "interaction_system": 1,
+    "effect_system": 0,
+    "sound_system": 0,
+    "ai_behavior": 0,
+    "environmental": 0,
+    "combat_system": 1,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 0,
+    "debugging_tools": 1,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 11944,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 1,
+      "collision_system": 0,
+      "interaction_system": 1,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 0,
+      "environmental": 0,
+      "combat_system": 1,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 1,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 5,
+    "category_coverage": 0,
+    "type_coverage": 5
+  },
+  "generation_stats": {
+    "total_generated": 12,
+    "total_accepted": 11,
+    "total_rejected": 1,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 2,
+      "animation_system": 1,
+      "collision_system": 0,
+      "interaction_system": 3,
+      "effect_system": 0,
+      "sound_system": 0,
+      "ai_behavior": 2,
+      "environmental": 1,
+      "combat_system": 1,
+      "puzzle_system": 0,
+      "ui_system": 1,
+      "memory_management": 0,
+      "optimization": 0,
+      "debugging_tools": 1,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 3,
+      "intermediate": 4,
+      "advanced": 5
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.800000000000002,
+      "authenticity_score": 7.5,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.545454545454549,
+      "authenticity_score": 7.9818181818181815,
+      "validation_notes": "CRITICAL feedback issues: 1. Signature issues: 12. Source validation issues: 10. Feedback validation issues: 1. Feedback validation issues: Wrong Matrix_NewMtx parameters - use __FILE__ and __LINE__. "
+    },
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 10.0,
+      "authenticity_score": 9.692307692307693,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.300000000000002,
+      "authenticity_score": 10.0,
+      "validation_notes": "CRITICAL feedback issues: 2. Signature issues: 11. Source validation issues: 10. Feedback validation issues: 2. Feedback validation issues: Wrong Matrix_NewMtx parameters - use __FILE__ and __LINE__; Wrong Math_SmoothStepToF usage - function returns bool, not float. Don't assign result to variable. "
+    },
+    {
+      "instruction": "Implement debugging tools functionality using authentic code implementing core requirements",
+      "type": "debugging_tools",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 12. Source validation issues: 9. "
+    }
+  ]
+}

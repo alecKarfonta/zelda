@@ -1,0 +1,803 @@
+{
+  "total_examples": 100,
+  "average_quality": 9.284569968545362,
+  "average_authenticity": 7.821603636949791,
+  "type_distribution": {
+    "code_explanation": 4,
+    "feature_implementation": 3,
+    "debugging_help": 4,
+    "actor_creation": 16,
+    "animation_system": 6,
+    "collision_system": 10,
+    "interaction_system": 12,
+    "effect_system": 3,
+    "sound_system": 2,
+    "ai_behavior": 9,
+    "environmental": 5,
+    "combat_system": 6,
+    "puzzle_system": 5,
+    "ui_system": 1,
+    "memory_management": 4,
+    "optimization": 2,
+    "debugging_tools": 3,
+    "custom_mechanics": 5
+  },
+  "real_functions_used": 13675,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 2,
+      "object": 0,
+      "background": 0,
+      "effect": 4,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 4,
+      "feature_implementation": 3,
+      "debugging_help": 4,
+      "actor_creation": 16,
+      "animation_system": 6,
+      "collision_system": 10,
+      "interaction_system": 12,
+      "effect_system": 3,
+      "sound_system": 2,
+      "ai_behavior": 9,
+      "environmental": 5,
+      "combat_system": 6,
+      "puzzle_system": 5,
+      "ui_system": 1,
+      "memory_management": 4,
+      "optimization": 2,
+      "debugging_tools": 3,
+      "custom_mechanics": 5
+    },
+    "unique_scenarios": 36,
+    "category_coverage": 2,
+    "type_coverage": 18
+  },
+  "generation_stats": {
+    "total_generated": 183,
+    "total_accepted": 159,
+    "total_rejected": 24,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 5,
+      "feature_implementation": 5,
+      "debugging_help": 5,
+      "actor_creation": 31,
+      "animation_system": 22,
+      "collision_system": 11,
+      "interaction_system": 20,
+      "effect_system": 9,
+      "sound_system": 7,
+      "ai_behavior": 18,
+      "environmental": 6,
+      "combat_system": 8,
+      "puzzle_system": 10,
+      "ui_system": 5,
+      "memory_management": 6,
+      "optimization": 3,
+      "debugging_tools": 5,
+      "custom_mechanics": 7
+    },
+    "complexity_distribution": {
+      "basic": 30,
+      "intermediate": 87,
+      "advanced": 66
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a custom mechanics system",
+      "type": "custom_mechanics",
+      "quality_score": 9.366666666666669,
+      "authenticity_score": 10.0,
+      "validation_notes": "Signature issues: 9. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 8.972727272727274,
+      "authenticity_score": 8.363636363636363,
+      "validation_notes": "Signature issues: 9. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Create a custom mechanics system",
+      "type": "custom_mechanics",
+      "quality_score": 9.714285714285717,
+      "authenticity_score": 8.657142857142857,
+      "validation_notes": "Signature issues: 9. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.700000000000003,
+      "authenticity_score": 7.0,
+      "validation_notes": "Signature issues: 17. Source validation issues: 17. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 10.0,
+      "authenticity_score": 8.896551724137932,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.545454545454549,
+      "authenticity_score": 7.9818181818181815,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.375000000000004,
+      "authenticity_score": 7.3,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a code explanation system",
+      "type": "code_explanation",
+      "quality_score": 9.033333333333335,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 9. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Create a collision system system",
+      "type": "collision_system",
+      "quality_score": 9.363636363636367,
+      "authenticity_score": 7.254545454545454,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a custom mechanics system",
+      "type": "custom_mechanics",
+      "quality_score": 9.629629629629633,
+      "authenticity_score": 8.318518518518518,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Implement an inventory system with item management with proper error handling",
+      "type": "interaction_system",
+      "quality_score": 8.930769230769233,
+      "authenticity_score": 8.153846153846153,
+      "validation_notes": "Signature issues: 11. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Implement code explanation functionality using authentic code implementing common features",
+      "type": "code_explanation",
+      "quality_score": 9.033333333333335,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 10. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a custom mechanics system",
+      "type": "custom_mechanics",
+      "quality_score": 9.647058823529415,
+      "authenticity_score": 8.388235294117646,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 9.384615384615389,
+      "authenticity_score": 7.338461538461538,
+      "validation_notes": "Signature issues: 15. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 9.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 9.473684210526319,
+      "authenticity_score": 7.694736842105263,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.77692307692308,
+      "authenticity_score": 7.384615384615384,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Implement a procedural animation system for natural movement with basic functionality",
+      "type": "animation_system",
+      "quality_score": 8.384615384615389,
+      "authenticity_score": 7.338461538461538,
+      "validation_notes": "Signature issues: 10. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 9.523809523809527,
+      "authenticity_score": 7.895238095238095,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.876470588235296,
+      "authenticity_score": 7.882352941176471,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.866666666666669,
+      "authenticity_score": 7.833333333333334,
+      "validation_notes": "Signature issues: 17. Source validation issues: 17. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.533333333333337,
+      "authenticity_score": 7.933333333333334,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a debugging help system",
+      "type": "debugging_help",
+      "quality_score": 9.400000000000004,
+      "authenticity_score": 9.0,
+      "validation_notes": "Signature issues: 13. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 8.985714285714288,
+      "authenticity_score": 8.428571428571429,
+      "validation_notes": "Signature issues: 11. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a feature implementation system",
+      "type": "feature_implementation",
+      "quality_score": 9.428571428571432,
+      "authenticity_score": 7.514285714285714,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 10.0,
+      "authenticity_score": 8.875,
+      "validation_notes": "Signature issues: 10. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.811111111111114,
+      "authenticity_score": 7.555555555555555,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a Song of Time effect that advances time using efficient algorithms",
+      "type": "effect_system",
+      "quality_score": 8.033333333333335,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 8.930769230769233,
+      "authenticity_score": 8.153846153846153,
+      "validation_notes": "Signature issues: 10. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 8.379310344827589,
+      "authenticity_score": 7.317241379310345,
+      "validation_notes": "Signature issues: 16. Source validation issues: 15. "
+    },
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 8.825000000000001,
+      "authenticity_score": 7.625,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a collision system system",
+      "type": "collision_system",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a memory management system with proper OoT patterns using standard approaches",
+      "type": "memory_management",
+      "quality_score": 7.833333333333333,
+      "authenticity_score": 7.666666666666666,
+      "validation_notes": "CRITICAL feedback issues: 1. Signature issues: 3. Source validation issues: 3. Feedback validation issues: 1. Feedback validation issues: Dynamic memory allocation not allowed in actors. "
+    },
+    {
+      "instruction": "Create a sound effect system for actions and events implementing common features",
+      "type": "sound_system",
+      "quality_score": 8.700000000000001,
+      "authenticity_score": 7.0,
+      "validation_notes": "Signature issues: 15. Source validation issues: 15. "
+    },
+    {
+      "instruction": "Create a custom mechanics system",
+      "type": "custom_mechanics",
+      "quality_score": 9.950000000000003,
+      "authenticity_score": 8.25,
+      "validation_notes": "Signature issues: 13. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 8.811111111111112,
+      "authenticity_score": 7.555555555555555,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.700000000000003,
+      "authenticity_score": 7.0,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a memory management system",
+      "type": "memory_management",
+      "quality_score": 8.766666666666667,
+      "authenticity_score": 7.333333333333333,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.075000000000003,
+      "authenticity_score": 7.3,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.473684210526319,
+      "authenticity_score": 7.694736842105263,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.963157894736845,
+      "authenticity_score": 8.31578947368421,
+      "validation_notes": "Signature issues: 13. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a collision debugging system for development implementing sophisticated AI behaviors",
+      "type": "collision_system",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.900000000000002,
+      "authenticity_score": 8.0,
+      "validation_notes": "Signature issues: 16. Source validation issues: 16. "
+    },
+    {
+      "instruction": "Create a collision prediction system for AI pathfinding using efficient algorithms",
+      "type": "collision_system",
+      "quality_score": 8.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 13. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 10.0,
+      "authenticity_score": 7.0,
+      "validation_notes": "Signature issues: 19. Source validation issues: 18. "
+    },
+    {
+      "instruction": "Make a collision memory system for persistent interactions using memory-safe practices",
+      "type": "collision_system",
+      "quality_score": 9.033333333333335,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 7. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create a debugging help system",
+      "type": "debugging_help",
+      "quality_score": 9.368421052631582,
+      "authenticity_score": 7.273684210526316,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.454545454545459,
+      "authenticity_score": 7.618181818181818,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 9.555555555555559,
+      "authenticity_score": 8.022222222222222,
+      "validation_notes": "Signature issues: 10. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.825000000000003,
+      "authenticity_score": 7.625,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a debugging help system",
+      "type": "debugging_help",
+      "quality_score": 9.375000000000004,
+      "authenticity_score": 7.3,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a sound system system",
+      "type": "sound_system",
+      "quality_score": 8.700000000000001,
+      "authenticity_score": 7.0,
+      "validation_notes": "Signature issues: 15. Source validation issues: 15. "
+    },
+    {
+      "instruction": "Implement a procedural animation system for natural movement with basic error checking",
+      "type": "animation_system",
+      "quality_score": 8.714285714285717,
+      "authenticity_score": 8.657142857142857,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create a feature implementation system",
+      "type": "feature_implementation",
+      "quality_score": 9.39130434782609,
+      "authenticity_score": 7.3652173913043475,
+      "validation_notes": "Signature issues: 15. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a animation system system",
+      "type": "animation_system",
+      "quality_score": 8.529411764705886,
+      "authenticity_score": 7.917647058823529,
+      "validation_notes": "Signature issues: 9. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.842857142857145,
+      "authenticity_score": 7.7142857142857135,
+      "validation_notes": "Signature issues: 16. Source validation issues: 16. "
+    },
+    {
+      "instruction": "Create a code explanation system",
+      "type": "code_explanation",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Make a memory management that follows OoT decompilation standards using memory-safe practices",
+      "type": "memory_management",
+      "quality_score": 9.100000000000003,
+      "authenticity_score": 9.0,
+      "validation_notes": "Signature issues: 7. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 10.0,
+      "authenticity_score": 9.916666666666666,
+      "validation_notes": "CRITICAL feedback issues: 1. Signature issues: 12. Source validation issues: 12. Feedback validation issues: 1. Feedback validation issues: Wrong Math_SmoothStepToF usage - function returns bool, not float. "
+    },
+    {
+      "instruction": "Create a debugging tools system",
+      "type": "debugging_tools",
+      "quality_score": 9.300000000000004,
+      "authenticity_score": 7.0,
+      "validation_notes": "Signature issues: 16. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Make a collision optimization system for performance with proper error handling",
+      "type": "collision_system",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 9.411764705882357,
+      "authenticity_score": 7.447058823529412,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Implement an inventory system with item management using established conventions",
+      "type": "interaction_system",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.368421052631582,
+      "authenticity_score": 7.273684210526316,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a effect system system",
+      "type": "effect_system",
+      "quality_score": 9.842857142857145,
+      "authenticity_score": 7.7142857142857135,
+      "validation_notes": "Signature issues: 10. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.444444444444448,
+      "authenticity_score": 7.5777777777777775,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Implement code explanation functionality using authentic code implementing common features",
+      "type": "code_explanation",
+      "quality_score": 8.400000000000004,
+      "authenticity_score": 7.3999999999999995,
+      "validation_notes": "Signature issues: 9. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.842857142857145,
+      "authenticity_score": 7.7142857142857135,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a collision system system",
+      "type": "collision_system",
+      "quality_score": 9.200000000000003,
+      "authenticity_score": 9.5,
+      "validation_notes": "Signature issues: 9. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.440000000000003,
+      "authenticity_score": 7.56,
+      "validation_notes": "Signature issues: 15. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 18. Source validation issues: 17. "
+    },
+    {
+      "instruction": "Create a memory management system with proper OoT patterns with complex interaction patterns",
+      "type": "memory_management",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Implement ui system functionality using authentic code using advanced rendering techniques",
+      "type": "ui_system",
+      "quality_score": 8.428571428571432,
+      "authenticity_score": 7.514285714285714,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a debugging help system",
+      "type": "debugging_help",
+      "quality_score": 9.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 13. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a debugging tools system",
+      "type": "debugging_tools",
+      "quality_score": 10.0,
+      "authenticity_score": 8.296296296296298,
+      "validation_notes": "Signature issues: 18. Source validation issues: 16. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.571428571428575,
+      "authenticity_score": 8.085714285714285,
+      "validation_notes": "Signature issues: 9. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create a optimization system",
+      "type": "optimization",
+      "quality_score": 10.0,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.333333333333337,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.922222222222224,
+      "authenticity_score": 8.11111111111111,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.758823529411767,
+      "authenticity_score": 7.294117647058823,
+      "validation_notes": "Signature issues: 14. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a collision system system",
+      "type": "collision_system",
+      "quality_score": 9.428571428571432,
+      "authenticity_score": 7.514285714285714,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 10.0,
+      "authenticity_score": 8.818181818181817,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 8.444444444444448,
+      "authenticity_score": 7.5777777777777775,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a effect system system",
+      "type": "effect_system",
+      "quality_score": 9.523809523809527,
+      "authenticity_score": 7.895238095238095,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.790909090909093,
+      "authenticity_score": 7.454545454545454,
+      "validation_notes": "Signature issues: 11. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 10.0,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 11. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Implement a Boomerang throwing and returning mechanics using memory-safe practices",
+      "type": "ai_behavior",
+      "quality_score": 8.500000000000004,
+      "authenticity_score": 7.8,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.994117647058827,
+      "authenticity_score": 8.470588235294118,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Create a debugging tools system",
+      "type": "debugging_tools",
+      "quality_score": 10.0,
+      "authenticity_score": 7.384615384615384,
+      "validation_notes": "Signature issues: 13. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Implement optimization functionality using authentic code with multiple states and transitions",
+      "type": "optimization",
+      "quality_score": 8.600000000000003,
+      "authenticity_score": 8.2,
+      "validation_notes": "Signature issues: 8. Source validation issues: 7. "
+    },
+    {
+      "instruction": "Create a interaction system system",
+      "type": "interaction_system",
+      "quality_score": 9.900000000000002,
+      "authenticity_score": 8.0,
+      "validation_notes": "Signature issues: 15. Source validation issues: 15. "
+    },
+    {
+      "instruction": "Create a combat system system",
+      "type": "combat_system",
+      "quality_score": 9.825000000000003,
+      "authenticity_score": 7.625,
+      "validation_notes": "Signature issues: 12. Source validation issues: 12. "
+    },
+    {
+      "instruction": "Implement a collision caching system for repeated checks with straightforward logic",
+      "type": "collision_system",
+      "quality_score": 8.333333333333336,
+      "authenticity_score": 7.133333333333333,
+      "validation_notes": "Signature issues: 7. Source validation issues: 6. "
+    },
+    {
+      "instruction": "Create a ai behavior system",
+      "type": "ai_behavior",
+      "quality_score": 9.411764705882357,
+      "authenticity_score": 7.447058823529412,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a collision system system",
+      "type": "collision_system",
+      "quality_score": 8.444444444444448,
+      "authenticity_score": 7.5777777777777775,
+      "validation_notes": "Signature issues: 11. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Implement a physics-based animation system for cloth and hair using efficient algorithms",
+      "type": "animation_system",
+      "quality_score": 9.333333333333336,
+      "authenticity_score": 8.666666666666666,
+      "validation_notes": "Signature issues: 8. Source validation issues: 8. "
+    },
+    {
+      "instruction": "Create a puzzle system system",
+      "type": "puzzle_system",
+      "quality_score": 9.461538461538465,
+      "authenticity_score": 7.646153846153846,
+      "validation_notes": "Signature issues: 15. Source validation issues: 14. "
+    },
+    {
+      "instruction": "Create a feature implementation system",
+      "type": "feature_implementation",
+      "quality_score": 9.39130434782609,
+      "authenticity_score": 7.3652173913043475,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    }
+  ]
+}

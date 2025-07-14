@@ -1,0 +1,138 @@
+{
+  "total_examples": 5,
+  "average_quality": 9.009018445322797,
+  "average_authenticity": 7.962740447957839,
+  "type_distribution": {
+    "code_explanation": 0,
+    "feature_implementation": 0,
+    "debugging_help": 0,
+    "actor_creation": 1,
+    "animation_system": 0,
+    "collision_system": 0,
+    "interaction_system": 0,
+    "effect_system": 1,
+    "sound_system": 1,
+    "ai_behavior": 0,
+    "environmental": 1,
+    "combat_system": 0,
+    "puzzle_system": 0,
+    "ui_system": 0,
+    "memory_management": 0,
+    "optimization": 1,
+    "debugging_tools": 0,
+    "custom_mechanics": 0
+  },
+  "real_functions_used": 13675,
+  "diversity_metrics": {
+    "actor_categories": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 1,
+      "player": 0,
+      "misc": 0
+    },
+    "example_types": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 1,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 1,
+      "sound_system": 1,
+      "ai_behavior": 0,
+      "environmental": 1,
+      "combat_system": 0,
+      "puzzle_system": 0,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 1,
+      "debugging_tools": 0,
+      "custom_mechanics": 0
+    },
+    "unique_scenarios": 5,
+    "category_coverage": 1,
+    "type_coverage": 5
+  },
+  "generation_stats": {
+    "total_generated": 10,
+    "total_accepted": 10,
+    "total_rejected": 0,
+    "category_distribution": {
+      "enemy": 0,
+      "npc": 0,
+      "item": 0,
+      "object": 0,
+      "background": 0,
+      "effect": 0,
+      "player": 0,
+      "misc": 0
+    },
+    "type_distribution": {
+      "code_explanation": 0,
+      "feature_implementation": 0,
+      "debugging_help": 0,
+      "actor_creation": 4,
+      "animation_system": 0,
+      "collision_system": 0,
+      "interaction_system": 0,
+      "effect_system": 1,
+      "sound_system": 1,
+      "ai_behavior": 0,
+      "environmental": 1,
+      "combat_system": 0,
+      "puzzle_system": 1,
+      "ui_system": 0,
+      "memory_management": 0,
+      "optimization": 1,
+      "debugging_tools": 1,
+      "custom_mechanics": 0
+    },
+    "complexity_distribution": {
+      "basic": 2,
+      "intermediate": 6,
+      "advanced": 2
+    }
+  },
+  "validation_summary": [
+    {
+      "instruction": "Create a actor creation system",
+      "type": "actor_creation",
+      "quality_score": 9.39130434782609,
+      "authenticity_score": 7.3652173913043475,
+      "validation_notes": "Signature issues: 14. Source validation issues: 13. "
+    },
+    {
+      "instruction": "Create a sound filtering system for different environments using memory-safe practices",
+      "type": "sound_system",
+      "quality_score": 9.16666666666667,
+      "authenticity_score": 9.333333333333332,
+      "validation_notes": "Signature issues: 10. Source validation issues: 10. "
+    },
+    {
+      "instruction": "Create a environmental system",
+      "type": "environmental",
+      "quality_score": 9.545454545454549,
+      "authenticity_score": 7.9818181818181815,
+      "validation_notes": "Signature issues: 12. Source validation issues: 11. "
+    },
+    {
+      "instruction": "Create a Song of Healing effect that cures curses with basic debugging support",
+      "type": "effect_system",
+      "quality_score": 8.075000000000003,
+      "authenticity_score": 7.3,
+      "validation_notes": "Signature issues: 10. Source validation issues: 9. "
+    },
+    {
+      "instruction": "Implement optimization functionality using authentic code with appropriate documentation",
+      "type": "optimization",
+      "quality_score": 8.866666666666669,
+      "authenticity_score": 7.833333333333334,
+      "validation_notes": "Signature issues: 11. Source validation issues: 11. "
+    }
+  ]
+}
