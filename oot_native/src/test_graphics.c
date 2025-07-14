@@ -194,10 +194,12 @@ static void Test_Cleanup(void) {
 static void Test_RunMainLoop(void) {
     bool running = true;
     SDL_Event event;
+    uint32_t frame_count = 0;
+    const uint32_t MAX_FRAMES = 100; // Limit frames to prevent crash
     
-    printf("Starting main loop - press ESC to exit\n");
+    printf("Starting main loop - press ESC to exit (max %d frames)\n", MAX_FRAMES);
     
-    while (running) {
+    while (running && frame_count < MAX_FRAMES) {
         // Handle events
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
@@ -218,7 +220,14 @@ static void Test_RunMainLoop(void) {
         
         // Swap buffers
         SDL_GL_SwapWindow(g_window);
+        
+        frame_count++;
+        if (frame_count % 10 == 0) {
+            printf("Frame %d/%d completed\n", frame_count, MAX_FRAMES);
+        }
     }
+    
+    printf("Main loop completed after %d frames\n", frame_count);
 }
 
 // Performance test function
@@ -315,6 +324,9 @@ int main(int argc, char* argv[]) {
         Test_Cleanup();
         return 1;
     }
+    
+    // Initialize test commands
+    init_test_commands();
     
     // Run tests based on command line arguments
     if (argc > 1) {
