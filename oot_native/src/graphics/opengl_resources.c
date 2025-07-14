@@ -130,33 +130,20 @@ OpenGLShader* OpenGL_CreateShader(ShaderType type, const char* source) {
     memset(shader, 0, sizeof(OpenGLShader));
     
     shader->type = type;
-    
-    // Debug: Check the shader type before creating
-    GLenum gl_shader_type = OpenGL_GetShaderType(type);
-    printf("Creating shader with type %d -> GL type 0x%X\n", type, gl_shader_type);
-    OpenGL_CheckError("Before glCreateShader");
-    
-    shader->id = glCreateShader(gl_shader_type);
-    OpenGL_CheckError("After glCreateShader");
+    shader->id = glCreateShader(OpenGL_GetShaderType(type));
     
     if (shader->id == 0) {
-        printf("glCreateShader returned 0 for type %d\n", type);
         free(shader);
         return NULL;
     }
     
     // Set shader source and compile
-    OpenGL_CheckError("Before glShaderSource");
     glShaderSource(shader->id, 1, &source, NULL);
-    OpenGL_CheckError("After glShaderSource");
-    
     glCompileShader(shader->id);
-    OpenGL_CheckError("After glCompileShader");
     
     // Check compilation status
     GLint compiled = 0;
     glGetShaderiv(shader->id, GL_COMPILE_STATUS, &compiled);
-    OpenGL_CheckError("After glGetShaderiv");
     
     if (!compiled) {
         GLint info_len = 0;
